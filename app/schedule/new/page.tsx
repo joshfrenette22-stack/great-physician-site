@@ -256,14 +256,14 @@ export default function ScheduleNewPage() {
                   <button
                     onClick={handleBack}
                     disabled={step === 0}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium text-gray-600 border border-gray-200 hover:bg-gray-50 disabled:opacity-40 disabled:pointer-events-none transition-all duration-200"
+                    className="inline-flex items-center gap-2 px-5 h-[34px] rounded-[8px] text-sm font-semibold tracking-[0.01em] text-gray-600 border-[1.5px] border-gray-300 hover:bg-teal-50 disabled:opacity-40 disabled:pointer-events-none transition-all duration-200"
                   >
                     <ArrowLeftIcon />
                     Back
                   </button>
                   <button
                     onClick={handleNext}
-                    className="inline-flex items-center justify-center px-7 py-3 rounded-lg font-semibold text-base text-white bg-teal-600 hover:bg-teal-700 active:bg-teal-800 transition-all duration-200 shadow-sm"
+                    className="inline-flex items-center justify-center px-7 h-[42px] rounded-[12px] font-semibold tracking-[0.01em] text-base text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 active:bg-teal-800 transition-all duration-200 shadow-sm"
                   >
                     {step === TOTAL_STEPS - 1 ? 'Submit & finish' : 'Continue'}
                   </button>

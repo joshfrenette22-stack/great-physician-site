@@ -65,13 +65,13 @@ export function Hero() {
           <div className="gp-hero-child flex flex-col sm:flex-row items-center gap-4 mb-12">
             <Link
               href="/schedule"
-              className="inline-flex items-center justify-center px-7 py-3.5 text-lg font-medium rounded-lg bg-teal-600 text-white hover:bg-teal-700 active:bg-teal-800 shadow-sm transition-all duration-200"
+              className="inline-flex items-center justify-center px-7 h-[52px] text-lg font-semibold tracking-[0.01em] rounded-[12px] bg-teal-600 text-white border-[1.5px] border-transparent hover:bg-teal-700 active:bg-teal-800 shadow-sm transition-all duration-200"
             >
               Schedule a Visit
             </Link>
             <Link
               href="#treat"
-              className="inline-flex items-center justify-center px-7 py-3.5 text-lg font-medium rounded-lg bg-white text-teal-600 border border-gray-200 hover:bg-gray-50 active:bg-gray-100 transition-all duration-200"
+              className="inline-flex items-center justify-center px-7 h-[52px] text-lg font-semibold tracking-[0.01em] rounded-[12px] bg-white text-teal-600 border-[1.5px] border-gray-300 hover:bg-teal-50 active:bg-gray-100 transition-all duration-200"
             >
               See what we treat
             </Link>

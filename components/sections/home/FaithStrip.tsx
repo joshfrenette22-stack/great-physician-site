@@ -25,7 +25,7 @@ export function FaithStrip() {
             </p>
             <Link
               href="/why-great-physician"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-teal-600 text-white text-sm font-semibold hover:bg-teal-700 transition-colors shadow-sm"
+              className="inline-flex items-center justify-center px-6 h-[42px] rounded-[12px] bg-teal-600 text-white text-sm font-semibold tracking-[0.01em] border-[1.5px] border-transparent hover:bg-teal-700 transition-colors shadow-sm"
             >
               Meet Him Today
             </Link>

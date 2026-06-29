@@ -47,7 +47,7 @@ export function ConditionsGrid() {
         <div className="flex justify-center">
           <Link
             href="/services"
-            className="inline-flex items-center justify-center px-7 py-3.5 text-lg font-medium rounded-lg bg-teal-600 text-white hover:bg-teal-700 active:bg-teal-800 shadow-sm transition-all duration-200"
+            className="inline-flex items-center justify-center px-7 h-[52px] text-lg font-semibold tracking-[0.01em] rounded-[12px] bg-teal-600 text-white border-[1.5px] border-transparent hover:bg-teal-700 active:bg-teal-800 shadow-sm transition-all duration-200"
           >
             Explore conditions we treat
           </Link>

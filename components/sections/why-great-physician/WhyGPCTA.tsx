@@ -50,7 +50,7 @@ export function WhyGPCTA() {
           <div className="flex flex-wrap items-center justify-center gap-5">
             <Link
               href="/schedule"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-white bg-green-500 hover:bg-green-600 transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-7 h-[52px] rounded-[12px] font-semibold tracking-[0.01em] text-teal-900 bg-green-500 border-[1.5px] border-transparent hover:bg-green-600 transition-colors duration-200"
               style={{ fontSize: 16 }}
             >
               Schedule a Visit

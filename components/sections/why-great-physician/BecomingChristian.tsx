@@ -127,7 +127,7 @@ function DecisionForm({ onBack }: DecisionFormProps) {
       </div>
       <button
         type="submit"
-        className="w-full inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-base text-white bg-green-500 hover:bg-green-600 transition-colors duration-200 shadow-sm"
+        className="w-full inline-flex items-center justify-center px-6 h-[42px] rounded-[12px] font-semibold tracking-[0.01em] text-base text-teal-900 bg-green-500 border-[1.5px] border-transparent hover:bg-green-600 transition-colors duration-200 shadow-sm"
       >
         Yes, I prayed that prayer
       </button>
@@ -229,7 +229,7 @@ export function BecomingChristian() {
                   <button
                     type="button"
                     onClick={() => { setStep((s) => s - 1); setShowDecision(false); }}
-                    className="px-5 py-2.5 rounded-lg text-sm font-medium text-gray-600 border border-gray-200 hover:bg-gray-50 transition-all duration-200"
+                    className="px-5 h-[34px] rounded-[8px] text-sm font-semibold tracking-[0.01em] text-gray-600 border-[1.5px] border-gray-300 hover:bg-teal-50 transition-all duration-200"
                   >
                     Back
                   </button>
@@ -238,7 +238,7 @@ export function BecomingChristian() {
                   <button
                     type="button"
                     onClick={() => setStep((s) => s + 1)}
-                    className="px-6 py-2.5 rounded-lg text-sm font-semibold text-white bg-teal-600 hover:bg-teal-700 transition-colors duration-200 shadow-sm"
+                    className="px-6 h-[34px] rounded-[8px] text-sm font-semibold tracking-[0.01em] text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 transition-colors duration-200 shadow-sm"
                   >
                     Next
                   </button>
@@ -246,7 +246,7 @@ export function BecomingChristian() {
                   <button
                     type="button"
                     onClick={() => setShowDecision(true)}
-                    className="px-6 py-2.5 rounded-lg text-sm font-semibold text-white bg-green-500 hover:bg-green-600 transition-colors duration-200 shadow-sm"
+                    className="px-6 h-[34px] rounded-[8px] text-sm font-semibold tracking-[0.01em] text-teal-900 bg-green-500 border-[1.5px] border-transparent hover:bg-green-600 transition-colors duration-200 shadow-sm"
                   >
                     I&apos;m ready
                   </button>

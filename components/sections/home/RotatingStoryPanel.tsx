@@ -132,8 +132,8 @@ export function RotatingStoryPanel() {
           <div className="flex items-center gap-6">
             <Link
               href="/schedule"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold transition-colors"
-              style={{ background: '#2EA84E', color: '#fff' }}
+              className="inline-flex items-center justify-center px-6 h-[42px] rounded-[12px] text-sm font-semibold tracking-[0.01em] border-[1.5px] border-transparent transition-colors"
+              style={{ background: '#2EA84E', color: '#0F3B3B' }}
             >
               Schedule a Visit
             </Link>

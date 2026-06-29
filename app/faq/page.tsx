@@ -37,7 +37,7 @@ export default function FaqPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/schedule"
-              className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg font-semibold text-base text-white bg-teal-600 hover:bg-teal-700 transition-colors duration-200 shadow-sm"
+              className="inline-flex items-center justify-center px-7 h-[52px] rounded-[12px] font-semibold tracking-[0.01em] text-base text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 transition-colors duration-200 shadow-sm"
             >
               Schedule a visit
             </Link>

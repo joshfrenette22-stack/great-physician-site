@@ -34,7 +34,7 @@ export function HonestGuidance() {
           </p>
           <Link
             href="/blog"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-teal-600 border border-gray-200 hover:bg-gray-50 text-sm font-semibold transition-colors"
+            className="inline-flex items-center justify-center px-6 h-[42px] rounded-[12px] bg-white text-teal-600 border-[1.5px] border-gray-300 hover:bg-teal-50 text-sm font-semibold tracking-[0.01em] transition-colors"
           >
             Read our patient resources
           </Link>

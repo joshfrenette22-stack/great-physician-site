@@ -35,13 +35,13 @@ export default function ResourcesPage() {
             <div className="p-10 border-l border-gray-100 flex flex-col gap-3">
               <Link
                 href="/faq"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-base text-white bg-teal-600 hover:bg-teal-700 transition-colors duration-200 shadow-sm"
+                className="inline-flex items-center justify-center px-6 h-[42px] rounded-[12px] font-semibold tracking-[0.01em] text-base text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 transition-colors duration-200 shadow-sm"
               >
                 Browse the FAQ
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-base text-gray-700 border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
+                className="inline-flex items-center justify-center px-6 h-[42px] rounded-[12px] font-semibold tracking-[0.01em] text-base text-teal-600 border-[1.5px] border-gray-300 hover:bg-teal-50 transition-colors duration-200"
               >
                 Contact us
               </Link>
