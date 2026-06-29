@@ -7,30 +7,19 @@ const HEALTHIE_FORM_IDS = [3137293, 3137297, 3137299, 3137291];
 const TOTAL_STEPS = 5; // step 0 = details, steps 1-4 = healthie forms
 
 const STEP_LABELS = [
-  'Your details',
-  'Health history',
-  'Medical history',
-  'Goals & concerns',
-  'Scheduling',
+  'Step 1 of 5 · Your details',
+  'Step 2 of 5 · Intake form 1 of 4',
+  'Step 3 of 5 · Intake form 2 of 4',
+  'Step 4 of 5 · Intake form 3 of 4',
+  'Step 5 of 5 · Intake form 4 of 4',
 ];
 
-function CheckCircleIcon() {
-  return (
-    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-      <polyline points="22 4 12 14.01 9 11.01"/>
-    </svg>
-  );
-}
-
-function ArrowLeftIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="19" y1="12" x2="5" y2="12"/>
-      <polyline points="12 19 5 12 12 5"/>
-    </svg>
-  );
-}
+const INTAKE_LABELS = [
+  'Intake form · 1 of 4',
+  'Intake form · 2 of 4',
+  'Intake form · 3 of 4',
+  'Intake form · 4 of 4',
+];
 
 interface PatientDetails {
   firstName: string;
@@ -38,6 +27,9 @@ interface PatientDetails {
   email: string;
   phone: string;
 }
+
+const fieldClass = 'w-full font-sans text-base text-gray-900 bg-white border border-gray-300 rounded-[12px] px-[15px] py-[13px] outline-none transition-all duration-200 placeholder:text-gray-400 focus:border-teal-600 focus:ring-[3px] focus:ring-green-100';
+const labelClass = 'block text-[13.5px] font-semibold text-teal-800 mb-[7px]';
 
 export default function ScheduleNewPage() {
   const [step, setStep] = useState(0);
@@ -50,13 +42,13 @@ export default function ScheduleNewPage() {
   });
   const [detailsError, setDetailsError] = useState('');
 
-  const pct = Math.round(((step) / TOTAL_STEPS) * 100);
+  const pct = Math.round(((step + 1) / TOTAL_STEPS) * 100);
 
   function validateDetails() {
-    if (!details.firstName.trim()) return 'First name is required.';
-    if (!details.lastName.trim()) return 'Last name is required.';
+    if (!details.firstName.trim()) return 'Please fill in your name, email, and phone.';
+    if (!details.lastName.trim()) return 'Please fill in your name, email, and phone.';
     if (!details.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(details.email))
-      return 'A valid email address is required.';
+      return 'Please enter a valid email address.';
     return '';
   }
 
@@ -79,152 +71,176 @@ export default function ScheduleNewPage() {
 
   // Build Healthie iframe src for current step (1-4)
   function getIframeSrc(formId: number) {
-    const name = encodeURIComponent(`${details.firstName} ${details.lastName}`.trim());
-    const email = encodeURIComponent(details.email);
-    return `https://secure.gethealthie.com/appointments/embed_appt?dietitian_id=16276043&embed_form_id=${formId}&form_only=true&primary_color=4A9625&name=${name}&email=${email}`;
+    const params = new URLSearchParams();
+    if (details.firstName) params.set('first_name', details.firstName);
+    if (details.lastName) params.set('last_name', details.lastName);
+    if (details.firstName || details.lastName) params.set('name', `${details.firstName} ${details.lastName}`.trim());
+    if (details.email) params.set('email', details.email);
+    if (details.phone) params.set('phone_number', details.phone);
+    const qs = params.toString() ? '&' + params.toString() : '';
+    return `https://secure.gethealthie.com/appointments/embed_appt?dietitian_id=16276043&embed_form_id=${formId}&form_only=true&primary_color=4A9625${qs}`;
   }
 
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-teal-900 text-white overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(46,168,78,0.12)_0%,transparent_70%)] pointer-events-none" />
-        <div className="relative max-w-[1240px] mx-auto px-10 py-20 md:py-28">
-          <p className="gp-eyebrow text-green-300 mb-4">New patient booking</p>
+      <section style={{ position: 'relative', background: 'var(--teal-900, #0f2d3c)' }}>
+        <img
+          src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1400&q=70&auto=format&fit=crop"
+          alt=""
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.14 }}
+        />
+        <div
+          style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(18,46,66,0.5), var(--teal-900, #0f2d3c))' }}
+        />
+        <div
+          className="relative max-w-[900px] mx-auto text-center text-white"
+          style={{ padding: '64px 40px 40px' }}
+        >
+          <p style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.04em', color: 'var(--green-300, #86efac)', marginBottom: 16 }}>
+            New patient booking
+          </p>
           <h1
-            className="font-display font-extrabold text-white tracking-tight leading-tight"
-            style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)' }}
+            className="font-display font-black text-white leading-tight"
+            style={{ fontSize: 52, lineHeight: 1.04, letterSpacing: '-0.035em', margin: 0 }}
           >
-            Let&apos;s get you set up.
+            Let&apos;s get you set up
           </h1>
-          <p className="mt-4 text-teal-200 text-lg max-w-lg leading-relaxed">
-            We&apos;ll gather a little information, then get you booked with Dr. Hric.
+          <p style={{ margin: '18px 0 0', fontSize: 18, lineHeight: 1.55, color: 'rgba(255,255,255,0.85)' }}>
+            A few quick details, then four short intake forms. It takes about 10 minutes, and you can do it at your own pace.
           </p>
         </div>
       </section>
 
-      {/* Flow card */}
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-[900px] mx-auto px-10">
-          <div className="bg-white rounded-[24px] shadow-xl overflow-hidden">
+      {/* Flow card — same teal-900 section continues */}
+      <section style={{ background: 'var(--teal-900, #0f2d3c)' }}>
+        <div className="max-w-[900px] mx-auto" style={{ padding: '0 40px 80px' }}>
+          <div className="bg-white rounded-[24px] overflow-hidden" style={{ boxShadow: '0 25px 60px rgba(0,0,0,0.3)' }}>
             {done ? (
               /* Success */
-              <div className="flex flex-col items-center justify-center text-center px-10 py-20">
-                <div className="text-green-500 mb-6">
-                  <CheckCircleIcon />
+              <div style={{ textAlign: 'center', padding: '28px 40px 14px' }}>
+                <div
+                  style={{ width: 72, height: 72, borderRadius: '50%', background: 'var(--green-50, #f0fdf4)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 22px' }}
+                >
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary, #2c825d)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
-                <h2 className="font-display font-extrabold text-gray-900 text-3xl tracking-tight mb-3">
-                  You&apos;re all set.
-                </h2>
-                <p className="text-gray-500 text-base max-w-md leading-relaxed mb-8">
-                  Your intake forms have been submitted. We&apos;ll review your information and reach out within one business day to confirm your appointment.
+                <h3
+                  className="font-display font-black text-teal-900"
+                  style={{ fontSize: 28, letterSpacing: '-0.02em', margin: '0 0 12px' }}
+                >
+                  You&apos;re all set
+                </h3>
+                <p style={{ fontSize: 16.5, lineHeight: 1.6, color: 'var(--text-muted, #6b7280)', margin: '0 auto 26px', maxWidth: 460 }}>
+                  Thank you for completing your new patient intake. Our team will review your information and reach out within one business day to confirm your visit.
                 </p>
                 <Link
                   href="/"
-                  className="inline-flex items-center gap-2 text-teal-600 font-semibold hover:text-teal-700 transition-colors"
+                  className="inline-flex items-center justify-center font-bold text-white bg-teal-600 hover:bg-teal-700 transition-colors"
+                  style={{ fontSize: 16, borderRadius: 12, padding: '14px 28px', gap: 9, textDecoration: 'none' }}
                 >
-                  <ArrowLeftIcon />
                   Back to home
                 </Link>
               </div>
             ) : (
               <>
                 {/* Progress bar */}
-                <div className="px-8 pt-8 pb-0">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-semibold text-gray-900">
-                      Step {step + 1} of {TOTAL_STEPS} &mdash; {STEP_LABELS[step]}
+                <div style={{ padding: '28px 36px 0' }}>
+                  <div className="flex items-center justify-between" style={{ marginBottom: 8 }}>
+                    <span
+                      className="font-display font-bold text-teal-900"
+                      style={{ fontSize: 18 }}
+                    >
+                      {STEP_LABELS[step]}
                     </span>
-                    <span className="text-sm text-gray-400">{pct}% complete</span>
+                    <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-subtle, #9ca3af)' }}>{pct}%</span>
                   </div>
-                  <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
+                  <div style={{ height: 5, borderRadius: 999, background: 'var(--gray-100, #f3f4f6)', overflow: 'hidden' }}>
                     <div
-                      className="h-full bg-green-500 rounded-full transition-all duration-500"
-                      style={{ width: `${pct}%` }}
+                      style={{ height: '100%', width: `${pct}%`, background: 'linear-gradient(90deg, var(--teal-600, #2c825d), var(--green-500, #22c55e))', transition: 'width 0.4s cubic-bezier(0.4,0,0.2,1)' }}
                     />
                   </div>
                 </div>
 
                 {/* Step content */}
-                <div className="px-8 py-8">
+                <div style={{ padding: '28px 36px 34px' }}>
                   {step === 0 && (
                     <div>
-                      <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-1">
+                      <h2
+                        className="font-display font-black text-teal-900"
+                        style={{ fontSize: 24, letterSpacing: '-0.02em', margin: '0 0 6px' }}
+                      >
                         Your details
                       </h2>
-                      <p className="text-gray-500 text-sm mb-6">
-                        We&apos;ll use this to pre-fill your intake forms.
+                      <p style={{ fontSize: 15.5, lineHeight: 1.55, color: 'var(--text-muted, #6b7280)', margin: '0 0 24px' }}>
+                        So we know who&apos;s getting started. We&apos;ll use this to follow up with you.
                       </p>
                       {detailsError && (
                         <div className="mb-4 rounded-lg bg-red-50 border border-red-100 px-4 py-3 text-sm text-red-700">
                           {detailsError}
                         </div>
                       )}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-1.5">
-                            First name <span className="text-red-500">*</span>
-                          </label>
+                          <label className={labelClass}>First name</label>
                           <input
                             type="text"
                             value={details.firstName}
                             onChange={(e) => setDetails((d) => ({ ...d, firstName: e.target.value }))}
                             placeholder="Jane"
-                            className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-[3px] focus:ring-green-100 focus:border-teal-600 transition-all duration-200"
+                            className={fieldClass}
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-1.5">
-                            Last name <span className="text-red-500">*</span>
-                          </label>
+                          <label className={labelClass}>Last name</label>
                           <input
                             type="text"
                             value={details.lastName}
                             onChange={(e) => setDetails((d) => ({ ...d, lastName: e.target.value }))}
-                            placeholder="Smith"
-                            className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-[3px] focus:ring-green-100 focus:border-teal-600 transition-all duration-200"
+                            placeholder="Doe"
+                            className={fieldClass}
                           />
                         </div>
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-1.5">
-                            Email <span className="text-red-500">*</span>
-                          </label>
+                          <label className={labelClass}>Email</label>
                           <input
                             type="email"
                             value={details.email}
                             onChange={(e) => setDetails((d) => ({ ...d, email: e.target.value }))}
-                            placeholder="jane@example.com"
-                            className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-[3px] focus:ring-green-100 focus:border-teal-600 transition-all duration-200"
+                            placeholder="jane@email.com"
+                            className={fieldClass}
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-1.5">Phone</label>
+                          <label className={labelClass}>Phone</label>
                           <input
                             type="tel"
                             value={details.phone}
                             onChange={(e) => setDetails((d) => ({ ...d, phone: e.target.value }))}
-                            placeholder="(970) 555-0100"
-                            className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-[3px] focus:ring-green-100 focus:border-teal-600 transition-all duration-200"
+                            placeholder="(970) 555-0142"
+                            className={fieldClass}
                           />
                         </div>
                       </div>
-                      <label className="flex items-start gap-3 mt-2 cursor-pointer">
+                      <label
+                        style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginTop: 14, cursor: 'pointer', padding: '16px 18px', border: '1px solid var(--border-default, #e5e7eb)', borderRadius: 12, background: 'var(--gray-50, #f9fafb)' }}
+                      >
                         <input
                           type="checkbox"
-                          className="mt-0.5 w-5 h-5 rounded border-gray-300 text-teal-600 focus:ring-[3px] focus:ring-green-100"
+                          style={{ marginTop: 2, width: 18, height: 18, accentColor: 'var(--color-primary, #2c825d)', flexShrink: 0 }}
                         />
-                        <span className="text-sm text-gray-500 leading-relaxed">
-                          I agree to the{' '}
-                          <Link href="/privacy" className="text-teal-600 underline hover:text-teal-700">
+                        <span style={{ fontSize: 14.5, lineHeight: 1.55, color: 'var(--text-body, #1f2937)' }}>
+                          I have read and agree to the{' '}
+                          <Link href="/privacy" style={{ color: 'var(--color-primary, #2c825d)', fontWeight: 600, textDecoration: 'none' }}>
                             Privacy Policy
                           </Link>{' '}
                           and{' '}
-                          <Link href="/terms" className="text-teal-600 underline hover:text-teal-700">
+                          <Link href="/terms" style={{ color: 'var(--color-primary, #2c825d)', fontWeight: 600, textDecoration: 'none' }}>
                             Terms &amp; Conditions
-                          </Link>
-                          .
+                          </Link>.
                         </span>
                       </label>
                     </div>
@@ -232,45 +248,76 @@ export default function ScheduleNewPage() {
 
                   {step >= 1 && step <= 4 && (
                     <div>
-                      <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-1">
-                        {STEP_LABELS[step]}
+                      <h2
+                        className="font-display font-black text-teal-900"
+                        style={{ fontSize: 22, letterSpacing: '-0.02em', margin: '0 0 4px' }}
+                      >
+                        {INTAKE_LABELS[step - 1]}
                       </h2>
-                      <p className="text-gray-500 text-sm mb-5">
-                        Complete the form below. Fields with a * are required.
+                      <p style={{ fontSize: 14.5, lineHeight: 1.5, color: 'var(--text-muted, #6b7280)', margin: '0 0 18px' }}>
+                        {step === 4
+                          ? 'Complete the final form below, then click Finish.'
+                          : 'Complete the form below, then click Continue.'}
                       </p>
-                      <div className="rounded-xl overflow-hidden border border-gray-100">
-                        <iframe
-                          src={getIframeSrc(HEALTHIE_FORM_IDS[step - 1])}
-                          title={STEP_LABELS[step]}
-                          className="w-full"
-                          style={{ minHeight: 540, border: 'none' }}
-                          loading="lazy"
-                        />
-                      </div>
+                      <iframe
+                        src={getIframeSrc(HEALTHIE_FORM_IDS[step - 1])}
+                        title={`New patient intake form ${step}`}
+                        className="w-full"
+                        style={{ minHeight: 760, border: 0, borderRadius: 14, background: 'var(--gray-50, #f9fafb)', display: 'block' }}
+                        loading="lazy"
+                      />
+                      <p style={{ margin: '10px 2px 0', fontSize: 12.5, color: 'var(--text-subtle, #9ca3af)' }}>
+                        Booking provided by <a href="https://gethealthie.com" target="_blank" rel="noreferrer" style={{ color: 'var(--text-muted, #6b7280)' }}>Healthie</a>
+                      </p>
                     </div>
                   )}
-                </div>
 
-                {/* Navigation */}
-                <div className="px-8 pb-8 flex items-center justify-between gap-4">
-                  <button
-                    onClick={handleBack}
-                    disabled={step === 0}
-                    className="inline-flex items-center gap-2 px-5 h-[34px] rounded-[8px] text-sm font-semibold tracking-[0.01em] text-gray-600 border-[1.5px] border-gray-300 hover:bg-teal-50 disabled:opacity-40 disabled:pointer-events-none transition-all duration-200"
-                  >
-                    <ArrowLeftIcon />
-                    Back
-                  </button>
-                  <button
-                    onClick={handleNext}
-                    className="inline-flex items-center justify-center px-7 h-[42px] rounded-[12px] font-semibold tracking-[0.01em] text-base text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 active:bg-teal-800 transition-all duration-200 shadow-sm"
-                  >
-                    {step === TOTAL_STEPS - 1 ? 'Submit & finish' : 'Continue'}
-                  </button>
+                  {/* Navigation */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 26 }}>
+                    <button
+                      onClick={handleBack}
+                      style={{
+                        display: step === 0 ? 'none' : 'inline-flex',
+                        fontFamily: 'inherit',
+                        fontWeight: 600,
+                        fontSize: 15.5,
+                        color: 'var(--text-muted, #6b7280)',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        padding: '14px 8px',
+                      }}
+                    >
+                      ← Back
+                    </button>
+                    <button
+                      onClick={handleNext}
+                      style={{
+                        marginLeft: 'auto',
+                        fontFamily: 'inherit',
+                        fontWeight: 700,
+                        fontSize: 16,
+                        color: '#fff',
+                        background: 'var(--color-primary, #2c825d)',
+                        border: 'none',
+                        borderRadius: 12,
+                        padding: '15px 30px',
+                        cursor: 'pointer',
+                        transition: 'background 0.18s',
+                      }}
+                    >
+                      {step === 0 ? 'Continue to forms' : step === TOTAL_STEPS - 1 ? 'Finish' : 'Continue'}
+                    </button>
+                  </div>
                 </div>
               </>
             )}
           </div>
+
+          <p style={{ textAlign: 'center', margin: '22px auto 0', fontSize: 13.5, color: 'rgba(255,255,255,0.6)', maxWidth: 560 }}>
+            Your information is submitted securely to Healthie, our HIPAA-compliant intake platform. Need help? Call{' '}
+            <a href="tel:+19705550142" style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 600, textDecoration: 'none' }}>(970) 555-0142</a>.
+          </p>
         </div>
       </section>
     </>

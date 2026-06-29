@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const CONCERN_OPTIONS = [
   'Follow-up visit',
-  'New or returning pain',
+  'New / returning pain',
   'Next in my plan',
   'A different area',
   'Re-evaluation',
@@ -13,25 +13,11 @@ const CONCERN_OPTIONS = [
 ];
 
 const TOTAL_STEPS = 3;
-const STEP_LABELS = ['Your details', 'Your concern', 'Book a time'];
-
-function CheckCircleIcon() {
-  return (
-    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-      <polyline points="22 4 12 14.01 9 11.01"/>
-    </svg>
-  );
-}
-
-function ArrowLeftIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="19" y1="12" x2="5" y2="12"/>
-      <polyline points="12 19 5 12 12 5"/>
-    </svg>
-  );
-}
+const STEP_LABELS = [
+  'Step 1 of 3 · Your details',
+  'Step 2 of 3 · Your concern',
+  'Step 3 of 3 · Schedule your visit',
+];
 
 interface PatientDetails {
   firstName: string;
@@ -39,6 +25,9 @@ interface PatientDetails {
   email: string;
   phone: string;
 }
+
+const fieldClass = 'w-full font-sans text-base text-gray-900 bg-white border border-gray-300 rounded-[12px] px-[15px] py-[13px] outline-none transition-all duration-200 placeholder:text-gray-400 focus:border-teal-600 focus:ring-[3px] focus:ring-green-100';
+const labelClass = 'block text-[13.5px] font-semibold text-teal-800 mb-[7px]';
 
 export default function ScheduleReturningPage() {
   const [step, setStep] = useState(0);
@@ -53,13 +42,13 @@ export default function ScheduleReturningPage() {
   const [selectedConcern, setSelectedConcern] = useState('');
   const [concernNote, setConcernNote] = useState('');
 
-  const pct = Math.round((step / TOTAL_STEPS) * 100);
+  const pct = Math.round(((step + 1) / TOTAL_STEPS) * 100);
 
   function validateDetails() {
-    if (!details.firstName.trim()) return 'First name is required.';
-    if (!details.lastName.trim()) return 'Last name is required.';
+    if (!details.firstName.trim() || !details.lastName.trim() || !details.phone.trim())
+      return 'Please fill in your name, email, and phone.';
     if (!details.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(details.email))
-      return 'A valid email address is required.';
+      return 'Please enter a valid email address.';
     return '';
   }
 
@@ -69,6 +58,11 @@ export default function ScheduleReturningPage() {
       if (err) { setDetailsError(err); return; }
       setDetailsError('');
     }
+    if (step === 1 && !selectedConcern) {
+      setDetailsError('Please choose what is bringing you in.');
+      return;
+    }
+    setDetailsError('');
     if (step < TOTAL_STEPS - 1) {
       setStep((s) => s + 1);
     } else {
@@ -77,140 +71,144 @@ export default function ScheduleReturningPage() {
   }
 
   function handleBack() {
-    if (step > 0) setStep((s) => s - 1);
+    if (step > 0) { setDetailsError(''); setStep((s) => s - 1); }
   }
 
-  // Build Calendly URL with prefill
   function getCalendlyUrl() {
-    const name = encodeURIComponent(`${details.firstName} ${details.lastName}`.trim());
-    const email = encodeURIComponent(details.email);
-    return `https://calendly.com/great-physician/visit?hide_gdpr_banner=1&name=${name}&email=${email}`;
+    const params = new URLSearchParams();
+    const name = `${details.firstName} ${details.lastName}`.trim();
+    if (name) params.set('name', name);
+    if (details.email) params.set('email', details.email);
+    const qs = params.toString() ? '&' + params.toString() : '';
+    return `https://calendly.com/great-physician/visit?hide_gdpr_banner=1${qs}`;
   }
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-teal-900 text-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(46,168,78,0.10)_0%,transparent_70%)] pointer-events-none" />
-        <div className="relative max-w-[1240px] mx-auto px-10 py-20 md:py-28">
-          <p className="gp-eyebrow text-green-300 mb-4">Welcome back</p>
-          <h1
-            className="font-display font-extrabold text-white tracking-tight leading-tight"
-            style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
-          >
-            Book your next visit.
-          </h1>
-          <p className="mt-4 text-teal-200 text-lg max-w-md leading-relaxed">
-            It only takes a minute. Let us know what&apos;s next for you.
-          </p>
-        </div>
-      </section>
+      {/* Hero + Flow — single teal-900 section like design */}
+      <section style={{ position: 'relative', background: 'var(--teal-900, #0f2d3c)' }}>
+        <img
+          src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=1400&q=70&auto=format&fit=crop"
+          alt=""
+          style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 340, width: '100%', objectFit: 'cover', opacity: 0.16 }}
+        />
+        <div
+          style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 340, background: 'linear-gradient(180deg, rgba(18,46,66,0.4), var(--teal-900, #0f2d3c))' }}
+        />
 
-      {/* Flow card */}
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-[880px] mx-auto px-10">
-          <div className="bg-white rounded-[24px] shadow-xl overflow-hidden">
+        <div className="relative max-w-[880px] mx-auto" style={{ padding: '70px 40px 90px' }}>
+          {/* Hero text */}
+          <div className="text-center text-white max-w-[720px] mx-auto" style={{ marginBottom: 44 }}>
+            <p style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.04em', color: 'var(--green-300, #86efac)', marginBottom: 16 }}>
+              Welcome back
+            </p>
+            <h1
+              className="font-display font-black text-white"
+              style={{ fontSize: 56, lineHeight: 1.03, letterSpacing: '-0.035em', margin: 0 }}
+            >
+              Book your next visit
+            </h1>
+            <p style={{ margin: '18px 0 0', fontSize: 19, lineHeight: 1.55, color: 'rgba(255,255,255,0.85)' }}>
+              Confirm your details, tell us what&apos;s bringing you in, then pick a time that works for you.
+            </p>
+          </div>
+
+          {/* Flow card */}
+          <div className="bg-white rounded-[24px] overflow-hidden" style={{ boxShadow: '0 25px 60px rgba(0,0,0,0.3)' }}>
             {done ? (
-              /* Success */
-              <div className="flex flex-col items-center justify-center text-center px-10 py-20">
-                <div className="text-green-500 mb-6">
-                  <CheckCircleIcon />
+              <div style={{ textAlign: 'center', padding: '28px 40px 14px' }}>
+                <div
+                  style={{ width: 72, height: 72, borderRadius: '50%', background: 'var(--green-50, #f0fdf4)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 22px' }}
+                >
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary, #2c825d)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
-                <h2 className="font-display font-extrabold text-gray-900 text-3xl tracking-tight mb-3">
-                  You&apos;re booked.
-                </h2>
-                <p className="text-gray-500 text-base max-w-md leading-relaxed mb-8">
-                  Check your email for a confirmation from Calendly. We look forward to seeing you.
+                <h3
+                  className="font-display font-black text-teal-900"
+                  style={{ fontSize: 28, letterSpacing: '-0.02em', margin: '0 0 12px' }}
+                >
+                  You&apos;re booked
+                </h3>
+                <p style={{ fontSize: 16.5, lineHeight: 1.6, color: 'var(--text-muted, #6b7280)', margin: '0 auto 26px', maxWidth: 460 }}>
+                  Thank you. You&apos;ll receive a confirmation email from Calendly with your appointment details. We look forward to seeing you again.
                 </p>
                 <Link
                   href="/"
-                  className="inline-flex items-center gap-2 text-teal-600 font-semibold hover:text-teal-700 transition-colors"
+                  className="inline-flex items-center justify-center font-bold text-white bg-teal-600 hover:bg-teal-700 transition-colors"
+                  style={{ fontSize: 16, borderRadius: 12, padding: '14px 28px', gap: 9, textDecoration: 'none' }}
                 >
-                  <ArrowLeftIcon />
                   Back to home
                 </Link>
               </div>
             ) : (
               <>
                 {/* Progress bar */}
-                <div className="px-8 pt-8 pb-0">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-semibold text-gray-900">
-                      Step {step + 1} of {TOTAL_STEPS} &mdash; {STEP_LABELS[step]}
+                <div style={{ padding: '28px 40px 0' }}>
+                  <div className="flex items-center justify-between" style={{ marginBottom: 8 }}>
+                    <span className="font-display font-bold text-teal-900" style={{ fontSize: 18 }}>
+                      {STEP_LABELS[step]}
                     </span>
-                    <span className="text-sm text-gray-400">{pct}% complete</span>
+                    <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-subtle, #9ca3af)' }}>{pct}%</span>
                   </div>
-                  <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
+                  <div style={{ height: 5, borderRadius: 999, background: 'var(--gray-100, #f3f4f6)', overflow: 'hidden' }}>
                     <div
-                      className="h-full bg-green-500 rounded-full transition-all duration-500"
-                      style={{ width: `${pct}%` }}
+                      style={{ height: '100%', width: `${pct}%`, background: 'linear-gradient(90deg, var(--teal-600, #2c825d), var(--green-500, #22c55e))', transition: 'width 0.4s cubic-bezier(0.4,0,0.2,1)' }}
                     />
                   </div>
                 </div>
 
                 {/* Step content */}
-                <div className="px-8 py-8">
-                  {/* Step 0: Details */}
+                <div style={{ padding: '30px 40px 38px' }}>
+                  {/* Step 0: Details — no heading per design */}
                   {step === 0 && (
                     <div>
-                      <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-1">
-                        Your details
-                      </h2>
-                      <p className="text-gray-500 text-sm mb-6">
-                        We&apos;ll use this to find your records and pre-fill your booking.
-                      </p>
                       {detailsError && (
                         <div className="mb-4 rounded-lg bg-red-50 border border-red-100 px-4 py-3 text-sm text-red-700">
                           {detailsError}
                         </div>
                       )}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-1.5">
-                            First name <span className="text-red-500">*</span>
-                          </label>
+                          <label className={labelClass}>First name</label>
                           <input
                             type="text"
                             value={details.firstName}
                             onChange={(e) => setDetails((d) => ({ ...d, firstName: e.target.value }))}
                             placeholder="Jane"
-                            className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-[3px] focus:ring-green-100 focus:border-teal-600 transition-all duration-200"
+                            className={fieldClass}
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-1.5">
-                            Last name <span className="text-red-500">*</span>
-                          </label>
+                          <label className={labelClass}>Last name</label>
                           <input
                             type="text"
                             value={details.lastName}
                             onChange={(e) => setDetails((d) => ({ ...d, lastName: e.target.value }))}
-                            placeholder="Smith"
-                            className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-[3px] focus:ring-green-100 focus:border-teal-600 transition-all duration-200"
+                            placeholder="Doe"
+                            className={fieldClass}
                           />
                         </div>
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-1.5">
-                            Email <span className="text-red-500">*</span>
-                          </label>
+                          <label className={labelClass}>Email</label>
                           <input
                             type="email"
                             value={details.email}
                             onChange={(e) => setDetails((d) => ({ ...d, email: e.target.value }))}
-                            placeholder="jane@example.com"
-                            className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-[3px] focus:ring-green-100 focus:border-teal-600 transition-all duration-200"
+                            placeholder="jane@email.com"
+                            className={fieldClass}
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-900 mb-1.5">Phone</label>
+                          <label className={labelClass}>Phone</label>
                           <input
                             type="tel"
                             value={details.phone}
                             onChange={(e) => setDetails((d) => ({ ...d, phone: e.target.value }))}
-                            placeholder="(970) 555-0100"
-                            className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-[3px] focus:ring-green-100 focus:border-teal-600 transition-all duration-200"
+                            placeholder="(970) 555-0142"
+                            className={fieldClass}
                           />
                         </div>
                       </div>
@@ -220,86 +218,118 @@ export default function ScheduleReturningPage() {
                   {/* Step 1: Concern chips */}
                   {step === 1 && (
                     <div>
-                      <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-1">
-                        What brings you back?
-                      </h2>
-                      <p className="text-gray-500 text-sm mb-6">
-                        Select the option that best describes your visit, then add any details below.
-                      </p>
-                      <div className="flex flex-wrap gap-3 mb-6">
+                      {detailsError && (
+                        <div className="mb-4 rounded-lg bg-red-50 border border-red-100 px-4 py-3 text-sm text-red-700">
+                          {detailsError}
+                        </div>
+                      )}
+                      <label className={labelClass}>What&apos;s bringing you in this time?</label>
+                      <div
+                        style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10, marginBottom: 24 }}
+                      >
                         {CONCERN_OPTIONS.map((opt) => (
                           <button
                             key={opt}
                             type="button"
                             onClick={() => setSelectedConcern(opt)}
-                            className={[
-                              'px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200',
-                              selectedConcern === opt
-                                ? 'bg-teal-600 text-white border-teal-600'
-                                : 'bg-white text-gray-700 border-gray-200 hover:border-teal-400 hover:text-teal-700',
-                            ].join(' ')}
+                            style={{
+                              cursor: 'pointer',
+                              border: selectedConcern === opt ? '1.5px solid var(--color-primary, #2c825d)' : '1.5px solid var(--border-strong, #d1d5db)',
+                              background: selectedConcern === opt ? 'var(--green-50, #f0fdf4)' : 'var(--white, #fff)',
+                              borderRadius: 12,
+                              padding: '13px 16px',
+                              fontSize: 15,
+                              fontWeight: selectedConcern === opt ? 600 : 500,
+                              color: selectedConcern === opt ? 'var(--teal-900, #0f2d3c)' : 'var(--text-body, #1f2937)',
+                              textAlign: 'center',
+                              fontFamily: 'inherit',
+                              transition: 'border-color 0.16s, background 0.16s, color 0.16s',
+                            }}
                           >
                             {opt}
                           </button>
                         ))}
                       </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-900 mb-1.5">
-                          Anything else to share? (optional)
-                        </label>
-                        <textarea
-                          rows={3}
-                          value={concernNote}
-                          onChange={(e) => setConcernNote(e.target.value)}
-                          placeholder="A little context helps us prepare…"
-                          className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-[3px] focus:ring-green-100 focus:border-teal-600 transition-all duration-200 resize-none"
-                        />
-                      </div>
+                      <label className={labelClass}>Anything you&apos;d like Dr. Hric to know?</label>
+                      <textarea
+                        rows={4}
+                        value={concernNote}
+                        onChange={(e) => setConcernNote(e.target.value)}
+                        placeholder="Share how you've been doing since your last visit, or what's changed."
+                        className={fieldClass}
+                        style={{ resize: 'vertical', minHeight: 110 }}
+                      />
                     </div>
                   )}
 
                   {/* Step 2: Calendly */}
                   {step === 2 && (
                     <div>
-                      <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-1">
+                      <h2
+                        className="font-display font-black text-teal-900"
+                        style={{ fontSize: 22, letterSpacing: '-0.02em', margin: '0 0 4px' }}
+                      >
                         Pick a time
                       </h2>
-                      <p className="text-gray-500 text-sm mb-5">
-                        Choose a time that works for you. You&apos;ll get a confirmation by email.
+                      <p style={{ fontSize: 14.5, lineHeight: 1.5, color: 'var(--text-muted, #6b7280)', margin: '0 0 18px' }}>
+                        Choose a slot below to confirm your appointment. Your name and email are already filled in.
                       </p>
-                      <div className="rounded-xl overflow-hidden border border-gray-100">
-                        <iframe
-                          src={getCalendlyUrl()}
-                          title="Book a visit"
-                          className="w-full"
-                          style={{ minHeight: 620, border: 'none' }}
-                          loading="lazy"
-                        />
-                      </div>
+                      <iframe
+                        src={getCalendlyUrl()}
+                        title="Schedule your visit with Calendly"
+                        className="w-full"
+                        style={{ minHeight: 680, border: 0, borderRadius: 12, background: 'var(--white, #fff)', display: 'block' }}
+                        loading="lazy"
+                      />
                     </div>
                   )}
-                </div>
 
-                {/* Navigation */}
-                <div className="px-8 pb-8 flex items-center justify-between gap-4">
-                  <button
-                    onClick={handleBack}
-                    disabled={step === 0}
-                    className="inline-flex items-center gap-2 px-5 h-[34px] rounded-[8px] text-sm font-semibold tracking-[0.01em] text-gray-600 border-[1.5px] border-gray-300 hover:bg-teal-50 disabled:opacity-40 disabled:pointer-events-none transition-all duration-200"
-                  >
-                    <ArrowLeftIcon />
-                    Back
-                  </button>
-                  <button
-                    onClick={handleNext}
-                    className="inline-flex items-center justify-center px-7 h-[42px] rounded-[12px] font-semibold tracking-[0.01em] text-base text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 active:bg-teal-800 transition-all duration-200 shadow-sm"
-                  >
-                    {step === TOTAL_STEPS - 1 ? "I'm booked" : 'Continue'}
-                  </button>
+                  {/* Navigation */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 26 }}>
+                    <button
+                      onClick={handleBack}
+                      style={{
+                        display: step === 0 ? 'none' : 'inline-flex',
+                        fontFamily: 'inherit',
+                        fontWeight: 600,
+                        fontSize: 15.5,
+                        color: 'var(--text-muted, #6b7280)',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        padding: '14px 8px',
+                      }}
+                    >
+                      ← Back
+                    </button>
+                    <button
+                      onClick={handleNext}
+                      style={{
+                        marginLeft: 'auto',
+                        fontFamily: 'inherit',
+                        fontWeight: 700,
+                        fontSize: 16,
+                        color: '#fff',
+                        background: 'var(--color-primary, #2c825d)',
+                        border: 'none',
+                        borderRadius: 12,
+                        padding: '15px 30px',
+                        cursor: 'pointer',
+                        transition: 'background 0.18s',
+                      }}
+                    >
+                      {step === 0 ? 'Continue' : step === 1 ? 'Continue to scheduling' : 'Done'}
+                    </button>
+                  </div>
                 </div>
               </>
             )}
           </div>
+
+          <p style={{ textAlign: 'center', margin: '22px auto 0', fontSize: 13.5, color: 'rgba(255,255,255,0.6)', maxWidth: 560 }}>
+            Scheduling powered by Calendly. Need help? Call{' '}
+            <a href="tel:+19705550142" style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 600, textDecoration: 'none' }}>(970) 555-0142</a>.
+          </p>
         </div>
       </section>
     </>
