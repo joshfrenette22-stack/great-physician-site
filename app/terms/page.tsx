@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions | Great Physician Regenerative Medicine',
@@ -6,151 +7,102 @@ export const metadata: Metadata = {
 };
 
 const TOC = [
-  { id: 'acceptance', label: 'Acceptance' },
-  { id: 'not-medical-advice', label: 'Not medical advice' },
-  { id: 'use-of-site', label: 'Use of the site' },
-  { id: 'intellectual-property', label: 'Intellectual property' },
-  { id: 'liability', label: 'Limitation of liability' },
-  { id: 'changes', label: 'Changes' },
-  { id: 'contact', label: 'Contact' },
+  { id: 't-accept', label: 'Acceptance' },
+  { id: 't-medical', label: 'Not medical advice' },
+  { id: 't-use', label: 'Use of the site' },
+  { id: 't-ip', label: 'Intellectual property' },
+  { id: 't-liability', label: 'Limitation of liability' },
+  { id: 't-changes', label: 'Changes' },
+  { id: 't-contact', label: 'Contact' },
 ];
 
 export default function TermsPage() {
   return (
     <>
       {/* Title band */}
-      <section className="bg-gray-50 border-b border-gray-200 py-16">
-        <div className="max-w-[1120px] mx-auto px-10">
-          <p className="gp-eyebrow text-gray-400 mb-4">Legal</p>
+      <section className="bg-gray-50 border-b border-gray-200">
+        <div className="max-w-[1120px] mx-auto" style={{ padding: '64px 40px 56px' }}>
+          <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.04em', color: 'var(--text-subtle, #9ca3af)', textTransform: 'uppercase', marginBottom: 14 }}>Legal</p>
           <h1
-            className="font-display font-extrabold text-gray-900 tracking-tight mb-3"
-            style={{ fontSize: 'clamp(2rem, 4.5vw, 3.625rem)' }}
+            className="font-display font-black text-teal-900"
+            style={{ fontSize: 58, lineHeight: 1.02, letterSpacing: '-0.035em', margin: 0 }}
           >
             Terms &amp; Conditions
           </h1>
-          <p className="text-gray-500 text-base">Last updated June 1, 2026</p>
+          <p style={{ margin: '18px 0 0', fontSize: 17, color: 'var(--text-muted, #6b7280)' }}>Last updated June 1, 2026</p>
         </div>
       </section>
 
       {/* Body */}
-      <section className="bg-white py-20">
-        <div
-          className="max-w-[1120px] mx-auto px-5 md:px-10 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-10 md:gap-16 items-start"
-        >
-          {/* Sticky TOC — sticky only on md+ */}
-          <aside className="md:sticky" style={{ top: 104 }}>
-            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
-              Contents
-            </p>
-            <ul className="space-y-0.5">
-              {TOC.map((item) => (
-                <li key={item.id}>
-                  <a
-                    href={`#${item.id}`}
-                    className="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:text-teal-700 hover:bg-teal-50 transition-all duration-200 border-l-2 border-transparent hover:border-teal-500"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </aside>
+      <div className="max-w-[1120px] mx-auto" style={{ padding: '64px 40px 80px', display: 'grid', gridTemplateColumns: '240px 1fr', gap: 56, alignItems: 'start' }}>
+        {/* Sticky TOC */}
+        <aside style={{ position: 'sticky', top: 104 }}>
+          <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--text-subtle, #9ca3af)', marginBottom: 16 }}>
+            On this page
+          </p>
+          <nav style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+            {TOC.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                style={{ textDecoration: 'none', color: 'var(--text-muted, #6b7280)', fontSize: 14.5, padding: '7px 12px', borderRadius: 8, borderLeft: '2px solid transparent' }}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </aside>
 
-          {/* Content */}
-          <div className="gp-legal">
-            {/* Disclaimer banner */}
-            <div className="bg-green-50 border border-green-100 rounded-[14px] px-5 py-4 mb-10">
-              <p className="text-sm text-green-800 leading-relaxed m-0">
-                <strong className="font-semibold">Note:</strong> This is a sample terms &amp; conditions document provided for demonstration purposes. It should be reviewed and customized by a qualified attorney before use.
-              </p>
+        {/* Content */}
+        <div className="gp-legal">
+          <section id="t-accept" style={{ paddingTop: 0 }}>
+            <div style={{ background: 'var(--green-50, #f0fdf4)', border: '1px solid var(--green-100, #dcfce7)', borderRadius: 14, padding: '20px 24px', marginBottom: 8 }}>
+              <p style={{ margin: 0, fontSize: 15.5, color: 'var(--teal-800, #115e59)' }}>These are sample terms provided as a starting point for Great Physician Regenerative Medicine. They should be reviewed by qualified legal counsel before publication.</p>
             </div>
+            <h2>Acceptance of terms</h2>
+            <p>These Terms &amp; Conditions govern your use of the Great Physician Regenerative Medicine website. By accessing or using the site, you agree to be bound by these terms. If you do not agree, please do not use the site.</p>
+          </section>
 
-            <section id="acceptance" className="mb-10">
-              <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-4">Acceptance</h2>
-              <p className="text-gray-600 text-base leading-relaxed">
-                By accessing or using the Great Physician Regenerative Medicine website (&ldquo;Site&rdquo;), you agree to be bound by these Terms &amp; Conditions. If you do not agree, please do not use this Site. These terms apply to all visitors, users, and others who access the Site.
-              </p>
-            </section>
+          <section id="t-medical">
+            <h2>Not medical advice</h2>
+            <p>The content on this website is provided for general educational purposes only. It is not medical advice and does not create a physician-patient relationship. It is not a substitute for professional diagnosis, treatment, or the judgment of a qualified healthcare provider.</p>
+            <p>Always seek the advice of your physician with any questions about a medical condition. <strong style={{ color: 'var(--teal-900, #0f2d3c)' }}>If you are experiencing a medical emergency, call 911 immediately.</strong> Individual results from any treatment vary and are not guaranteed.</p>
+          </section>
 
-            <hr className="border-gray-100 mb-10" />
+          <section id="t-use">
+            <h2>Use of the site</h2>
+            <p>You agree to use this site only for lawful purposes. You may not:</p>
+            <ul>
+              <li>Use the site in any way that violates applicable law or regulation.</li>
+              <li>Attempt to gain unauthorized access to any part of the site or its systems.</li>
+              <li>Interfere with or disrupt the integrity or performance of the site.</li>
+              <li>Submit false, misleading, or harmful information through our forms.</li>
+            </ul>
+          </section>
 
-            <section id="not-medical-advice" className="mb-10">
-              <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-4">Not medical advice</h2>
-              <p className="text-gray-600 text-base leading-relaxed mb-4">
-                The content on this Site is for general informational purposes only. Nothing on this Site constitutes medical advice, diagnosis, or treatment. Always seek the guidance of a qualified physician or other licensed healthcare provider with any questions you may have regarding a medical condition.
-              </p>
-              <p className="text-gray-600 text-base leading-relaxed">
-                Using this Site does not create a patient-provider relationship. Submitting a contact form or scheduling inquiry does not constitute medical care or a clinical consultation.
-              </p>
-            </section>
+          <section id="t-ip">
+            <h2>Intellectual property</h2>
+            <p>All content on this site, including text, graphics, logos, and the Great Physician name and marks, is the property of Great Physician Regenerative Medicine or its licensors and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without prior written permission.</p>
+          </section>
 
-            <hr className="border-gray-100 mb-10" />
+          <section id="t-liability">
+            <h2>Limitation of liability</h2>
+            <p>The site is provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo; basis without warranties of any kind. To the fullest extent permitted by law, Great Physician Regenerative Medicine is not liable for any damages arising from your use of, or inability to use, the site or its content.</p>
+          </section>
 
-            <section id="use-of-site" className="mb-10">
-              <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-4">Use of the site</h2>
-              <p className="text-gray-600 text-base leading-relaxed mb-4">You agree not to:</p>
-              <ul className="list-disc list-inside text-gray-600 text-base leading-relaxed space-y-1 mb-4">
-                <li>Use the Site for any unlawful purpose</li>
-                <li>Attempt to gain unauthorized access to any portion of the Site</li>
-                <li>Transmit any harmful, offensive, or disruptive content</li>
-                <li>Scrape or systematically collect data from the Site without permission</li>
-              </ul>
-              <p className="text-gray-600 text-base leading-relaxed">
-                We reserve the right to terminate access to the Site for anyone who violates these terms.
-              </p>
-            </section>
+          <section id="t-changes">
+            <h2>Changes to these terms</h2>
+            <p>We may update these terms from time to time. Changes become effective when posted to this page, and the &ldquo;last updated&rdquo; date will reflect the most recent revision. Your continued use of the site after changes are posted constitutes acceptance of the updated terms.</p>
+          </section>
 
-            <hr className="border-gray-100 mb-10" />
-
-            <section id="intellectual-property" className="mb-10">
-              <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-4">Intellectual property</h2>
-              <p className="text-gray-600 text-base leading-relaxed">
-                All content on this Site — including text, images, logos, and design — is the property of Great Physician Regenerative Medicine or its licensors and is protected by applicable copyright and trademark law. You may not reproduce, distribute, or create derivative works without prior written permission.
-              </p>
-            </section>
-
-            <hr className="border-gray-100 mb-10" />
-
-            <section id="liability" className="mb-10">
-              <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-4">Limitation of liability</h2>
-              <p className="text-gray-600 text-base leading-relaxed mb-4">
-                To the fullest extent permitted by law, Great Physician Regenerative Medicine and its principals shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the Site or its content.
-              </p>
-              <p className="text-gray-600 text-base leading-relaxed">
-                The Site is provided &ldquo;as is&rdquo; without warranties of any kind, express or implied. We do not warrant that the Site will be uninterrupted, error-free, or free of viruses.
-              </p>
-            </section>
-
-            <hr className="border-gray-100 mb-10" />
-
-            <section id="changes" className="mb-10">
-              <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-4">Changes</h2>
-              <p className="text-gray-600 text-base leading-relaxed">
-                We reserve the right to update these Terms &amp; Conditions at any time. Changes will be effective when posted to this page. Continued use of the Site after any changes constitutes acceptance of the new terms. We encourage you to review this page periodically.
-              </p>
-            </section>
-
-            <hr className="border-gray-100 mb-10" />
-
-            <section id="contact">
-              <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-4">Contact</h2>
-              <p className="text-gray-600 text-base leading-relaxed">
-                If you have questions about these Terms &amp; Conditions, please contact us:
-              </p>
-              <div className="mt-4 bg-gray-50 rounded-[14px] p-5 text-sm text-gray-600">
-                <p className="font-semibold text-gray-900 mb-1">Great Physician Regenerative Medicine</p>
-                <p>Northern Colorado</p>
-                <p>
-                  Phone:{' '}
-                  <a href="tel:9705550142" className="text-teal-600 hover:text-teal-700">
-                    (970) 555-0142
-                  </a>
-                </p>
-              </div>
-            </section>
-          </div>
+          <section id="t-contact">
+            <h2>Contact us</h2>
+            <p>Questions about these terms? Reach out:</p>
+            <p style={{ marginBottom: 0 }}><strong style={{ color: 'var(--teal-900, #0f2d3c)' }}>Great Physician Regenerative Medicine</strong><br />Phone: (970) 555-0142<br />Northern Colorado</p>
+            <p style={{ marginTop: 16 }}><Link href="/contact" style={{ color: 'var(--color-primary, #2c825d)', textDecoration: 'none', fontWeight: 600 }}>Go to our contact page &rarr;</Link></p>
+          </section>
         </div>
-      </section>
+      </div>
     </>
   );
 }

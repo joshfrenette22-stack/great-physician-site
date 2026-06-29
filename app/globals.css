@@ -357,6 +357,56 @@ hr {
 }
 
 /* ============================================================
+   LEGAL CONTENT STYLES (.gp-legal)
+   Matches design handoff: Privacy.dc.html / Terms.dc.html
+   ============================================================ */
+.gp-legal h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  color: var(--teal-900);
+  margin: 0 0 14px;
+  scroll-margin-top: 100px;
+}
+
+.gp-legal h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--teal-800);
+  margin: 26px 0 8px;
+}
+
+.gp-legal p {
+  font-size: 16.5px;
+  line-height: 1.68;
+  color: var(--text-body);
+  margin: 0 0 16px;
+}
+
+.gp-legal ul {
+  margin: 0 0 16px;
+  padding-left: 22px;
+}
+
+.gp-legal li {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin-bottom: 8px;
+}
+
+.gp-legal section {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.gp-legal section:last-child {
+  border-bottom: none;
+}
+
+/* ============================================================
    SCROLL REVEAL ANIMATION
    ============================================================ */
 @keyframes gpReveal {

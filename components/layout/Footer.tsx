@@ -17,13 +17,12 @@ export function Footer() {
         {/* Explore */}
         <div>
           <h4 className="text-xs font-semibold uppercase tracking-[0.16em] mb-3.5" style={{ color: 'var(--text-subtle)' }}>Explore</h4>
-          <nav className="flex flex-col gap-2.5">
+          <nav className="flex flex-col" style={{ gap: 10 }}>
             {[
-              { href: '/services', label: 'What we treat' },
-              { href: '/how-it-works', label: 'Our approach' },
+              { href: '/about', label: 'About' },
               { href: '/how-it-works', label: 'How it works' },
-              { href: '/faq', label: 'FAQ & resources' },
-              { href: '/contact', label: 'Contact' },
+              { href: '/services', label: 'Services' },
+              { href: '/resources', label: 'Resources' },
             ].map((link) => (
               <Link key={link.label} href={link.href} className="text-[15px] text-gray-700 hover:text-teal-600 transition-colors">
                 {link.label}
@@ -35,15 +34,15 @@ export function Footer() {
         {/* Practice */}
         <div>
           <h4 className="text-xs font-semibold uppercase tracking-[0.16em] mb-3.5" style={{ color: 'var(--text-subtle)' }}>Practice</h4>
-          <nav className="flex flex-col gap-2.5">
+          <nav className="flex flex-col" style={{ gap: 10 }}>
             <Link href="/why-great-physician" className="text-[15px] text-gray-700 hover:text-teal-600 transition-colors">
               Who is the Great Physician?
             </Link>
-            <Link href="/about" className="text-[15px] text-gray-700 hover:text-teal-600 transition-colors">
-              About Dr. Hric
+            <Link href="/faq" className="text-[15px] text-gray-700 hover:text-teal-600 transition-colors">
+              FAQ
             </Link>
-            <Link href="/schedule" className="text-[15px] text-gray-700 hover:text-teal-600 transition-colors">
-              Schedule a visit
+            <Link href="/contact" className="text-[15px] text-gray-700 hover:text-teal-600 transition-colors">
+              Contact
             </Link>
           </nav>
         </div>
@@ -54,19 +53,13 @@ export function Footer() {
           <p className="text-[15px] leading-[1.6] text-gray-700">
             Within Dr. Tyler Wood&apos;s office<br />Northern Colorado
           </p>
-          <p className="mt-2.5 text-sm text-gray-500">
-            Our name refers to Jesus Christ, the Great Physician.{' '}
-            <Link href="/why-great-physician" className="text-teal-600 hover:text-teal-700 transition-colors">
-              Learn what it means &rarr;
-            </Link>
-          </p>
         </div>
       </div>
 
       {/* Bottom strip */}
       <div style={{ borderTop: '1px solid var(--border-default)' }}>
-        <div className="max-w-[1240px] mx-auto px-10 py-[18px] flex flex-wrap gap-3 items-center text-[13px]" style={{ color: 'var(--text-subtle)' }}>
-          <span>&copy; {new Date().getFullYear()} Great Physician Regenerative Medicine</span>
+        <div className="max-w-[1240px] mx-auto flex flex-wrap items-center text-[13px]" style={{ padding: '18px 40px', gap: 16, color: 'var(--text-subtle)' }}>
+          <span>&copy; 2026 Great Physician Regenerative Medicine</span>
           <Link href="/privacy" style={{ color: 'var(--text-subtle)' }} className="hover:text-teal-600 transition-colors">Privacy</Link>
           <Link href="/terms" style={{ color: 'var(--text-subtle)' }} className="hover:text-teal-600 transition-colors">Terms</Link>
           <span className="ml-auto max-w-[640px] text-right leading-[1.5]">
