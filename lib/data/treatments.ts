@@ -12,7 +12,7 @@ export interface Treatment {
 export const treatments: Treatment[] = [
   {
     id: "prp-therapy",
-    name: "PRP Therapy",
+    name: "PRP therapy",
     tagline: "01 · Platelet-rich plasma",
     description:
       "We concentrate the healing platelets from a small sample of your own blood and place them precisely where your body is struggling to repair, guided by ultrasound for accuracy.",
@@ -34,7 +34,7 @@ export const treatments: Treatment[] = [
   },
   {
     id: "focused-shockwave",
-    name: "Focused Shockwave Therapy",
+    name: "Focused shockwave",
     tagline: "03 · PiezoWave2",
     description:
       "Acoustic pressure waves delivered to a precise depth stimulate blood flow and healing in stubborn tendons. No needles, no anesthesia, no downtime.",

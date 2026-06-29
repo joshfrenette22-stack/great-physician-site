@@ -68,65 +68,63 @@ export default function SchedulePage() {
             className="font-display font-extrabold text-white tracking-tight leading-tight"
             style={{ fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}
           >
-            Let&apos;s get you scheduled.
+            Let&apos;s get you scheduled
           </h1>
           <p className="mt-5 text-lg text-teal-200 max-w-lg mx-auto leading-relaxed">
             First, tell us a little about you so we can take you to the right place.
           </p>
-        </div>
-      </section>
 
-      {/* Card selection */}
-      <section className="bg-white py-20">
-        <div className="max-w-[1080px] mx-auto px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* New Patient */}
-            <Link
-              href="/schedule/new"
-              className="group bg-white border border-gray-200 rounded-[24px] shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-[5px] block"
-              style={{ padding: '44px 40px' }}
-            >
-              <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center text-teal-600 mb-6">
-                <UserPlusIcon />
-              </div>
-              <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-3">
-                New patient
-              </h2>
-              <p className="text-gray-500 text-base leading-relaxed mb-6">
-                Haven&apos;t visited us before? We&apos;ll walk you through a short intake process, then get you booked for a consultation.
-              </p>
-              <span className="inline-flex items-center gap-2 text-teal-600 font-semibold text-sm group-hover:gap-3 transition-all duration-200">
-                Get started <ArrowIcon />
-              </span>
-            </Link>
+          {/* Card selection */}
+          <div className="max-w-[1080px] mx-auto px-0 mt-14">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* New Patient */}
+              <Link
+                href="/schedule/new"
+                className="group bg-white border border-gray-200 rounded-[24px] shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-[5px] block"
+                style={{ padding: '44px 40px' }}
+              >
+                <div className="w-14 h-14 rounded-[16px] bg-teal-50 flex items-center justify-center text-teal-600 mb-6">
+                  <UserPlusIcon />
+                </div>
+                <h2 className="font-display font-extrabold text-gray-900 text-[28px] tracking-tight mb-3">
+                  New patient
+                </h2>
+                <p className="text-gray-500 text-base leading-relaxed mb-6">
+                  This is your first time visiting Great Physician. We&apos;ll gather a few details and reach out to set up your first consultation.
+                </p>
+                <span className="inline-flex items-center gap-2 text-teal-600 font-semibold text-sm group-hover:gap-3 transition-all duration-200">
+                  Start as a new patient <ArrowIcon />
+                </span>
+              </Link>
 
-            {/* Returning Patient */}
-            <Link
-              href="/schedule/returning"
-              className="group bg-white border border-gray-200 rounded-[24px] shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-[5px] block"
-              style={{ padding: '44px 40px' }}
-            >
-              <div className="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center text-green-600 mb-6">
-                <RefreshIcon />
-              </div>
-              <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-3">
-                Returning patient
-              </h2>
-              <p className="text-gray-500 text-base leading-relaxed mb-6">
-                Already seen us before? Pick up where you left off and book your next visit quickly.
-              </p>
-              <span className="inline-flex items-center gap-2 text-teal-600 font-semibold text-sm group-hover:gap-3 transition-all duration-200">
-                Book a visit <ArrowIcon />
-              </span>
-            </Link>
+              {/* Returning Patient */}
+              <Link
+                href="/schedule/returning"
+                className="group bg-white border border-gray-200 rounded-[24px] shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-[5px] block"
+                style={{ padding: '44px 40px' }}
+              >
+                <div className="w-14 h-14 rounded-[16px] bg-green-50 flex items-center justify-center text-green-600 mb-6">
+                  <RefreshIcon />
+                </div>
+                <h2 className="font-display font-extrabold text-gray-900 text-[28px] tracking-tight mb-3">
+                  Returning patient
+                </h2>
+                <p className="text-gray-500 text-base leading-relaxed mb-6">
+                  You&apos;ve been seen by Dr. Hric before. Pick up where you left off and request your next visit.
+                </p>
+                <span className="inline-flex items-center gap-2 text-teal-600 font-semibold text-sm group-hover:gap-3 transition-all duration-200">
+                  Continue as a returning patient <ArrowIcon />
+                </span>
+              </Link>
+            </div>
+
+            <p className="text-center text-white/75 text-sm mt-10">
+              Prefer to call?{' '}
+              <a href="tel:9705550142" className="text-teal-300 font-semibold hover:text-white transition-colors">
+                (970) 555-0142
+              </a>
+            </p>
           </div>
-
-          <p className="text-center text-gray-500 text-sm mt-10">
-            Prefer to call?{' '}
-            <a href="tel:9705550142" className="text-teal-600 font-semibold hover:text-teal-700 transition-colors">
-              (970) 555-0142
-            </a>
-          </p>
         </div>
       </section>
     </>

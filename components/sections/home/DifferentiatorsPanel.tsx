@@ -88,14 +88,6 @@ export function DifferentiatorsPanel() {
 
   return (
     <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 py-16">
-      {/* Section heading */}
-      <div className="text-center mb-10">
-        <p className="gp-eyebrow mb-3">Our approach</p>
-        <h2 className="text-[28px] md:text-[40px] font-extrabold tracking-tight text-gray-900">
-          A different kind of regenerative medicine
-        </h2>
-      </div>
-
       {/* Dark card */}
       <div
         className="relative rounded-[30px] overflow-hidden"

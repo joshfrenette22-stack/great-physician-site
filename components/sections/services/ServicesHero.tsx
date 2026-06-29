@@ -44,7 +44,7 @@ export function ServicesHero() {
       >
         {/* Eyebrow */}
         <p
-          className="font-semibold uppercase text-green-300"
+          className="font-semibold text-green-300"
           style={{ fontSize: 14, letterSpacing: '0.04em', marginBottom: 18 }}
         >
           What we do

@@ -108,14 +108,14 @@ export function RotatingStoryPanel() {
           style={{ opacity: fading ? 0 : 1 }}
         >
           {/* Eyebrow */}
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-green-300 mb-4">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.2em] mb-4" style={{ color: 'rgba(255,255,255,0.72)' }}>
             Conditions we treat
           </p>
 
           {/* Active pill */}
-          <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 mb-6">
+          <div className="inline-flex items-center gap-2 bg-white/16 rounded-full mb-6" style={{ padding: '7px 14px' }}>
             <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-            <span className="text-xs font-medium text-white">{slide.conditionLabel}</span>
+            <span className="text-[13px] font-semibold text-white">{slide.conditionLabel}</span>
           </div>
 
           {/* Headline */}
@@ -124,15 +124,15 @@ export function RotatingStoryPanel() {
           </h2>
 
           {/* Body */}
-          <p className="text-white/75 leading-relaxed mb-8 text-[17px]">
+          <p className="text-white/90 leading-relaxed mb-8 text-[18px] max-w-[440px]">
             {slide.body}
           </p>
 
           {/* CTA + dots */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center" style={{ gap: '22px' }}>
             <Link
               href="/schedule"
-              className="inline-flex items-center justify-center px-6 h-[42px] rounded-[12px] text-sm font-semibold tracking-[0.01em] border-[1.5px] border-transparent transition-colors"
+              className="inline-flex items-center justify-center px-6 h-[52px] rounded-[12px] text-base font-semibold tracking-[0.01em] border-[1.5px] border-transparent transition-colors"
               style={{ background: '#2EA84E', color: '#0F3B3B' }}
             >
               Schedule a Visit
