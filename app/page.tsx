@@ -1,31 +1,33 @@
+import { Hero } from '@/components/sections/home/Hero';
+import { TreatmentCardGrid } from '@/components/sections/home/TreatmentCardGrid';
+import { WhyUsGrid } from '@/components/sections/home/WhyUsGrid';
+import { RotatingStoryPanel } from '@/components/sections/home/RotatingStoryPanel';
+import { TreatmentExplorer } from '@/components/sections/shared/TreatmentExplorer';
+import { DifferentiatorsPanel } from '@/components/sections/home/DifferentiatorsPanel';
+import { ConditionsGrid } from '@/components/sections/home/ConditionsGrid';
+import { DoctorBand } from '@/components/sections/home/DoctorBand';
+import { HonestGuidance } from '@/components/sections/home/HonestGuidance';
+import { FaithStrip } from '@/components/sections/home/FaithStrip';
+import { ReviewsSection } from '@/components/sections/home/ReviewsSection';
+import { EmotionalBand } from '@/components/sections/home/EmotionalBand';
+import { ClosingCTA } from '@/components/sections/home/ClosingCTA';
+
 export default function Home() {
   return (
-    <section className="min-h-[60vh] flex items-center justify-center bg-teal-900 text-white">
-      <div className="max-w-[1280px] mx-auto px-10 py-32 text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-300 mb-4">
-          Northern Colorado
-        </p>
-        <h1 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-black tracking-tight leading-tight">
-          Restoring Function.<br />Renewing Hope.
-        </h1>
-        <p className="mt-6 text-lg text-teal-200 max-w-xl mx-auto leading-relaxed">
-          Conservative-first regenerative medicine. Physician-performed PRP, prolotherapy, and focused shockwave therapy.
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="/schedule"
-            className="inline-flex items-center justify-center px-7 py-3.5 text-lg font-medium rounded-lg bg-green-500 text-white hover:bg-green-600 transition-colors shadow-sm"
-          >
-            Schedule a Visit
-          </a>
-          <a
-            href="/how-it-works"
-            className="text-sm font-medium text-teal-200 hover:text-white transition-colors"
-          >
-            How it works &rarr;
-          </a>
-        </div>
-      </div>
-    </section>
+    <>
+      <Hero />
+      <TreatmentCardGrid />
+      <WhyUsGrid />
+      <RotatingStoryPanel />
+      <TreatmentExplorer />
+      <DifferentiatorsPanel />
+      <ConditionsGrid />
+      <DoctorBand />
+      <HonestGuidance />
+      <FaithStrip />
+      <ReviewsSection />
+      <EmotionalBand />
+      <ClosingCTA />
+    </>
   );
 }
