@@ -91,7 +91,7 @@ export function DifferentiatorsPanel() {
       {/* Section heading */}
       <div className="text-center mb-10">
         <p className="gp-eyebrow mb-3">Our approach</p>
-        <h2 className="text-[28px] md:text-[40px] font-black tracking-tight text-gray-900">
+        <h2 className="text-[28px] md:text-[40px] font-extrabold tracking-tight text-gray-900">
           A different kind of regenerative medicine
         </h2>
       </div>
@@ -176,7 +176,7 @@ export function DifferentiatorsPanel() {
           >
             {/* Ghost number */}
             <div
-              className="text-[168px] font-black leading-none select-none"
+              className="text-[168px] font-extrabold leading-none select-none"
               style={{ color: 'rgba(255,255,255,0.04)', lineHeight: 1 }}
             >
               {principle.number}
@@ -194,7 +194,7 @@ export function DifferentiatorsPanel() {
                 <Icon className="w-5 h-5 text-white" />
               </div>
 
-              <h3 className="text-[30px] font-black text-white leading-snug tracking-tight mb-4">
+              <h3 className="text-[30px] font-extrabold text-white leading-snug tracking-tight mb-4">
                 {principle.title}
               </h3>
               <p

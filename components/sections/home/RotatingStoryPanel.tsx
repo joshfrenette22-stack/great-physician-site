@@ -119,7 +119,7 @@ export function RotatingStoryPanel() {
           </div>
 
           {/* Headline */}
-          <h2 className="text-[44px] font-black leading-[1.08] tracking-tight text-white mb-5">
+          <h2 className="text-[44px] font-extrabold leading-[1.08] tracking-tight text-white mb-5">
             {slide.title}
           </h2>
 

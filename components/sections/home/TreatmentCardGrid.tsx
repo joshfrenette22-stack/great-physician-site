@@ -6,37 +6,37 @@ const cards = [
     eyebrow: 'Knee · Hip · Shoulder',
     title: 'Move freely',
     image: '/images/Elderly.png',
-    gradient: 'linear-gradient(135deg, #123247 0%, #1D5053 100%)',
+    gradient: 'linear-gradient(90deg, #123247, #1D5053)',
   },
   {
     eyebrow: 'Tendon & ligament',
     title: 'Heal the injury',
     image: '/images/Flex.png',
-    gradient: 'linear-gradient(135deg, #1D5053 0%, #276D5F 100%)',
+    gradient: 'linear-gradient(90deg, #1D5053, #276D5F)',
   },
   {
     eyebrow: 'Sports & overuse',
     title: 'Back in the game',
     image: '/images/Fit.png',
-    gradient: 'linear-gradient(135deg, #276D5F 0%, #318B6B 100%)',
+    gradient: 'linear-gradient(90deg, #276D5F, #318B6B)',
   },
   {
     eyebrow: 'Arthritis & joints',
     title: 'Ease the ache',
     image: '/images/EaseAche.png',
-    gradient: 'linear-gradient(135deg, #318B6B 0%, #3CA877 100%)',
+    gradient: 'linear-gradient(90deg, #318B6B, #3CA877)',
   },
 ];
 
 export function TreatmentCardGrid() {
   return (
-    <section className="w-full max-w-[1240px] mx-auto px-10 py-16">
+    <section id="treat" className="w-full max-w-[1240px] mx-auto px-5 md:px-10 pt-[44px] pb-2">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px]">
         {cards.map((card) => (
           <a
             key={card.title}
             href="/services"
-            className="group relative flex flex-col justify-between min-h-[400px] rounded-[22px] overflow-hidden transition-transform duration-300 hover:-translate-y-1 cursor-pointer"
+            className="group relative flex flex-col justify-between min-h-[400px] rounded-[22px] overflow-hidden transition-transform duration-300 hover:-translate-y-1 cursor-pointer shadow-md"
             style={{ background: card.gradient }}
           >
             {/* Top row */}
@@ -56,8 +56,8 @@ export function TreatmentCardGrid() {
             </div>
 
             {/* Title */}
-            <div className="px-6 pt-4">
-              <h3 className="text-[27px] font-black text-white leading-tight tracking-tight">
+            <div className="px-6 pt-[14px]">
+              <h3 className="text-[27px] font-extrabold text-white leading-[1.08] tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
                 {card.title}
               </h3>
             </div>

@@ -92,7 +92,7 @@ export default function ScheduleNewPage() {
         <div className="relative max-w-[1240px] mx-auto px-10 py-20 md:py-28">
           <p className="gp-eyebrow text-green-300 mb-4">New patient booking</p>
           <h1
-            className="font-display font-black text-white tracking-tight leading-tight"
+            className="font-display font-extrabold text-white tracking-tight leading-tight"
             style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)' }}
           >
             Let&apos;s get you set up.
@@ -113,7 +113,7 @@ export default function ScheduleNewPage() {
                 <div className="text-green-500 mb-6">
                   <CheckCircleIcon />
                 </div>
-                <h2 className="font-display font-black text-gray-900 text-3xl tracking-tight mb-3">
+                <h2 className="font-display font-extrabold text-gray-900 text-3xl tracking-tight mb-3">
                   You&apos;re all set.
                 </h2>
                 <p className="text-gray-500 text-base max-w-md leading-relaxed mb-8">

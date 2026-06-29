@@ -34,14 +34,15 @@ export function ContactForm() {
   }
 
   const fieldClass =
-    'w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder:text-gray-400 text-base focus:outline-none focus:ring-[3px] focus:ring-green-100 focus:border-teal-600 transition-all duration-200 bg-white';
+    'w-full font-sans text-base text-gray-900 bg-white border border-gray-300 rounded-[12px] px-[15px] py-[13px] outline-none transition-all duration-200 placeholder:text-gray-400 focus:border-teal-600 focus:ring-[3px] focus:ring-green-100';
+  const labelClass = 'block text-[13.5px] font-semibold text-teal-800 mb-[7px]';
 
   return (
-    <div className="bg-white border border-gray-200 rounded-[22px] shadow-md p-6 md:p-10">
-      <h2 className="font-display font-bold text-gray-900 text-[28px] tracking-tight mb-2">
+    <div className="bg-white border border-gray-200 rounded-[22px] shadow-md" style={{ padding: 40 }}>
+      <h2 className="font-display font-extrabold text-teal-900" style={{ fontSize: 28, letterSpacing: '-0.02em', margin: '0 0 6px' }}>
         Schedule a visit
       </h2>
-      <p className="text-gray-500 text-base mb-8 leading-relaxed">
+      <p className="text-gray-500 leading-relaxed" style={{ margin: '0 0 28px', fontSize: 15.5 }}>
         No obligation. We&apos;ll reach out within one business day to find a time.
       </p>
 
@@ -55,11 +56,9 @@ export function ContactForm() {
       ) : (
         <form onSubmit={handleSubmit} noValidate>
           {/* Row 1: First / Last */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-[18px] mb-[18px]">
             <div>
-              <label htmlFor="firstName" className="block text-sm font-medium text-gray-900 mb-1.5">
-                First name <span className="text-red-500" aria-hidden="true">*</span>
-              </label>
+              <label htmlFor="firstName" className={labelClass}>First name</label>
               <input
                 id="firstName"
                 type="text"
@@ -75,15 +74,13 @@ export function ContactForm() {
               )}
             </div>
             <div>
-              <label htmlFor="lastName" className="block text-sm font-medium text-gray-900 mb-1.5">
-                Last name <span className="text-red-500" aria-hidden="true">*</span>
-              </label>
+              <label htmlFor="lastName" className={labelClass}>Last name</label>
               <input
                 id="lastName"
                 type="text"
                 name="lastName"
                 autoComplete="family-name"
-                placeholder="Smith"
+                placeholder="Doe"
                 aria-required="true"
                 aria-describedby={errors.lastName ? 'lastName-error' : undefined}
                 className={fieldClass}
@@ -95,17 +92,15 @@ export function ContactForm() {
           </div>
 
           {/* Row 2: Email / Phone */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-[18px] mb-[18px]">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-1.5">
-                Email <span className="text-red-500" aria-hidden="true">*</span>
-              </label>
+              <label htmlFor="email" className={labelClass}>Email</label>
               <input
                 id="email"
                 type="email"
                 name="email"
                 autoComplete="email"
-                placeholder="jane@example.com"
+                placeholder="jane@email.com"
                 aria-required="true"
                 aria-describedby={errors.email ? 'email-error' : undefined}
                 className={fieldClass}
@@ -115,21 +110,21 @@ export function ContactForm() {
               )}
             </div>
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-900 mb-1.5">Phone</label>
+              <label htmlFor="phone" className={labelClass}>Phone</label>
               <input
                 id="phone"
                 type="tel"
                 name="phone"
                 autoComplete="tel"
-                placeholder="(970) 555-0100"
+                placeholder="(970) 555-0142"
                 className={fieldClass}
               />
             </div>
           </div>
 
           {/* Area */}
-          <div className="mb-4">
-            <label htmlFor="area" className="block text-sm font-medium text-gray-900 mb-1.5">
+          <div className="mb-[18px]">
+            <label htmlFor="area" className={labelClass}>
               What area is bothering you?
             </label>
             <select
@@ -138,7 +133,6 @@ export function ContactForm() {
               defaultValue=""
               className={fieldClass + ' appearance-none'}
             >
-              <option value="" disabled>Select an area…</option>
               <option value="back-spine">Back or spine</option>
               <option value="shoulder">Shoulder</option>
               <option value="knee-hip">Knee or hip</option>
@@ -148,28 +142,29 @@ export function ContactForm() {
           </div>
 
           {/* Message */}
-          <div className="mb-5">
-            <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-1.5">
+          <div className="mb-[18px]">
+            <label htmlFor="message" className={labelClass}>
               How can we help?
             </label>
             <textarea
               id="message"
               name="message"
               rows={4}
-              placeholder="Tell us a little about what's going on…"
-              className={fieldClass + ' resize-none'}
+              placeholder="Tell us a little about what you're experiencing and what you're hoping to get back to."
+              className={fieldClass + ' resize-y'}
+              style={{ minHeight: 110 }}
             />
           </div>
 
           {/* Consent */}
-          <label className="flex items-start gap-3 mb-6 cursor-pointer">
+          <label className="flex items-start gap-[11px] mb-[26px] cursor-pointer">
             <input
               type="checkbox"
               name="consent"
-              className="mt-0.5 w-5 h-5 rounded border-gray-300 text-teal-600 focus:ring-[3px] focus:ring-green-100 transition-colors duration-200"
+              className="mt-[3px] w-[17px] h-[17px] accent-teal-600"
             />
-            <span className="text-sm text-gray-500 leading-relaxed">
-              I understand this form is for scheduling inquiries only and does not create a patient-provider relationship. For medical emergencies call 911.
+            <span className="text-[13.5px] text-gray-500 leading-relaxed">
+              I understand this form is a request for a consultation and not a substitute for emergency care.
             </span>
           </label>
 
@@ -182,9 +177,9 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={status === 'submitting'}
-            className="w-full inline-flex items-center justify-center px-6 h-[52px] rounded-[12px] font-semibold tracking-[0.01em] text-base text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 active:bg-teal-800 disabled:opacity-60 disabled:pointer-events-none transition-all duration-200 shadow-sm"
+            className="w-full inline-flex items-center justify-center px-6 h-[52px] rounded-[12px] font-bold tracking-[0.01em] text-base text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 active:bg-teal-800 disabled:opacity-60 disabled:pointer-events-none transition-all duration-200"
           >
-            {status === 'submitting' ? 'Sending…' : 'Send message'}
+            {status === 'submitting' ? 'Sending…' : 'Send request'}
           </button>
         </form>
       )}

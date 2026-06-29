@@ -4,24 +4,22 @@ export function HowItWorksHero() {
       className="w-full text-center relative overflow-hidden"
       style={{
         background:
-          'radial-gradient(circle at 18% 62%, rgba(88,205,153,0.22), transparent 46%), radial-gradient(circle at 78% 38%, rgba(35,87,122,0.18), transparent 52%), radial-gradient(circle at 52% 92%, rgba(156,124,102,0.13), transparent 46%), white',
+          'radial-gradient(circle at 18% 62%, rgba(88,205,153,0.22), transparent 46%), radial-gradient(circle at 78% 38%, rgba(35,87,122,0.18), transparent 52%), radial-gradient(circle at 52% 92%, rgba(156,124,102,0.13), transparent 46%), var(--white)',
         paddingTop: 160,
         paddingBottom: 150,
       }}
     >
       <div className="max-w-[1240px] mx-auto px-10 flex flex-col items-center">
-        {/* Eyebrow */}
-        <p className="gp-eyebrow mb-6">How it works</p>
-
         {/* Headline */}
         <h1
           data-reveal
-          className="font-display font-black text-gray-900 mb-6"
+          className="font-display font-extrabold"
           style={{
-            fontSize: 68,
-            letterSpacing: '-0.04em',
-            lineHeight: 1.04,
-            maxWidth: 760,
+            fontSize: 56,
+            letterSpacing: '-0.03em',
+            lineHeight: 1.08,
+            color: 'var(--text-strong)',
+            margin: 0,
           }}
         >
           How does Great Physician work?
@@ -31,44 +29,64 @@ export function HowItWorksHero() {
 
         {/* Subtitle */}
         <p
-          className="text-gray-500 mb-14"
-          style={{ fontSize: 20, maxWidth: 560, lineHeight: 1.6 }}
+          data-reveal
+          style={{
+            fontSize: 20,
+            lineHeight: 1.55,
+            color: 'var(--text-muted)',
+            maxWidth: 560,
+            margin: '24px auto 0',
+          }}
         >
           No upsell, no pressure, the least you need, performed by a physician who tells you the truth.
         </p>
 
         {/* Scroll indicator */}
-        <div className="flex flex-col items-center gap-3 opacity-60">
-          <p
-            className="font-semibold uppercase tracking-[0.18em] text-gray-400"
-            style={{ fontSize: 11 }}
+        <div
+          data-reveal
+          style={{
+            display: 'inline-flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 8,
+            marginTop: 56,
+            color: 'var(--text-muted)',
+          }}
+        >
+          <span
+            style={{
+              fontSize: 12,
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+            }}
           >
             Scroll
-          </p>
-          <div
-            className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center"
+          </span>
+          <span
             style={{
+              width: 36,
+              height: 36,
+              borderRadius: '50%',
+              border: '1.5px solid var(--border-strong)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               animation: 'gpBounce 1.8s ease-in-out infinite',
             }}
           >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path
-                d="M7 2v10M2 7l5 5 5-5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-gray-500"
-              />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <polyline points="6 13 12 19 18 13" />
             </svg>
-          </div>
+          </span>
         </div>
       </div>
 
       <style>{`
         @keyframes gpBounce {
           0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(8px); }
+          50% { transform: translateY(7px); }
         }
       `}</style>
     </section>

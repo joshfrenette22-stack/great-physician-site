@@ -51,43 +51,49 @@ export function ConditionMatcher() {
   const result = results[active];
 
   return (
-    <section className="w-full bg-gray-50 border-t border-gray-100 py-24" data-reveal>
-      <div className="max-w-[1240px] mx-auto px-5 md:px-10">
+    <section
+      className="w-full bg-gray-50"
+      style={{ marginTop: 80, borderTop: '1px solid var(--border-default)' }}
+      data-reveal
+    >
+      <div className="max-w-[1240px] mx-auto" style={{ padding: '84px 40px' }}>
         {/* Heading */}
-        <div className="text-center mb-12">
-          <p className="gp-eyebrow mb-3">Find your fit</p>
+        <div style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto 44px' }}>
+          <p className="gp-eyebrow" style={{ marginBottom: 14 }}>Find your fit</p>
           <h2
-            className="font-display font-black text-gray-900 mb-4 text-[28px] md:text-[42px]"
-            style={{ letterSpacing: '-0.03em', lineHeight: 1.1 }}
+            className="font-display font-extrabold text-teal-900"
+            style={{ fontSize: 42, letterSpacing: '-0.03em', margin: '0 0 14px' }}
           >
             What&apos;s bothering you?
           </h2>
-          <p className="text-gray-500 max-w-[480px] mx-auto" style={{ fontSize: 16 }}>
-            Select what feels closest. We&apos;ll show you which treatment we typically reach for first.
+          <p style={{ fontSize: 17, lineHeight: 1.55, color: 'var(--text-muted)', margin: 0 }}>
+            Tap an area to see how we&apos;d typically approach it. A consultation confirms the right path for you.
           </p>
         </div>
 
-        {/* 2-col layout — stacks on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        {/* 2-col layout */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 40, alignItems: 'start' }}>
           {/* Condition chips — 2×2 grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
             {conditions.map((c, i) => {
               const isActive = i === active;
               return (
                 <button
                   key={i}
                   onClick={() => setActive(i)}
-                  className="text-left rounded-[16px] border p-5 transition-all duration-200"
+                  className="text-left transition-all duration-200"
                   style={{
-                    borderColor: isActive ? 'var(--color-primary)' : '#DEE4EA',
-                    background: isActive ? '#F0F6F9' : '#fff',
-                    transform: isActive ? 'none' : undefined,
-                    boxShadow: isActive ? '0 4px 12px rgba(18,46,66,0.08)' : 'none',
+                    background: 'var(--white)',
+                    border: `1.5px solid ${isActive ? 'var(--color-primary)' : 'var(--border-default)'}`,
+                    borderRadius: 16,
+                    padding: 20,
+                    cursor: 'pointer',
+                    transition: 'transform .18s ease, box-shadow .2s ease, border-color .2s ease',
                   }}
                   onMouseEnter={(e) => {
                     if (!isActive) {
                       (e.currentTarget as HTMLElement).style.transform = 'translateY(-3px)';
-                      (e.currentTarget as HTMLElement).style.boxShadow = '0 12px 28px rgba(18,46,66,0.10)';
+                      (e.currentTarget as HTMLElement).style.boxShadow = 'var(--shadow-lg)';
                     }
                   }}
                   onMouseLeave={(e) => {
@@ -97,21 +103,24 @@ export function ConditionMatcher() {
                     }
                   }}
                 >
-                  <p
-                    className="font-semibold uppercase tracking-[0.06em] mb-1"
+                  <div
                     style={{
                       fontSize: 11,
-                      color: isActive ? 'var(--color-primary)' : '#9BA8B3',
+                      fontWeight: 600,
+                      letterSpacing: '0.14em',
+                      textTransform: 'uppercase',
+                      color: isActive ? 'var(--color-primary)' : 'var(--text-subtle)',
+                      marginBottom: 8,
                     }}
                   >
                     {c.label}
-                  </p>
-                  <p
-                    className="font-bold text-gray-900"
-                    style={{ fontSize: 16, fontFamily: 'var(--font-display)' }}
+                  </div>
+                  <div
+                    className="font-display"
+                    style={{ fontWeight: 700, fontSize: 19, color: 'var(--teal-900)' }}
                   >
                     {c.category}
-                  </p>
+                  </div>
                 </button>
               );
             })}
@@ -119,11 +128,11 @@ export function ConditionMatcher() {
 
           {/* Result card */}
           <div
-            className="relative rounded-[22px] overflow-hidden"
-            style={{ minHeight: 360 }}
+            className="relative overflow-hidden"
+            style={{ borderRadius: 22, minHeight: 320, boxShadow: 'var(--shadow-md)' }}
           >
-            {/* Image with crossfade via opacity on key */}
-            <div key={active} className="absolute inset-0 transition-opacity duration-400">
+            {/* Image with crossfade */}
+            <div key={active} className="absolute inset-0">
               <Image
                 src={result.img}
                 alt={result.title}
@@ -137,26 +146,48 @@ export function ConditionMatcher() {
             <div
               className="absolute inset-0"
               style={{
-                background: 'linear-gradient(to top, rgba(10,28,42,0.92) 0%, rgba(10,28,42,0.5) 50%, transparent 100%)',
+                background: 'linear-gradient(to top, rgba(18,46,66,0.92) 18%, rgba(18,46,66,0.25) 100%)',
               }}
             />
 
             {/* Text overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-7 text-white z-10">
-              {/* Pill tag */}
-              <span
-                className="inline-block rounded-full px-3 py-1 text-xs font-semibold bg-white/20 text-white mb-3 backdrop-blur-sm"
-                style={{ letterSpacing: '0.04em' }}
+            <div
+              className="absolute text-white"
+              style={{ left: 0, right: 0, bottom: 0, padding: '32px 34px' }}
+            >
+              <div
+                style={{
+                  display: 'inline-flex',
+                  padding: '6px 13px',
+                  borderRadius: 999,
+                  background: 'rgba(255,255,255,0.18)',
+                  fontSize: 12.5,
+                  fontWeight: 600,
+                  marginBottom: 14,
+                }}
               >
                 Recommended approach
-              </span>
+              </div>
               <h3
-                className="font-display font-bold text-white mb-2"
-                style={{ fontSize: 22, lineHeight: 1.2 }}
+                className="font-display"
+                style={{
+                  fontWeight: 800,
+                  fontSize: 26,
+                  letterSpacing: '-0.02em',
+                  margin: '0 0 10px',
+                  color: '#fff',
+                }}
               >
                 {result.title}
               </h3>
-              <p className="text-white/80 leading-relaxed" style={{ fontSize: 14 }}>
+              <p
+                style={{
+                  fontSize: 15.5,
+                  lineHeight: 1.55,
+                  color: 'rgba(255,255,255,0.9)',
+                  margin: 0,
+                }}
+              >
                 {result.text}
               </p>
             </div>

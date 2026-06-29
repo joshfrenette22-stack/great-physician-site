@@ -24,65 +24,80 @@ function ClockIcon() {
   );
 }
 
-interface InfoCardProps {
-  icon: React.ReactNode;
-  title: string;
-  children: React.ReactNode;
-}
-
-function InfoCard({ icon, title, children }: InfoCardProps) {
-  return (
-    <div className="bg-white border border-gray-200 rounded-[18px] p-6 shadow-sm">
-      <div className="flex items-start gap-4">
-        <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-green-600 shrink-0">
-          {icon}
-        </div>
-        <div>
-          <p className="font-semibold text-gray-900 text-sm mb-1">{title}</p>
-          {children}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function ContactInfo() {
   return (
-    <div className="flex flex-col gap-4">
-      <InfoCard icon={<PhoneIcon />} title="Call us">
+    <div className="flex flex-col gap-[18px]">
+      {/* Phone */}
+      <div className="border border-gray-200 rounded-[18px] p-[26px]">
+        <div
+          className="inline-flex items-center justify-center bg-green-50 text-green-600 mb-4"
+          style={{ width: 44, height: 44, borderRadius: 12 }}
+        >
+          <PhoneIcon />
+        </div>
+        <p
+          className="text-xs font-semibold uppercase text-gray-400 mb-[5px]"
+          style={{ letterSpacing: '0.04em' }}
+        >
+          Call us
+        </p>
         <a
-          href="tel:9705550142"
-          className="text-teal-600 font-semibold text-lg hover:text-teal-700 transition-colors"
+          href="tel:+19705550142"
+          className="font-display font-bold text-teal-900 hover:text-teal-700 transition-colors"
+          style={{ fontSize: 23, textDecoration: 'none' }}
         >
           (970) 555-0142
         </a>
-        <p className="text-gray-500 text-sm mt-0.5">Mon–Fri during office hours</p>
-      </InfoCard>
+      </div>
 
-      <InfoCard icon={<MapPinIcon />} title="Visit">
-        <p className="text-gray-700 text-sm leading-relaxed">
-          Within Dr. Tyler Wood&apos;s office
-          <br />
-          Northern Colorado
+      {/* Visit */}
+      <div className="border border-gray-200 rounded-[18px] p-[26px]">
+        <div
+          className="inline-flex items-center justify-center bg-green-50 text-green-600 mb-4"
+          style={{ width: 44, height: 44, borderRadius: 12 }}
+        >
+          <MapPinIcon />
+        </div>
+        <p
+          className="text-xs font-semibold uppercase text-gray-400 mb-[5px]"
+          style={{ letterSpacing: '0.04em' }}
+        >
+          Visit
         </p>
-      </InfoCard>
+        <p className="text-gray-700" style={{ fontSize: 16.5, lineHeight: 1.55, margin: 0 }}>
+          Within Dr. Tyler Wood&apos;s office<br />Northern Colorado
+        </p>
+      </div>
 
-      <InfoCard icon={<ClockIcon />} title="Hours">
-        <div className="text-sm text-gray-700 space-y-1 mt-0.5">
-          <div className="flex justify-between gap-6">
-            <span className="text-gray-500">Mon – Thu</span>
-            <span className="font-medium">8:00 am – 5:00 pm</span>
+      {/* Hours */}
+      <div className="border border-gray-200 rounded-[18px] p-[26px]">
+        <div
+          className="inline-flex items-center justify-center bg-green-50 text-green-600 mb-4"
+          style={{ width: 44, height: 44, borderRadius: 12 }}
+        >
+          <ClockIcon />
+        </div>
+        <p
+          className="text-xs font-semibold uppercase text-gray-400 mb-3"
+          style={{ letterSpacing: '0.04em' }}
+        >
+          Hours
+        </p>
+        <div className="flex flex-col gap-2 text-gray-700" style={{ fontSize: 15.5 }}>
+          <div className="flex justify-between">
+            <span>Mon – Thu</span>
+            <span className="text-gray-500">8:00 – 5:00</span>
           </div>
-          <div className="flex justify-between gap-6">
-            <span className="text-gray-500">Friday</span>
-            <span className="font-medium">8:00 am – 12:00 pm</span>
+          <div className="flex justify-between">
+            <span>Friday</span>
+            <span className="text-gray-500">8:00 – 12:00</span>
           </div>
-          <div className="flex justify-between gap-6">
-            <span className="text-gray-500">Sat – Sun</span>
-            <span className="font-medium text-gray-400">Closed</span>
+          <div className="flex justify-between">
+            <span>Sat – Sun</span>
+            <span className="text-gray-400">Closed</span>
           </div>
         </div>
-      </InfoCard>
+      </div>
     </div>
   );
 }

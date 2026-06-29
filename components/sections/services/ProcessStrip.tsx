@@ -4,70 +4,95 @@ const steps = [
   {
     number: '01',
     title: 'Listen',
-    description:
-      "We start with a real conversation about what's going on, your history, your goals, and what you've already tried. No forms in place of a physician.",
+    description: 'We review your history, imaging, and goals together, unhurried.',
   },
   {
     number: '02',
     title: 'Plan',
-    description:
-      "If we think we can help, we'll tell you exactly what and why. If we can't, we'll say that too — and point you somewhere better.",
+    description: 'You get an honest recommendation and clear pricing before anything.',
   },
   {
     number: '03',
     title: 'Treat & recover',
-    description:
-      "Dr. Hric performs your treatment personally. We stay in touch through your recovery, adjusting the plan if needed.",
+    description: 'Dr. Hric performs your treatment, then guides your recovery.',
   },
 ];
 
 export function ProcessStrip() {
   return (
-    <section className="w-full py-20 border-t border-gray-100" data-reveal>
-      <div className="max-w-[1240px] mx-auto px-5 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
-          {/* Left column: heading */}
-          <div className="md:col-span-1 flex flex-col gap-4">
-            <p className="gp-eyebrow">The path</p>
-            <h2
-              className="font-display font-bold text-teal-900"
-              style={{ fontSize: 32, letterSpacing: '-0.02em', lineHeight: 1.15 }}
-            >
-              A simple, honest process.
-            </h2>
-            <Link
-              href="/how-it-works"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700 transition-colors"
-            >
-              See how it works
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
+    <section
+      className="w-full max-w-[1240px] mx-auto"
+      style={{ padding: '88px 40px 20px' }}
+      data-reveal
+    >
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 22 }}>
+        {/* Left column: heading */}
+        <div>
+          <div
+            style={{
+              fontSize: 13,
+              fontWeight: 600,
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: 'var(--text-subtle)',
+              marginBottom: 14,
+            }}
+          >
+            The path
           </div>
-
-          {/* Step cards */}
-          {steps.map((step) => (
-            <div
-              key={step.number}
-              className="rounded-[18px] bg-gray-50 p-[26px] flex flex-col gap-3"
-            >
-              <p
-                className="font-bold text-green-600"
-                style={{ fontSize: 17, fontFamily: 'var(--font-display)' }}
-              >
-                {step.number}
-              </p>
-              <p
-                className="font-bold text-teal-900"
-                style={{ fontSize: 19, fontFamily: 'var(--font-display)' }}
-              >
-                {step.title}
-              </p>
-              <p className="text-gray-500 leading-relaxed" style={{ fontSize: 14.5 }}>
-                {step.description}
-              </p>
-            </div>
-          ))}
+          <h2
+            className="font-display"
+            style={{
+              fontWeight: 800,
+              fontSize: 32,
+              lineHeight: 1.1,
+              letterSpacing: '-0.025em',
+              color: 'var(--teal-900)',
+              margin: '0 0 14px',
+            }}
+          >
+            A simple, honest process.
+          </h2>
+          <Link
+            href="/how-it-works"
+            className="hover:underline"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              color: 'var(--color-primary)',
+              fontWeight: 600,
+              fontSize: 15.5,
+              textDecoration: 'none',
+            }}
+          >
+            See how it works →
+          </Link>
         </div>
+
+        {/* Step cards */}
+        {steps.map((step) => (
+          <div
+            key={step.number}
+            style={{ background: 'var(--gray-50)', borderRadius: 18, padding: 26 }}
+          >
+            <div
+              className="font-display"
+              style={{ fontWeight: 800, fontSize: 17, color: 'var(--green-600)', marginBottom: 12 }}
+            >
+              {step.number}
+            </div>
+            <div
+              className="font-display"
+              style={{ fontWeight: 700, fontSize: 19, color: 'var(--teal-900)', marginBottom: 8 }}
+            >
+              {step.title}
+            </div>
+            <p style={{ fontSize: 14.5, lineHeight: 1.55, color: 'var(--text-muted)', margin: 0 }}>
+              {step.description}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

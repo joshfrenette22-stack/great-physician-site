@@ -1,11 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { MapPin, ChevronRight } from 'lucide-react';
 
 export function EmotionalBand() {
   return (
-    <section className="w-full max-w-[1240px] mx-auto px-10 py-8">
-      <div className="relative rounded-[28px] overflow-hidden min-h-[560px] flex items-center">
+    <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 pt-24 md:pt-[96px] pb-0">
+      <div className="relative rounded-[28px] overflow-hidden min-h-[560px] shadow-xl">
         {/* Background image */}
         <Image
           src="/images/stock/photo-1452626038306-9aae5e071dd3.jpg"
@@ -19,28 +18,32 @@ export function EmotionalBand() {
         {/* Left gradient scrim */}
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(90deg, rgba(16,42,59,0.90) 0%, rgba(16,42,59,0.65) 50%, rgba(16,42,59,0.15) 100%)' }}
+          style={{ background: 'linear-gradient(90deg, rgba(11,28,40,0.82) 0%, rgba(11,28,40,0.6) 34%, rgba(11,28,40,0.18) 64%, rgba(11,28,40,0) 100%)' }}
         />
 
         {/* Content */}
-        <div className="relative z-10 px-16 py-14 max-w-[600px]">
-          <h2 className="text-[46px] font-black text-white tracking-tight leading-[1.08] mb-8">
+        <div className="relative z-10 min-h-[560px] flex flex-col justify-center max-w-[620px]" style={{ padding: '64px' }}>
+          <h2
+            className="text-[36px] md:text-[46px] font-extrabold text-white mb-8"
+            style={{ fontFamily: 'var(--font-display)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
+          >
             You know your own body. When something&apos;s off, you deserve straight answers.
           </h2>
 
-          <div className="flex flex-col gap-4">
+          <div>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-teal-800 text-sm font-semibold hover:bg-gray-50 transition-colors w-fit"
+              className="inline-flex items-center gap-[10px] rounded-full bg-white text-[17px] font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+              style={{ color: 'var(--text-strong)', padding: '16px 28px' }}
             >
               Find my treatment
-              <ChevronRight className="w-4 h-4" />
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 6 15 12 9 18" /></svg>
             </Link>
+          </div>
 
-            <div className="flex items-center gap-2 text-white/60 text-sm">
-              <MapPin className="w-4 h-4" />
-              <span>Now welcoming patients across Northern Colorado</span>
-            </div>
+          <div className="flex items-center gap-[9px] mt-[26px] text-[15px] font-medium" style={{ color: 'rgba(255,255,255,0.86)' }}>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" /><circle cx="12" cy="10" r="3" /></svg>
+            Now welcoming patients across Northern Colorado
           </div>
         </div>
       </div>

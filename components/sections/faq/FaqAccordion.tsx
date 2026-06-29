@@ -37,29 +37,50 @@ export function FaqAccordion() {
         <div
           key={group.id}
           id={group.id}
-          style={{ marginTop: gi === 0 ? 0 : 56 }}
+          style={{ marginTop: gi === 0 ? 0 : 56, scrollMarginTop: 100 }}
         >
-          <h2 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-5">
+          <h2
+            className="font-display font-black text-teal-900 tracking-tight"
+            style={{ fontSize: 30, letterSpacing: '-0.02em', margin: '0 0 6px' }}
+          >
             {group.title}
           </h2>
-          <div className="border border-gray-200 rounded-[18px] overflow-hidden divide-y divide-gray-100">
+          <div>
             {group.items.map((item, idx) => {
               const key = `${group.id}:${idx}`;
               const isOpen = openKey === key;
               return (
-                <div key={key}>
+                <div key={key} style={{ borderBottom: '1px solid var(--border-default, #e5e7eb)' }}>
                   <button
                     type="button"
                     id={`faq-btn-${key}`}
                     onClick={() => toggle(key)}
-                    className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200"
+                    className="w-full text-left bg-none border-none cursor-pointer relative block"
+                    style={{ padding: '24px 48px 24px 0' }}
                     aria-expanded={isOpen}
                     aria-controls={`faq-panel-${key}`}
                   >
-                    <span className="font-semibold text-gray-900 text-base leading-snug">
+                    <span
+                      className="block font-display font-bold leading-snug transition-colors duration-200"
+                      style={{
+                        fontSize: 19,
+                        lineHeight: 1.35,
+                        color: isOpen ? 'var(--color-primary, #2c825d)' : 'var(--teal-900, #0f2d3c)',
+                      }}
+                    >
                       {item.question}
                     </span>
-                    <span className="text-teal-600 mt-0.5">
+                    <span
+                      style={{
+                        position: 'absolute',
+                        right: 6,
+                        top: 26,
+                        width: 24,
+                        height: 24,
+                        color: isOpen ? 'var(--color-primary, #2c825d)' : '#9ca3af',
+                        pointerEvents: 'none',
+                      }}
+                    >
                       <PlusIcon open={isOpen} />
                     </span>
                   </button>
@@ -67,13 +88,16 @@ export function FaqAccordion() {
                     id={`faq-panel-${key}`}
                     role="region"
                     aria-labelledby={`faq-btn-${key}`}
-                    className="overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                    className="overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
                     style={{
-                      maxHeight: isOpen ? '400px' : '0px',
+                      height: isOpen ? 'auto' : 0,
                       opacity: isOpen ? 1 : 0,
                     }}
                   >
-                    <p className="px-6 pb-5 text-gray-600 text-base leading-relaxed">
+                    <p
+                      className="text-gray-500"
+                      style={{ margin: 0, padding: '0 60px 26px 0', fontSize: 16.5, lineHeight: 1.62 }}
+                    >
                       {item.answer}
                     </p>
                   </div>

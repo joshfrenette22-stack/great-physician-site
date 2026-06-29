@@ -46,40 +46,42 @@ export function DrHricSection() {
   return (
     <section className="bg-white w-full">
       <div
-        className="max-w-[1240px] mx-auto px-5 md:px-10 py-16 md:py-[104px]"
+        className="max-w-[1240px] mx-auto"
+        style={{ padding: '110px 40px' }}
       >
         <div
-          className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-14"
+          className="grid grid-cols-1 items-center"
+          style={{ gridTemplateColumns: '1fr 1.05fr', gap: 56 }}
         >
           {/* Left column */}
           <div>
             <h2
-              className="font-display font-black text-gray-900 mb-6 text-[32px] md:text-[50px]"
-              style={{ letterSpacing: '-0.025em', lineHeight: 1.08 }}
+              className="font-display font-extrabold text-gray-900 text-[32px] md:text-[50px]"
+              style={{ letterSpacing: '-0.03em', lineHeight: 1.06, margin: '0 0 24px' }}
             >
               Led by Dr. Hric &amp; a team who listens
             </h2>
 
-            <p className="text-gray-500 leading-relaxed mb-8" style={{ fontSize: 18 }}>
-              Dr. Jerry Hric founded Great Physician Regenerative Medicine because he saw too many patients bounced between specialists, oversold on expensive procedures, and left without real answers. He built something different — a small, intentional practice where conservative care comes first and physician involvement never stops.
+            <p style={{ fontSize: 18, lineHeight: 1.6, color: 'var(--text-body, #374151)', margin: '0 0 26px', maxWidth: 480 }}>
+              Dr. Hric brings years of experience in regenerative and sports medicine to Northern Colorado. Every patient gets unhurried visits, honest guidance, and a clear plan, never a hard sell.
             </p>
 
             {/* Check items */}
-            <ul className="flex flex-col gap-4 mb-10 list-none" style={{ padding: 0, margin: '0 0 2.5rem' }}>
+            <div className="flex flex-col" style={{ gap: 16, marginBottom: 34 }}>
               {checkItems.map((item) => (
-                <li key={item} className="flex items-start gap-3">
+                <div key={item} className="flex items-center" style={{ gap: 12 }}>
                   <span
-                    className="flex-shrink-0 flex items-center justify-center rounded-full bg-green-700 mt-0.5"
+                    className="flex-shrink-0 flex items-center justify-center rounded-full bg-green-700"
                     style={{ width: 24, height: 24 }}
                   >
                     <Check className="text-white" size={13} strokeWidth={3} />
                   </span>
-                  <span className="text-gray-700 leading-relaxed" style={{ fontSize: 16 }}>
+                  <span className="font-medium text-gray-900" style={{ fontSize: 16 }}>
                     {item}
                   </span>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
 
             <Link href="/schedule">
               <Button variant="primary" size="lg">Schedule a Visit</Button>

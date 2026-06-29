@@ -3,156 +3,162 @@ import { Avatar } from '@/components/ui/Avatar';
 
 const teamChips = [
   { name: 'Dr. Hric', image: '/images/hric-headshot.jpg' },
-  { name: 'Hope RN', image: undefined },
+  { name: 'Hope, RN', image: undefined },
   { name: 'Maria', image: undefined },
   { name: 'Caleb', image: undefined },
 ];
 
-const treatmentBadges = ['PRP', 'Prolotherapy', 'Shockwave'];
+// Treatment badges: staggered vertically per design (first and third at top, second offset down)
+const treatmentBadges = [
+  { label: 'PRP', offsetTop: 0 },
+  { label: 'Prolotherapy', offsetTop: 28 },
+  { label: 'Shockwave', offsetTop: 0 },
+];
 
 export function StatsBento() {
   return (
     <section className="bg-white w-full">
       <div
-        className="max-w-[1240px] mx-auto px-5 md:px-10 pt-16 md:pt-[104px] pb-10"
+        className="max-w-[1240px] mx-auto"
+        style={{ padding: '104px 40px 40px' }}
       >
         {/* Section heading */}
         <h2
-          className="font-display font-bold text-gray-900 text-center mx-auto mb-14 text-[28px] md:text-[46px]"
-          style={{ letterSpacing: '-0.02em', maxWidth: 680 }}
+          className="font-display font-extrabold text-gray-900 text-center mx-auto"
+          style={{
+            fontSize: 46,
+            lineHeight: 1.1,
+            letterSpacing: '-0.025em',
+            maxWidth: 760,
+            marginBottom: 56,
+          }}
         >
           Great Physician sets the standard for conservative regenerative care
         </h2>
 
-        {/* 2x2 bento grid — stacks on mobile */}
-        <div
-          className="grid gap-[22px] grid-cols-1 md:grid-cols-2"
-        >
-          {/* Card A — patients */}
+        {/* 2x2 bento grid */}
+        <div className="grid gap-[22px] grid-cols-1 md:grid-cols-2">
+
+          {/* Card A — patients guided */}
           <div
             className="rounded-[22px] border border-gray-100 bg-gray-50 flex flex-col justify-between"
-            style={{ padding: 36, minHeight: 320 }}
+            style={{ padding: 36, minHeight: 320, position: 'relative', overflow: 'hidden' }}
           >
-            {/* SVG dot arc smiley */}
-            <div className="flex justify-center mb-6" aria-hidden="true">
-              <svg width="120" height="72" viewBox="0 0 120 72" fill="none">
-                {/* Arc of 13 green dots */}
-                {Array.from({ length: 13 }).map((_, i) => {
-                  const angle = Math.PI + (i / 12) * Math.PI;
-                  const cx = 60 + 48 * Math.cos(angle);
-                  const cy = 60 + 48 * Math.sin(angle);
-                  return (
-                    <circle
-                      key={i}
-                      cx={cx}
-                      cy={cy}
-                      r={4}
-                      fill="#1C7A39"
-                      opacity={0.4 + (i / 12) * 0.6}
-                    />
-                  );
-                })}
-                {/* Center smiley circle */}
-                <circle cx="60" cy="60" r="18" fill="#EFF9F1" />
-                <circle cx="54" cy="56" r="2.5" fill="#1C7A39" />
-                <circle cx="66" cy="56" r="2.5" fill="#1C7A39" />
-                <path
-                  d="M52 64 Q60 70 68 64"
-                  stroke="#1C7A39"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  fill="none"
-                />
+            {/* SVG dot arc + smiley — matches design exactly */}
+            <div className="flex justify-center" style={{ padding: '12px 0 24px' }} aria-hidden="true">
+              <svg width="190" height="120" viewBox="0 0 180 120" fill="none">
+                <g fill="var(--green-500, #22c55e)">
+                  <circle cx="18" cy="95" r="5.5" opacity="0.30" />
+                  <circle cx="20.4" cy="76.4" r="5.5" opacity="0.40" />
+                  <circle cx="27.6" cy="59" r="5.5" opacity="0.50" />
+                  <circle cx="39.1" cy="44.1" r="5.5" opacity="0.62" />
+                  <circle cx="54" cy="32.6" r="5.5" opacity="0.74" />
+                  <circle cx="71.4" cy="25.4" r="5.5" opacity="0.86" />
+                  <circle cx="90" cy="23" r="5.5" />
+                  <circle cx="108.6" cy="25.4" r="5.5" opacity="0.86" />
+                  <circle cx="126" cy="32.6" r="5.5" opacity="0.74" />
+                  <circle cx="140.9" cy="44.1" r="5.5" opacity="0.62" />
+                  <circle cx="152.4" cy="59" r="5.5" opacity="0.50" />
+                  <circle cx="159.6" cy="76.4" r="5.5" opacity="0.40" />
+                  <circle cx="162" cy="95" r="5.5" opacity="0.30" />
+                </g>
+                {/* Smiley face circle */}
+                <circle cx="90" cy="95" r="20" fill="var(--green-500, #22c55e)" />
+                <circle cx="83" cy="91" r="2.4" fill="#fff" />
+                <circle cx="97" cy="91" r="2.4" fill="#fff" />
+                <path d="M82 99 Q90 106 98 99" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" fill="none" />
               </svg>
             </div>
 
             <div>
-              <p
-                className="font-display font-black text-green-700"
-                style={{ fontSize: 38, lineHeight: 1, marginBottom: 4 }}
+              <div
+                className="font-display font-extrabold text-green-700"
+                style={{ fontSize: 38, lineHeight: 1 }}
               >
                 1,000+
-              </p>
-              <p
-                className="font-display font-bold text-gray-900 mb-3"
-                style={{ fontSize: 24 }}
+              </div>
+              <div
+                className="font-display font-bold text-gray-900"
+                style={{ fontSize: 24, marginTop: 4 }}
               >
                 patients guided
-              </p>
-              <p className="text-gray-500 text-sm leading-relaxed" style={{ margin: 0 }}>
-                Over a thousand patients have chosen Dr. Hric for conservative, physician-led regenerative care in Northern Colorado.
+              </div>
+              <p style={{ fontSize: 15, color: 'var(--text-muted, #6B7280)', margin: '10px 0 0' }}>
+                Neighbors across Northern Colorado finding real, lasting relief.
               </p>
             </div>
           </div>
 
-          {/* Card B — consultations, doctor photo */}
+          {/* Card B — consultations + doctor photo */}
           <div
-            className="rounded-[22px] overflow-hidden relative flex flex-col justify-end"
+            className="rounded-[22px] relative flex flex-col justify-end overflow-hidden"
             style={{
               minHeight: 320,
               padding: 36,
-              background: 'linear-gradient(135deg, #F6F8FA 0%, #e7f4ea 100%)',
+              background: 'linear-gradient(135deg, var(--gray-50, #F9FAFB) 38%, #e7f4ea 100%)',
+              border: '1px solid var(--border-subtle, #E5E7EB)',
             }}
           >
-            {/* Doctor photo — absolute positioned right-bottom */}
-            <div
-              className="absolute bottom-0 right-0"
-              style={{
-                width: 200,
-                height: 260,
-                maskImage: 'linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,1) 50%)',
-                WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,1) 50%)',
-              }}
+            {/* Doctor photo — absolute, right, masked */}
+            <img
+              src="/images/hric-light.jpg"
+              alt=""
               aria-hidden="true"
-            >
-              <Image
-                src="/images/hric-light.jpg"
-                alt=""
-                fill
-                className="object-cover object-right-bottom"
-                sizes="200px"
-              />
-            </div>
+              style={{
+                position: 'absolute',
+                right: -18,
+                bottom: 0,
+                height: 230,
+                width: 'auto',
+                objectFit: 'contain',
+                objectPosition: 'bottom',
+                WebkitMaskImage:
+                  'linear-gradient(to right, transparent 0%, #000 34%), linear-gradient(to top, #000 62%, transparent 96%)',
+                WebkitMaskComposite: 'source-in',
+                maskImage:
+                  'linear-gradient(to right, transparent 0%, #000 34%), linear-gradient(to top, #000 62%, transparent 96%)',
+                maskComposite: 'intersect',
+              }}
+            />
 
-            <div className="relative z-10">
-              <p
-                className="font-display font-black text-teal-600"
-                style={{ fontSize: 38, lineHeight: 1, marginBottom: 4 }}
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div
+                className="font-display font-extrabold"
+                style={{ fontSize: 38, lineHeight: 1, color: 'var(--color-primary, #235A7C)' }}
               >
                 3,500+
-              </p>
-              <p
-                className="font-display font-bold text-gray-900 mb-3"
-                style={{ fontSize: 24 }}
+              </div>
+              <div
+                className="font-display font-bold text-gray-900"
+                style={{ fontSize: 24, marginTop: 4 }}
               >
                 consultations
-              </p>
-              <p className="text-gray-500 text-sm leading-relaxed" style={{ margin: 0, maxWidth: 260 }}>
-                Thousands of conversations about pain, function, and what&apos;s actually possible — without the oversell.
+              </div>
+              <p style={{ fontSize: 15, color: 'var(--text-muted, #6B7280)', margin: '10px 0 0', maxWidth: 230 }}>
+                Unhurried visits with real listening and complete discretion.
               </p>
             </div>
           </div>
 
-          {/* Card C — physician-performed, treatment badges */}
+          {/* Card C — physician-performed + treatment badge pills */}
           <div
             className="rounded-[22px] bg-gray-50 border border-gray-100 relative flex flex-col justify-end"
-            style={{ padding: 36, minHeight: 320 }}
+            style={{ padding: 36, minHeight: 320, overflow: 'hidden' }}
           >
-            {/* Treatment badge pills — staggered top-right */}
+            {/* Treatment badge pills — staggered per design */}
             <div
-              className="absolute top-8 right-8 flex flex-col items-end gap-2"
+              style={{ position: 'absolute', right: 30, top: 28, display: 'flex', gap: 10, alignItems: 'flex-start' }}
               aria-hidden="true"
             >
-              {treatmentBadges.map((label, i) => (
+              {treatmentBadges.map(({ label, offsetTop }) => (
                 <span
                   key={label}
-                  className="inline-flex items-center rounded-full text-sm font-semibold border"
+                  className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full font-semibold text-gray-900"
                   style={{
-                    padding: '6px 14px',
-                    background: '#EFF9F1',
-                    borderColor: '#B4E4C0',
-                    color: '#1C7A39',
-                    transform: `translateX(${i * 6}px)`,
+                    padding: '8px 14px',
+                    fontSize: 14,
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.08)',
+                    marginTop: offsetTop,
                   }}
                 >
                   {label}
@@ -161,61 +167,81 @@ export function StatsBento() {
             </div>
 
             <div>
-              <p
-                className="font-display font-black text-green-700"
-                style={{ fontSize: 38, lineHeight: 1, marginBottom: 4 }}
+              <div
+                className="font-display font-extrabold text-green-700"
+                style={{ fontSize: 38, lineHeight: 1 }}
               >
                 100%
-              </p>
-              <p
-                className="font-display font-bold text-gray-900 mb-3"
-                style={{ fontSize: 24 }}
+              </div>
+              <div
+                className="font-display font-bold text-gray-900"
+                style={{ fontSize: 24, marginTop: 4 }}
               >
                 physician-performed
-              </p>
-              <p className="text-gray-500 text-sm leading-relaxed" style={{ margin: 0 }}>
-                Every regenerative treatment — PRP, prolotherapy, shockwave — is performed by Dr. Hric himself. Not a tech. Not a PA.
+              </div>
+              <p style={{ fontSize: 15, color: 'var(--text-muted, #6B7280)', margin: '10px 0 0' }}>
+                Every injection and procedure is done by Dr. Hric, never handed off.
               </p>
             </div>
           </div>
 
-          {/* Card D — small team, avatar chips */}
+          {/* Card D — small team + avatar chips */}
           <div
-            className="rounded-[22px] bg-gray-50 border border-gray-100 flex flex-col justify-between"
+            className="rounded-[22px] bg-gray-50 border border-gray-100 flex flex-col justify-end relative overflow-hidden"
             style={{ padding: 36, minHeight: 320 }}
           >
-            {/* Avatar chips row */}
-            <div className="flex items-center gap-3 flex-wrap">
+            {/* Avatar chips — absolute top area */}
+            <div
+              style={{
+                position: 'absolute',
+                right: 24,
+                top: 30,
+                left: 24,
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 10,
+                justifyContent: 'flex-end',
+              }}
+            >
               {teamChips.map((member) => (
-                <div key={member.name} className="flex items-center gap-2 rounded-full bg-white border border-gray-200 pr-4 pl-1 py-1">
+                <span
+                  key={member.name}
+                  className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full font-semibold text-gray-900"
+                  style={{
+                    padding: '5px 14px 5px 5px',
+                    fontSize: 14,
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.08)',
+                  }}
+                >
                   <Avatar
                     src={member.image}
                     name={member.name}
                     size="sm"
                   />
-                  <span className="text-sm font-medium text-gray-700">{member.name}</span>
-                </div>
+                  {member.name}
+                </span>
               ))}
             </div>
 
             <div>
-              <p
-                className="font-display font-black text-teal-600"
-                style={{ fontSize: 38, lineHeight: 1, marginBottom: 4 }}
+              <div
+                className="font-display font-extrabold"
+                style={{ fontSize: 38, lineHeight: 1, color: 'var(--color-primary, #235A7C)' }}
               >
                 A small team
-              </p>
-              <p
-                className="font-display font-bold text-gray-900 mb-3"
-                style={{ fontSize: 24 }}
+              </div>
+              <div
+                className="font-display font-bold text-gray-900"
+                style={{ fontSize: 24, marginTop: 4 }}
               >
                 who actually listens
-              </p>
-              <p className="text-gray-500 text-sm leading-relaxed" style={{ margin: 0 }}>
-                We keep our practice small by design. You&apos;ll know your team by name — and they&apos;ll know yours.
+              </div>
+              <p style={{ fontSize: 15, color: 'var(--text-muted, #6B7280)', margin: '10px 0 0' }}>
+                A dedicated circle of clinicians and staff who know you by name.
               </p>
             </div>
           </div>
+
         </div>
       </div>
     </section>

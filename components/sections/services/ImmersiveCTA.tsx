@@ -3,10 +3,14 @@ import Link from 'next/link';
 
 export function ImmersiveCTA() {
   return (
-    <section className="w-full py-10 px-10" data-reveal>
+    <section
+      className="w-full max-w-[1240px] mx-auto"
+      style={{ padding: '80px 40px' }}
+      data-reveal
+    >
       <div
-        className="relative max-w-[1240px] mx-auto rounded-[28px] overflow-hidden"
-        style={{ padding: '84px 56px' }}
+        className="relative rounded-[28px] overflow-hidden text-center"
+        style={{ padding: '84px 56px', color: '#fff' }}
       >
         {/* Background image */}
         <Image
@@ -25,46 +29,77 @@ export function ImmersiveCTA() {
         />
 
         {/* Decorative ring */}
-        <div
+        <span
           className="absolute pointer-events-none"
           style={{
-            bottom: -120,
-            left: -80,
-            width: 500,
-            height: 500,
+            width: 360,
+            height: 360,
             borderRadius: '50%',
-            border: '60px solid rgba(255,255,255,0.07)',
+            border: '40px solid rgba(255,255,255,0.08)',
+            left: -130,
+            bottom: -160,
           }}
         />
 
         {/* Content */}
-        <div className="relative z-10 text-center text-white max-w-[780px] mx-auto">
+        <div className="relative" style={{ zIndex: 1 }}>
           <h2
-            className="font-display font-black text-white mb-6"
-            style={{ fontSize: 50, letterSpacing: '-0.03em', lineHeight: 1.08 }}
+            className="font-display font-extrabold text-white"
+            style={{
+              fontSize: 50,
+              lineHeight: 1.06,
+              letterSpacing: '-0.03em',
+              margin: '0 auto 18px',
+              maxWidth: 720,
+            }}
           >
             We&apos;ll tell you when we&apos;re not the answer.
           </h2>
           <p
-            className="text-white/80 mb-10"
-            style={{ fontSize: 19, lineHeight: 1.6, maxWidth: 560, margin: '0 auto 40px' }}
+            style={{
+              fontSize: 19,
+              lineHeight: 1.55,
+              color: 'rgba(255,255,255,0.9)',
+              margin: '0 auto 34px',
+              maxWidth: 580,
+            }}
           >
             If surgery or another path would serve you better, we&apos;ll say so. Start with an honest consultation, no obligation.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-5">
+          <div
+            className="inline-flex flex-wrap items-center justify-center"
+            style={{ gap: 14 }}
+          >
             <Link
               href="/schedule"
-              className="inline-flex items-center gap-2 px-7 h-[52px] rounded-[12px] font-semibold tracking-[0.01em] text-teal-900 bg-green-500 border-[1.5px] border-transparent hover:bg-green-600 transition-colors duration-200"
-              style={{ fontSize: 16 }}
+              className="inline-flex items-center text-decoration-none"
+              style={{
+                display: 'inline-flex',
+                background: 'var(--color-primary)',
+                color: '#fff',
+                fontWeight: 700,
+                fontSize: 16,
+                padding: '14px 28px',
+                borderRadius: 999,
+                textDecoration: 'none',
+              }}
             >
               Schedule a Visit
             </Link>
             <Link
               href="/faq"
-              className="inline-flex items-center gap-1.5 font-semibold text-white/80 hover:text-white transition-colors duration-200"
-              style={{ fontSize: 15 }}
+              className="hover:text-white transition-colors duration-200"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 9,
+                fontSize: 16,
+                fontWeight: 600,
+                color: 'rgba(255,255,255,0.92)',
+                textDecoration: 'none',
+              }}
             >
-              Read the FAQ <span aria-hidden="true">&rarr;</span>
+              Read the FAQ →
             </Link>
           </div>
         </div>

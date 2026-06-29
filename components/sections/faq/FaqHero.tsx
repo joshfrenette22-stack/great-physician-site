@@ -1,19 +1,31 @@
 export function FaqHero() {
   return (
     <section className="relative bg-teal-900 text-white overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-[540px] h-[540px] bg-[radial-gradient(circle,rgba(46,168,78,0.13)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[380px] h-[380px] bg-[radial-gradient(circle,rgba(35,90,124,0.18)_0%,transparent_70%)] pointer-events-none" />
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          right: -120,
+          top: -120,
+          width: 460,
+          height: 460,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(58,161,118,0.32), transparent 70%)',
+        }}
+      />
 
-      <div className="relative max-w-[1240px] mx-auto px-10 py-24 md:py-32">
-        <p className="gp-eyebrow text-green-300 mb-5">Frequently asked questions</p>
+      <div className="relative max-w-[1240px] mx-auto px-10" style={{ padding: '92px 40px 80px' }}>
+        <p className="text-sm font-semibold tracking-[0.04em] text-green-300 mb-[18px]">Frequently asked questions</p>
         <h1
-          className="font-display font-black text-white tracking-tight leading-none max-w-3xl"
-          style={{ fontSize: 'clamp(2.5rem, 5.5vw, 4.75rem)' }}
+          className="font-display font-extrabold text-white leading-none max-w-[880px]"
+          style={{ fontSize: 76, letterSpacing: '-0.035em', margin: 0 }}
         >
           Questions, answered honestly.
         </h1>
-        <p className="mt-6 text-lg text-teal-200 max-w-xl leading-relaxed">
-          We believe an informed patient makes better decisions. These answers are as straight as we can make them.
+        <p
+          className="text-white/82 max-w-[640px]"
+          style={{ margin: '26px 0 0', fontSize: 21, lineHeight: 1.55 }}
+        >
+          Regenerative medicine comes with a lot of questions, and a lot of hype elsewhere. Here&apos;s what we actually tell our patients.
         </p>
       </div>
     </section>

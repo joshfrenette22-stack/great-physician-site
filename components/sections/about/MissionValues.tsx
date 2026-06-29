@@ -12,31 +12,31 @@ interface ValueCard {
 const valueCards: ValueCard[] = [
   {
     icon: Shield,
-    iconBg: '#EFF9F1',
-    iconColor: '#1C7A39',
+    iconBg: 'var(--green-50, #F0FDF4)',
+    iconColor: 'var(--green-700, #15803D)',
     title: 'Conservative first',
-    body: 'We lead with the least invasive, most evidence-backed option every time — not the most profitable one.',
+    body: 'The least invasive path that can realistically help, always our starting point.',
   },
   {
     icon: MessageSquare,
-    iconBg: '#EDF2F4',
-    iconColor: '#235A7C',
+    iconBg: 'var(--teal-50, #F0FDFA)',
+    iconColor: 'var(--color-primary, #235A7C)',
     title: 'Honest guidance',
-    body: 'We explain the evidence and its limits before you spend a dollar. No bait-and-switch, no overselling.',
+    body: 'Clear information and fair expectations, even when the answer is \u201cnot yet.\u201d',
   },
   {
     icon: User,
-    iconBg: '#EFF9F1',
-    iconColor: '#1C7A39',
+    iconBg: 'var(--green-50, #F0FDF4)',
+    iconColor: 'var(--green-700, #15803D)',
     title: 'Physician-performed',
-    body: 'Dr. Hric performs every regenerative treatment himself. Not a tech. Not a PA. Every visit.',
+    body: 'Dr. Hric performs every treatment himself, your care is never handed off.',
   },
   {
     icon: Heart,
-    iconBg: '#EDF2F4',
-    iconColor: '#235A7C',
+    iconBg: 'var(--teal-50, #F0FDFA)',
+    iconColor: 'var(--color-primary, #235A7C)',
     title: 'Whole-person care',
-    body: 'Pain is rarely just physical. We look at your full picture — movement, lifestyle, goals — and build a lasting plan.',
+    body: 'Body and spirit, we treat you as a person, not a diagnosis on a chart.',
   },
 ];
 
@@ -46,8 +46,8 @@ export function MissionValues() {
       <div className="max-w-[1240px] mx-auto">
         {/* Heading */}
         <h2
-          className="font-display font-bold text-gray-900 text-center mx-auto mb-14"
-          style={{ fontSize: 46, letterSpacing: '-0.02em', maxWidth: 600 }}
+          className="font-display font-extrabold text-gray-900 text-center mx-auto"
+          style={{ fontSize: 46, letterSpacing: '-0.025em', marginBottom: 56 }}
         >
           A different approach to care
         </h2>
@@ -65,28 +65,25 @@ export function MissionValues() {
           <div
             className="rounded-[24px] text-white flex flex-col justify-between"
             style={{
-              background: 'linear-gradient(100deg, #16384C 0%, #235A7C 42%, #2EA84E 100%)',
+              background: 'var(--gradient-brand, linear-gradient(135deg, #1C7A39 0%, #235A7C 100%))',
               padding: 40,
               minHeight: 520,
               gridRow: 'span 2',
             }}
           >
-            <p
-              className="font-semibold uppercase"
-              style={{ fontSize: 15, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.60)' }}
-            >
+            <div style={{ fontSize: 15, fontWeight: 600, color: 'rgba(255,255,255,0.82)' }}>
               Our mission is simple
-            </p>
+            </div>
 
             <div>
-              <p
-                className="font-display font-black mb-6"
-                style={{ fontSize: 32, lineHeight: 1.2, letterSpacing: '-0.02em' }}
+              <div
+                className="font-display font-extrabold"
+                style={{ fontSize: 32, lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: 0 }}
               >
                 Restore function. Renew hope. Encourage stewardship.
-              </p>
-              <p style={{ fontSize: 17, lineHeight: 1.65, color: 'rgba(255,255,255,0.78)', margin: 0 }}>
-                We believe your body was made to heal and your health is a gift worth stewarding. Our practice exists to give you an honest, conservative path back to doing what matters — guided by a physician who actually performs your care.
+              </div>
+              <p style={{ fontSize: 16, lineHeight: 1.6, color: 'rgba(255,255,255,0.88)', margin: '18px 0 0' }}>
+                We&apos;re here to help our neighbors in Northern Colorado heal well, move freely, and live fully, caring for the whole person along the way.
               </p>
             </div>
           </div>
@@ -101,26 +98,27 @@ export function MissionValues() {
                 style={{ padding: 34, minHeight: 250 }}
               >
                 {/* Icon chip */}
-                <div
-                  className="flex items-center justify-center rounded-[12px] flex-shrink-0"
+                <span
+                  className="inline-flex items-center justify-center rounded-[12px] flex-shrink-0"
                   style={{
                     width: 46,
                     height: 46,
                     background: card.iconBg,
+                    marginBottom: 70,
                   }}
                 >
-                  <Icon size={20} color={card.iconColor} />
-                </div>
+                  <Icon size={22} color={card.iconColor} />
+                </span>
 
                 {/* Text pushed to bottom */}
-                <div style={{ marginTop: 'auto', paddingTop: 24 }}>
-                  <h3
-                    className="font-display font-bold text-gray-900 mb-2"
-                    style={{ fontSize: 24, lineHeight: 1.2, letterSpacing: '-0.01em' }}
+                <div style={{ marginTop: 'auto' }}>
+                  <div
+                    className="font-display font-bold text-gray-900"
+                    style={{ fontSize: 24 }}
                   >
                     {card.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed" style={{ margin: 0 }}>
+                  </div>
+                  <p style={{ fontSize: 15, lineHeight: 1.5, color: 'var(--text-muted, #6B7280)', margin: '8px 0 0' }}>
                     {card.body}
                   </p>
                 </div>

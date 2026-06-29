@@ -23,7 +23,7 @@ export default function PrivacyPage() {
         <div className="max-w-[1120px] mx-auto px-10">
           <p className="gp-eyebrow text-gray-400 mb-4">Legal</p>
           <h1
-            className="font-display font-black text-gray-900 tracking-tight mb-3"
+            className="font-display font-extrabold text-gray-900 tracking-tight mb-3"
             style={{ fontSize: 'clamp(2rem, 4.5vw, 3.625rem)' }}
           >
             Privacy Policy

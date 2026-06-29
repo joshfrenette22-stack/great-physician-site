@@ -11,30 +11,28 @@ const cautionItems = [
   },
 ];
 
-const recommendItem = {
-  label: 'What we recommend instead',
-  note: 'Treatments with a genuine evidence base — PRP, prolotherapy and focused shockwave — chosen for your situation.',
-};
-
 export function HonestGuidance() {
   return (
-    <section className="w-full max-w-[1240px] mx-auto px-10 py-20">
+    <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 py-24">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left */}
         <div>
-          <p className="gp-eyebrow mb-4">Education as care</p>
-          <h2 className="text-[40px] font-black tracking-tight text-gray-900 leading-tight mb-6">
+          <span className="block text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: 'var(--color-accent-strong)' }}>Education as care</span>
+          <h2
+            className="text-[32px] md:text-[40px] font-extrabold leading-[1.12] tracking-tight mb-4"
+            style={{ fontFamily: 'var(--font-display)', color: 'var(--text-strong)' }}
+          >
             Straight answers about what works
           </h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
+          <p className="text-[17px] leading-[1.65] mb-4" style={{ color: 'var(--text-body)' }}>
             The regenerative medicine field is full of bold promises — stem cells, exosomes, fat-derived injections — often at steep prices and with thin evidence. We take a different approach.
           </p>
-          <p className="text-gray-600 leading-relaxed mb-8">
+          <p className="text-[17px] leading-[1.65] mb-7" style={{ color: 'var(--text-body)' }}>
             We&apos;ll tell you what the research actually supports, what we&apos;d recommend for your situation, and what we&apos;d steer you away from — even when steering you away costs us a sale. That honesty is the point.
           </p>
           <Link
-            href="/blog"
-            className="inline-flex items-center justify-center px-6 h-[42px] rounded-[12px] bg-white text-teal-600 border-[1.5px] border-gray-300 hover:bg-teal-50 text-sm font-semibold tracking-[0.01em] transition-colors"
+            href="/resources"
+            className="inline-flex items-center justify-center px-7 h-[52px] rounded-[12px] bg-white text-teal-600 border-[1.5px] border-gray-300 hover:bg-teal-50 text-lg font-semibold tracking-[0.01em] transition-colors shadow-[0_1px_2px_rgba(18,46,66,0.06)]"
           >
             Read our patient resources
           </Link>
@@ -42,19 +40,18 @@ export function HonestGuidance() {
 
         {/* Right: dark teal card */}
         <div
-          className="rounded-[24px] p-9"
-          style={{ background: 'linear-gradient(135deg, #102A3B 0%, #16384C 100%)' }}
+          className="rounded-[24px] shadow-lg"
+          style={{ background: 'linear-gradient(165deg, var(--teal-900), var(--teal-800))', border: '1px solid rgba(255,255,255,0.08)', padding: '36px' }}
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-green-300 mb-6">
+          <div className="text-xs font-semibold uppercase tracking-[0.2em] text-green-300 mb-[18px]">
             What we&apos;re cautious about
-          </p>
+          </div>
 
-          <div className="space-y-4 mb-6">
+          <div className="flex flex-col gap-4">
             {cautionItems.map((item) => (
-              <div key={item.label} className="flex items-start gap-3">
-                {/* Plain circle with minus line */}
+              <div key={item.label} className="flex items-start gap-[14px]">
                 <span
-                  className="flex items-center justify-center flex-shrink-0 mt-0.5"
+                  className="flex items-center justify-center flex-shrink-0"
                   style={{
                     width: '26px',
                     height: '26px',
@@ -62,43 +59,39 @@ export function HonestGuidance() {
                     background: 'rgba(255,255,255,0.1)',
                   }}
                 >
-                  <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
-                    <rect x="0" y="0" width="12" height="2" rx="1" fill="white" fillOpacity="0.7"/>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round">
+                    <line x1="6" y1="12" x2="18" y2="12" />
                   </svg>
                 </span>
-                <div>
-                  <p className="text-sm font-semibold text-white">{item.label}</p>
-                  <p className="text-sm text-white/55 leading-relaxed mt-0.5">{item.note}</p>
-                </div>
+                <p className="text-[15px] leading-[1.55] m-0" style={{ color: 'rgba(255,255,255,0.85)' }}>
+                  <strong className="text-white">{item.label}</strong>, {item.note}
+                </p>
               </div>
             ))}
           </div>
 
           {/* Horizontal divider */}
-          <div className="border-t border-white/10 mb-6" />
+          <div className="my-[6px]" style={{ height: '1px', background: 'rgba(255,255,255,0.12)', margin: '22px 0' }} />
 
-          <div className="flex items-start gap-3">
-            {/* Green circle with checkmark */}
+          <div className="flex items-start gap-[14px]">
             <span
-              className="flex items-center justify-center flex-shrink-0 mt-0.5"
+              className="flex items-center justify-center flex-shrink-0"
               style={{
                 width: '26px',
                 height: '26px',
                 borderRadius: '50%',
-                background: 'var(--green-500, #2EA84E)',
+                background: 'var(--green-500)',
                 boxShadow: '0 0 0 4px rgba(58,161,118,0.18)',
               }}
             >
-              <svg width="13" height="10" viewBox="0 0 13 10" fill="none">
-                <path d="M1.5 5l3.5 3.5 6.5-8" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="5 12 10 17 19 7" />
               </svg>
             </span>
-            <div>
-              <p className="text-sm font-semibold text-white">
-                <strong style={{ color: 'var(--green-300, #86EFAC)' }}>{recommendItem.label}</strong>
-              </p>
-              <p className="text-sm text-white/55 leading-relaxed mt-0.5">{recommendItem.note}</p>
-            </div>
+            <p className="text-[15px] leading-[1.55] m-0" style={{ color: 'rgba(255,255,255,0.92)' }}>
+              <strong className="block mb-0.5" style={{ color: 'var(--green-300)' }}>What we recommend instead</strong>
+              Treatments with a genuine evidence base — PRP, prolotherapy and focused shockwave — chosen for your situation.
+            </p>
           </div>
         </div>
       </div>

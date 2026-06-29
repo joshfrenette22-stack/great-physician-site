@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 export function WhyGPCTA() {
   return (
-    <section className="w-full py-10 px-10" data-reveal>
-      <div className="relative max-w-[1240px] mx-auto rounded-[28px] overflow-hidden" style={{ padding: '84px 56px' }}>
+    <section style={{ maxWidth: 1240, margin: '0 auto', padding: '80px 40px' }} data-reveal>
+      <div className="relative rounded-[28px] overflow-hidden text-center text-white" style={{ padding: '84px 56px' }}>
         {/* Background image */}
         <Image
           src="/images/stock/photo-1476480862126-209bfaa8edc8.jpg"
@@ -17,50 +17,51 @@ export function WhyGPCTA() {
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(120deg, rgba(18,46,66,0.94) 30%, rgba(44,130,93,0.86) 100%)',
+            background: 'linear-gradient(120deg, rgba(18,46,66,0.94) 28%, rgba(44,130,93,0.86) 100%)',
           }}
         />
         {/* Decorative ring */}
-        <div
+        <span
           className="absolute pointer-events-none"
           style={{
-            bottom: -120,
-            left: -80,
-            width: 500,
-            height: 500,
+            left: -130,
+            bottom: -160,
+            width: 360,
+            height: 360,
             borderRadius: '50%',
-            border: '60px solid rgba(255,255,255,0.07)',
+            border: '40px solid rgba(255,255,255,0.08)',
+            display: 'block',
           }}
         />
 
         {/* Content */}
-        <div className="relative z-10 text-center text-white max-w-[780px] mx-auto">
+        <div className="relative z-10">
           <h2
-            className="font-display font-black text-white mb-6"
-            style={{ fontSize: 50, letterSpacing: '-0.03em', lineHeight: 1.08 }}
+            className="font-display font-black text-white mx-auto"
+            style={{ fontSize: 48, lineHeight: 1.07, letterSpacing: '-0.03em', margin: '0 auto 18px', maxWidth: 700 }}
           >
             Let&apos;s find out if we can help.
           </h2>
           <p
-            className="text-white/80 mb-10"
-            style={{ fontSize: 19, lineHeight: 1.6, maxWidth: 560, margin: '0 auto 40px' }}
+            className="text-white/90 mx-auto"
+            style={{ fontSize: 19, lineHeight: 1.55, margin: '0 auto 34px', maxWidth: 560 }}
           >
-            A consultation starts with listening. No obligation — just an honest conversation about what&apos;s going on and whether we&apos;re the right fit.
+            A consultation is the honest first step, with no pressure and no obligation.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-5">
+          <div className="inline-flex gap-[14px] items-center flex-wrap justify-center">
             <Link
               href="/schedule"
-              className="inline-flex items-center gap-2 px-7 h-[52px] rounded-[12px] font-semibold tracking-[0.01em] text-teal-900 bg-green-500 border-[1.5px] border-transparent hover:bg-green-600 transition-colors duration-200"
+              className="inline-flex items-center justify-center px-7 h-[52px] rounded-[12px] font-semibold tracking-[0.01em] text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 transition-colors duration-200"
               style={{ fontSize: 16 }}
             >
               Schedule a Visit
             </Link>
             <Link
-              href="/contact"
-              className="inline-flex items-center gap-1.5 font-semibold text-white/80 hover:text-white transition-colors duration-200"
-              style={{ fontSize: 15 }}
+              href="/about"
+              className="inline-flex items-center gap-[9px] font-semibold text-white/92 hover:text-white transition-colors duration-200"
+              style={{ fontSize: 16 }}
             >
-              Contact us &rarr;
+              Meet Dr. Hric &rarr;
             </Link>
           </div>
         </div>

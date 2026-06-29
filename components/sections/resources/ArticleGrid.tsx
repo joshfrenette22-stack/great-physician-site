@@ -8,66 +8,85 @@ export function ArticleGrid() {
   const nonFeatured = articles.filter((a) => !a.featured);
 
   return (
-    <section className="bg-white py-12 pb-20" data-reveal>
-      <div className="max-w-[1180px] mx-auto px-10">
-        {/* Header row */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
-          <div>
-            <p className="gp-eyebrow text-green-700 mb-3">Articles &amp; guides</p>
-            <h2 className="font-display font-bold text-gray-900 text-3xl tracking-tight">
-              Learn at your own pace.
-            </h2>
-          </div>
-          {/* Filter pills — static, no JS needed */}
-          <div className="flex items-center gap-2 flex-wrap">
-            {FILTER_PILLS.map((pill, i) => (
-              <span
-                key={pill}
-                className={[
-                  'px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 cursor-default',
-                  i === 0
-                    ? 'bg-teal-600 text-white border-teal-600'
-                    : 'bg-white text-gray-600 border-gray-200',
-                ].join(' ')}
-              >
-                {pill}
-              </span>
-            ))}
-          </div>
+    <section className="bg-white" style={{ maxWidth: 1240, margin: '0 auto', padding: '64px 40px 20px' }} data-reveal>
+      {/* Header row */}
+      <div className="flex items-end justify-between gap-6 flex-wrap mb-9">
+        <div>
+          <p
+            className="font-semibold uppercase text-gray-400 mb-3"
+            style={{ fontSize: 13, letterSpacing: '0.16em' }}
+          >
+            Articles &amp; guides
+          </p>
+          <h2
+            className="font-display font-black text-teal-900"
+            style={{ fontSize: 40, letterSpacing: '-0.03em', margin: 0 }}
+          >
+            Learn at your own pace
+          </h2>
         </div>
-
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {nonFeatured.map((article) => (
-            <Link
-              key={article.slug}
-              href={`/resources/${article.slug}`}
-              className="group border border-gray-200 rounded-[20px] overflow-hidden hover:shadow-lg hover:-translate-y-[3px] transition-all duration-300 flex flex-col bg-white"
+        {/* Filter pills */}
+        <div className="flex items-center gap-[10px] flex-wrap">
+          {FILTER_PILLS.map((pill, i) => (
+            <span
+              key={pill}
+              className="cursor-default font-semibold"
+              style={{
+                padding: '9px 16px',
+                borderRadius: 999,
+                fontSize: 14,
+                background: i === 0 ? 'var(--teal-900, #0f2d3c)' : 'transparent',
+                color: i === 0 ? '#fff' : '#6b7280',
+                border: i === 0 ? 'none' : '1px solid #d1d5db',
+                fontWeight: i === 0 ? 600 : 500,
+              }}
             >
-              {/* Image */}
-              <div className="relative" style={{ height: 190 }}>
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
-                />
-              </div>
-              {/* Content */}
-              <div className="p-6 flex flex-col flex-1">
-                <p className="gp-eyebrow text-green-700 mb-3">{article.category}</p>
-                <h3 className="font-display font-bold text-gray-900 text-xl tracking-tight leading-tight mb-2 flex-1">
-                  {article.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                  {article.excerpt}
-                </p>
-                <p className="text-xs text-gray-400 font-medium">{article.readTime}</p>
-              </div>
-            </Link>
+              {pill}
+            </span>
           ))}
         </div>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[22px]">
+        {nonFeatured.map((article) => (
+          <Link
+            key={article.slug}
+            href={`/resources/${article.slug}`}
+            className="group border border-gray-200 overflow-hidden hover:shadow-lg hover:-translate-y-[3px] transition-all duration-300 flex flex-col bg-white"
+            style={{ borderRadius: 20, textDecoration: 'none' }}
+          >
+            {/* Image */}
+            <div className="relative" style={{ height: 190, overflow: 'hidden' }}>
+              <Image
+                src={article.image}
+                alt={article.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
+              />
+            </div>
+            {/* Content */}
+            <div className="flex flex-col flex-1" style={{ padding: '24px 24px 28px' }}>
+              <p
+                className="font-semibold uppercase text-teal-600"
+                style={{ fontSize: 12, letterSpacing: '0.1em', marginBottom: 11 }}
+              >
+                {article.category}
+              </p>
+              <h3
+                className="font-display font-bold text-teal-900 leading-tight"
+                style={{ fontSize: 21, lineHeight: 1.25, margin: '0 0 10px' }}
+              >
+                {article.title}
+              </h3>
+              <p className="text-gray-500 leading-relaxed" style={{ fontSize: 15, lineHeight: 1.55, margin: '0 0 18px' }}>
+                {article.excerpt}
+              </p>
+              <p className="text-gray-400 mt-auto" style={{ fontSize: 14 }}>{article.readTime}</p>
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );

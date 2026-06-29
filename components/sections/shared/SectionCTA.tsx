@@ -31,7 +31,7 @@ export function SectionCTA({
   return (
     <section className={`${bg} text-white`}>
       <div className="max-w-[1280px] mx-auto px-10 py-20 md:py-28 text-center">
-        <h2 className="font-display text-3xl md:text-4xl font-black tracking-tight">
+        <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-tight">
           {title}
         </h2>
         {subtitle && <p className="mt-4 text-lg text-teal-200 max-w-xl mx-auto">{subtitle}</p>}

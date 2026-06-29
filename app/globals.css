@@ -124,8 +124,8 @@
   --focus-ring: color-mix(in srgb, var(--teal-600) 45%, transparent);
 
   /* ── Font families ────────────────────────────────────── */
-  --font-display: var(--font-display), 'Schibsted Grotesk', 'Hanken Grotesk', system-ui, sans-serif;
-  --font-body: var(--font-body), 'Hanken Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Schibsted Grotesk', 'Hanken Grotesk', system-ui, sans-serif;
+  --font-body: 'Hanken Grotesk', 'Segoe UI', system-ui, sans-serif;
   --font-mono: 'SFMono-Regular', ui-monospace, Menlo, monospace;
 
   /* ── Font weights ─────────────────────────────────────── */

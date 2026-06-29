@@ -65,7 +65,7 @@ export default function SchedulePage() {
         <div className="relative max-w-[1240px] mx-auto px-10 py-24 md:py-32 text-center">
           <p className="gp-eyebrow text-green-300 mb-5">Schedule a visit</p>
           <h1
-            className="font-display font-black text-white tracking-tight leading-tight"
+            className="font-display font-extrabold text-white tracking-tight leading-tight"
             style={{ fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}
           >
             Let&apos;s get you scheduled.

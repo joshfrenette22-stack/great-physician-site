@@ -15,9 +15,10 @@ export default function FaqPage() {
       <FaqHero />
 
       {/* FAQ body */}
-      <section className="bg-white py-20">
+      <section className="bg-white">
         <div
-          className="max-w-[1180px] mx-auto px-5 md:px-10 grid grid-cols-1 md:grid-cols-[280px_1fr] gap-10 md:gap-16 items-start"
+          className="max-w-[1180px] mx-auto px-5 md:px-10 grid grid-cols-1 md:grid-cols-[280px_1fr] gap-16 items-start"
+          style={{ padding: '84px 40px 30px' }}
         >
           <FaqSidebar />
           <FaqAccordion />
@@ -25,25 +26,31 @@ export default function FaqPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-gray-50 border-t border-gray-100 py-20">
-        <div className="max-w-[1180px] mx-auto px-10 text-center">
-          <p className="gp-eyebrow text-gray-400 mb-4">Still have questions?</p>
-          <h2 className="font-display font-bold text-gray-900 text-3xl tracking-tight mb-5">
+      <section className="bg-gray-50 border-t border-gray-200">
+        <div className="max-w-[1080px] mx-auto px-10 py-20 text-center">
+          <h2
+            className="font-display font-extrabold text-teal-900 tracking-tight"
+            style={{ fontSize: 44, letterSpacing: '-0.03em', margin: '0 0 18px' }}
+          >
             Didn&apos;t find your answer?
           </h2>
-          <p className="text-gray-500 text-base max-w-md mx-auto leading-relaxed mb-8">
-            We&apos;re happy to talk it through personally. Reach out and we&apos;ll give you a straight answer.
+          <p
+            className="text-gray-500 mx-auto"
+            style={{ margin: '0 auto 30px', fontSize: 19, lineHeight: 1.55, maxWidth: 560 }}
+          >
+            Reach out and we&apos;ll give you a straight answer, even if the answer is that regenerative medicine isn&apos;t right for you.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="inline-flex gap-[14px] items-center">
             <Link
               href="/schedule"
-              className="inline-flex items-center justify-center px-7 h-[52px] rounded-[12px] font-semibold tracking-[0.01em] text-base text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 transition-colors duration-200 shadow-sm"
+              className="inline-flex items-center justify-center px-7 h-[52px] rounded-[12px] font-semibold tracking-[0.01em] text-base text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 transition-colors duration-200"
             >
-              Schedule a visit
+              Schedule a Visit
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-1.5 font-semibold text-gray-600 hover:text-teal-700 transition-colors duration-200 text-base"
+              className="inline-flex items-center gap-[9px] font-semibold text-teal-800 hover:text-teal-700 transition-colors duration-200"
+              style={{ fontSize: 16 }}
             >
               Contact us &rarr;
             </Link>

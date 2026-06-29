@@ -2,8 +2,8 @@ import Image from 'next/image';
 
 export function DoctorBand() {
   return (
-    <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 py-16">
-      <div className="relative rounded-[28px] overflow-hidden min-h-[560px]">
+    <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 pt-24 md:pt-[96px] pb-0">
+      <div className="relative rounded-[28px] overflow-hidden min-h-[560px] shadow-lg">
         {/* Background image */}
         <Image
           src="/images/hric-band.jpg"
@@ -16,7 +16,7 @@ export function DoctorBand() {
         {/* Left gradient scrim */}
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(100deg, rgba(16,42,59,0.92) 0%, rgba(16,42,59,0.70) 45%, rgba(16,42,59,0.20) 80%, transparent 100%)' }}
+          style={{ background: 'linear-gradient(90deg, rgba(10,28,40,0.8) 0%, rgba(10,28,40,0.46) 32%, rgba(10,28,40,0.06) 58%, rgba(10,28,40,0) 100%)' }}
         />
 
         {/* Top-left headline */}
@@ -24,14 +24,17 @@ export function DoctorBand() {
           className="absolute z-10"
           style={{ top: '56px', left: '56px', width: '46%' }}
         >
-          <h2 className="text-[24px] md:text-[36px] font-bold leading-snug text-white tracking-tight">
-            Great Physician is led by a physician who tells you the truth,{' '}
-            <mark
-              className="rounded-sm px-1 not-italic"
-              style={{ background: 'rgba(46,168,78,0.34)', color: 'inherit' }}
+          <h2
+            className="text-[24px] md:text-[36px] font-extrabold text-white tracking-tight"
+            style={{ fontFamily: 'var(--font-display)', lineHeight: 1.18, letterSpacing: '-0.02em' }}
+          >
+            Great Physician is led by a physician who{' '}
+            <span
+              style={{ background: 'rgba(88,205,153,0.34)', padding: '0 10px', borderRadius: '8px', WebkitBoxDecorationBreak: 'clone', boxDecorationBreak: 'clone' as never }}
             >
-              even when it costs him a sale.
-            </mark>
+              tells you the truth
+            </span>
+            , even when it costs him a sale.
           </h2>
         </div>
 
@@ -40,13 +43,13 @@ export function DoctorBand() {
           className="absolute z-10"
           style={{ left: '56px', bottom: '52px' }}
         >
-          <p className="text-[34px] font-black text-white tracking-tight leading-tight">Dr. Jerry Hric</p>
-          <p className="text-white/70 text-sm mb-4">Founder &amp; Regenerative Physician</p>
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold">
+          <div className="text-[34px] font-extrabold text-white leading-[1.08]" style={{ fontFamily: 'var(--font-display)' }}>Dr. Jerry Hric</div>
+          <div className="text-base mt-1" style={{ color: 'rgba(255,255,255,0.82)' }}>Founder &amp; Regenerative Physician</div>
+          <div className="flex gap-2 mt-4 flex-wrap">
+            <span className="text-[13px] font-semibold text-white rounded-full" style={{ background: 'rgba(255,255,255,0.18)', padding: '6px 13px' }}>
               MD
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold">
+            <span className="text-[13px] font-semibold text-white rounded-full" style={{ background: 'rgba(255,255,255,0.18)', padding: '6px 13px' }}>
               Regenerative Medicine
             </span>
           </div>
@@ -54,33 +57,31 @@ export function DoctorBand() {
 
         {/* White card — bottom right */}
         <div
-          className="absolute z-10 bg-white rounded-[16px] p-6 shadow-xl"
-          style={{ right: '40px', bottom: '40px', width: '320px' }}
+          className="absolute z-10 bg-white rounded-[18px] shadow-lg"
+          style={{ right: '40px', bottom: '40px', width: '320px', padding: '22px' }}
         >
-          {/* Gradient icon chip */}
-          <div className="flex items-center gap-3 mb-3">
-            <div
+          <div className="flex items-center gap-[11px] mb-3">
+            <span
               className="flex items-center justify-center flex-shrink-0"
               style={{
                 width: '38px',
                 height: '38px',
                 borderRadius: '11px',
-                background: 'linear-gradient(135deg, #235A7C, #2EA84E)',
+                background: 'var(--gradient-brand)',
               }}
             >
-              {/* Shield + check SVG */}
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 1.5L3 4v5c0 3.31 2.57 6.41 6 7 3.43-.59 6-3.69 6-7V4L9 1.5z" fill="white" fillOpacity="0.9"/>
-                <path d="M6.5 9l2 2 3.5-3.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 3l7 3v5c0 4.5-3 7-7 8-4-1-7-3.5-7-8V6z" />
+                <polyline points="9 11.5 11.5 14 15 9.5" />
               </svg>
-            </div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-green-600">
+            </span>
+            <span className="text-base font-bold" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-strong)' }}>
               Physician-performed
-            </p>
+            </span>
           </div>
-          <p className="text-[17px] font-bold text-gray-900 mb-2">Every treatment, done personally</p>
-          <p className="text-sm text-gray-500 leading-relaxed">
-            Dr. Hric performs every procedure himself — not a tech, not a PA. You always know exactly who is treating you.
+          <div className="text-[15px] font-bold mb-1" style={{ color: 'var(--text-strong)' }}>Every treatment, done personally</div>
+          <p className="text-sm leading-[1.55] m-0" style={{ color: 'var(--text-muted)' }}>
+            Dr. Hric performs each treatment himself, including every focused-shockwave session. Never handed to a technician.
           </p>
         </div>
       </div>

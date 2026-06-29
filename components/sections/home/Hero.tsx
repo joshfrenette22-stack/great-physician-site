@@ -43,26 +43,26 @@ export function Hero() {
           className="gp-hero max-w-[1240px] mx-auto px-5 md:px-10 pt-[48px] md:pt-[72px] pb-0 text-center flex flex-col items-center"
         >
           {/* Badge */}
-          <div className="gp-hero-child mb-6">
+          <div className="gp-hero-child">
             <Badge variant="green" dot>
               Regenerative medicine · Northern Colorado
             </Badge>
           </div>
 
           {/* Headline */}
-          <h1 className="gp-hero-child text-[38px] sm:text-[52px] md:text-[68px] font-black tracking-[-0.03em] leading-[1.06] max-w-[880px] text-gray-900 mb-6">
+          <h1 className="gp-hero-child text-[38px] sm:text-[52px] md:text-[68px] font-extrabold tracking-[-0.03em] leading-[1.04] max-w-[880px] text-gray-900 mt-[22px]" style={{ fontFamily: 'var(--font-display)' }}>
             Restore function. Avoid surgery.
             <br />
             <span className="gp-text-gradient">Reclaim your life.</span>
           </h1>
 
           {/* Subhead */}
-          <p className="gp-hero-child text-[17px] md:text-[20px] text-gray-500 max-w-[620px] leading-relaxed mb-10">
+          <p className="gp-hero-child text-[17px] md:text-[20px] text-gray-500 max-w-[620px] leading-[1.55] mt-[22px]">
             Evidence-based regenerative medicine in Northern Colorado, built on honest guidance, conservative care, and treatments that actually have the science behind them.
           </p>
 
           {/* CTA Buttons */}
-          <div className="gp-hero-child flex flex-col sm:flex-row items-center gap-4 mb-12">
+          <div className="gp-hero-child flex flex-col sm:flex-row items-center gap-[14px] mt-[30px]">
             <Link
               href="/schedule"
               className="inline-flex items-center justify-center px-7 h-[52px] text-lg font-semibold tracking-[0.01em] rounded-[12px] bg-teal-600 text-white border-[1.5px] border-transparent hover:bg-teal-700 active:bg-teal-800 shadow-sm transition-all duration-200"
@@ -71,15 +71,15 @@ export function Hero() {
             </Link>
             <Link
               href="#treat"
-              className="inline-flex items-center justify-center px-7 h-[52px] text-lg font-semibold tracking-[0.01em] rounded-[12px] bg-white text-teal-600 border-[1.5px] border-gray-300 hover:bg-teal-50 active:bg-gray-100 transition-all duration-200"
+              className="inline-flex items-center justify-center px-7 h-[52px] text-lg font-semibold tracking-[0.01em] rounded-[12px] bg-white text-teal-600 border-[1.5px] border-gray-300 hover:bg-teal-50 active:bg-teal-100 transition-all duration-200"
             >
               See what we treat
             </Link>
           </div>
 
           {/* Social proof */}
-          <div className="gp-hero-child flex items-center gap-3 pb-16">
-            <div className="flex -space-x-2">
+          <div className="gp-hero-child flex items-center gap-[14px] mt-[28px] pb-16">
+            <div className="flex -space-x-2.5">
               {[
                 '/images/stock/photo-1599566150163-29194dcaad36.jpg',
                 '/images/stock/photo-1472099645785-5658abf4ff4e.jpg',
@@ -87,7 +87,7 @@ export function Hero() {
               ].map((src, i) => (
                 <div
                   key={i}
-                  className="w-10 h-10 rounded-full border-2 border-white overflow-hidden relative"
+                  className="w-10 h-10 rounded-full border-2 border-white overflow-hidden relative shadow-sm"
                   style={{ zIndex: 3 - i }}
                 >
                   <Image
@@ -100,8 +100,8 @@ export function Hero() {
                 </div>
               ))}
             </div>
-            <p className="text-sm text-gray-500 text-left max-w-[260px]">
-              Now welcoming new patients, conservative care, honestly explained.
+            <p className="text-[15px] text-gray-700 text-left">
+              <strong className="text-gray-900">Now welcoming new patients</strong>, conservative care, honestly explained.
             </p>
           </div>
         </div>

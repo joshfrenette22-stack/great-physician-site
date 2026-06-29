@@ -2,56 +2,84 @@ import Link from 'next/link';
 
 export function HowItWorksCTA() {
   return (
-    <section className="w-full py-10 px-10" data-reveal>
+    <section style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 40px' }}>
       <div
-        className="relative max-w-[1240px] mx-auto rounded-[28px] overflow-hidden text-center text-white"
+        data-reveal
         style={{
+          position: 'relative',
+          overflow: 'hidden',
+          borderRadius: 28,
           background: 'var(--gradient-brand)',
           padding: '80px 56px',
+          textAlign: 'center',
+          color: '#fff',
+          boxShadow: 'var(--shadow-xl)',
         }}
       >
-        {/* Decorative rings */}
-        <div
-          className="absolute pointer-events-none"
+        {/* Decorative rings — matching design positions exactly */}
+        <span
           style={{
-            top: -100,
-            right: -80,
-            width: 420,
-            height: 420,
+            position: 'absolute',
+            width: 360,
+            height: 360,
             borderRadius: '50%',
-            border: '56px solid rgba(255,255,255,0.08)',
+            border: '40px solid rgba(255,255,255,0.08)',
+            left: -130,
+            bottom: -160,
+            pointerEvents: 'none',
           }}
         />
-        <div
-          className="absolute pointer-events-none"
+        <span
           style={{
-            bottom: -80,
-            left: -60,
-            width: 320,
-            height: 320,
+            position: 'absolute',
+            width: 260,
+            height: 260,
             borderRadius: '50%',
-            border: '44px solid rgba(255,255,255,0.06)',
+            border: '32px solid rgba(255,255,255,0.07)',
+            right: -90,
+            top: -120,
+            pointerEvents: 'none',
           }}
         />
 
         {/* Content */}
-        <div className="relative z-10 max-w-[640px] mx-auto">
+        <div style={{ position: 'relative' }}>
           <h2
-            className="font-display font-black text-white mb-5"
-            style={{ fontSize: 44, letterSpacing: '-0.03em', lineHeight: 1.1 }}
+            className="font-display"
+            style={{
+              fontWeight: 800,
+              fontSize: 44,
+              lineHeight: 1.1,
+              letterSpacing: '-0.025em',
+              color: '#fff',
+              margin: '0 auto 14px',
+              maxWidth: 660,
+            }}
           >
             Ready for a straight answer?
           </h2>
           <p
-            className="text-white/80 mb-10"
-            style={{ fontSize: 18, lineHeight: 1.6 }}
+            style={{
+              fontSize: 19,
+              lineHeight: 1.55,
+              color: 'rgba(255,255,255,0.9)',
+              maxWidth: 560,
+              margin: '0 auto 32px',
+            }}
           >
-            Schedule a consultation and Dr. Hric will tell you exactly what he thinks — including whether we&apos;re the right fit.
+            Schedule a visit and we&apos;ll talk through what&apos;s going on, and whether we can help.
           </p>
           <Link
             href="/schedule"
-            className="inline-flex items-center gap-2 px-8 h-[52px] rounded-[12px] font-semibold tracking-[0.01em] text-teal-900 bg-green-500 border-[1.5px] border-transparent hover:bg-green-600 transition-colors duration-200"
-            style={{ fontSize: 16 }}
+            className="inline-flex items-center gap-2 font-semibold hover:opacity-90 transition-opacity duration-200"
+            style={{
+              fontSize: 16,
+              padding: '14px 28px',
+              borderRadius: 12,
+              background: 'var(--color-accent-strong)',
+              color: '#fff',
+              textDecoration: 'none',
+            }}
           >
             Schedule a Visit
           </Link>

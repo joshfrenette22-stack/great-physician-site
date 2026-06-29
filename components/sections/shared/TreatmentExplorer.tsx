@@ -66,98 +66,155 @@ export function TreatmentExplorer() {
   const treatment = treatments[active];
 
   return (
-    <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 py-20">
+    <section
+      className="w-full max-w-[1240px] mx-auto"
+      style={{ padding: '90px 40px 30px', scrollMarginTop: 90 }}
+      id="explorer"
+    >
       {/* Heading */}
-      <div className="mb-12">
-        <p className="gp-eyebrow mb-3">Treatment explorer</p>
-        <h2 className="text-[28px] md:text-[46px] font-black tracking-tight leading-[1.08] text-gray-900 max-w-[640px]">
+      <div style={{ maxWidth: 760, marginBottom: 44 }}>
+        <p
+          className="gp-eyebrow"
+          style={{ marginBottom: 14 }}
+        >
+          Treatment explorer
+        </p>
+        <h2
+          className="font-display font-extrabold text-teal-900"
+          style={{ fontSize: 46, lineHeight: 1.04, letterSpacing: '-0.03em', margin: 0 }}
+        >
           Three therapies, chosen for the evidence behind them.
         </h2>
       </div>
 
-      {/* 2-col layout — stacks on mobile */}
-      <div className="flex flex-col md:flex-row gap-8 items-start">
+      {/* 2-col layout */}
+      <div style={{ display: 'grid', gridTemplateColumns: '340px 1fr', gap: 30, alignItems: 'stretch' }}>
         {/* Tab rail */}
-        <div className="w-full md:w-[340px] flex-shrink-0 flex flex-col gap-3">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {treatments.map((t, i) => {
             const isActive = i === active;
             return (
               <button
                 key={t.id}
                 onClick={() => selectTab(i)}
-                className="w-full text-left rounded-[14px] border px-5 py-4 transition-all duration-200 relative overflow-hidden"
+                className="text-left transition-colors duration-200"
                 style={{
-                  background: isActive ? '#EFF9F1' : '#fff',
-                  borderColor: isActive ? '#2EA84E' : '#DEE4EA',
+                  cursor: 'pointer',
+                  border: `1px solid ${isActive ? 'var(--color-primary)' : 'var(--border-default)'}`,
+                  background: isActive ? 'var(--green-50)' : 'var(--white)',
+                  borderRadius: 18,
+                  padding: '22px 24px',
+                  display: 'block',
                 }}
               >
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-green-600 mb-1">
+                <span
+                  style={{
+                    display: 'block',
+                    fontSize: 12,
+                    fontWeight: 600,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: isActive ? 'var(--color-primary)' : 'var(--text-subtle)',
+                    marginBottom: 8,
+                  }}
+                >
                   {t.tagline}
-                </p>
-                <p className="text-[15px] font-bold text-gray-900">{t.name}</p>
-
-                {/* Progress bar */}
-                {isActive && (
-                  <div className="absolute bottom-0 left-0 right-0 h-[4px] bg-gray-100">
-                    <div
-                      className="h-full bg-teal-500 transition-none"
-                      style={{ width: `${progress}%` }}
-                    />
-                  </div>
-                )}
+                </span>
+                <span
+                  className="font-display"
+                  style={{
+                    display: 'block',
+                    fontWeight: 700,
+                    fontSize: 22,
+                    color: 'var(--teal-900)',
+                  }}
+                >
+                  {t.name}
+                </span>
               </button>
             );
           })}
+
+          {/* Progress bar below all tabs */}
+          <div style={{ marginTop: 6, height: 4, borderRadius: 999, background: 'var(--gray-100)', overflow: 'hidden' }}>
+            <div
+              style={{
+                height: '100%',
+                width: `${progress}%`,
+                background: 'var(--color-primary)',
+                transition: 'width .15s linear',
+              }}
+            />
+          </div>
         </div>
 
         {/* Panel */}
         <div
-          className="flex-1 border border-gray-200 rounded-[20px] overflow-hidden transition-opacity duration-250"
-          style={{ opacity: fading ? 0 : 1 }}
+          className="transition-opacity"
+          style={{
+            position: 'relative',
+            minHeight: 470,
+            borderRadius: 24,
+            overflow: 'hidden',
+            border: '1px solid var(--border-default)',
+            boxShadow: 'var(--shadow-md)',
+            opacity: fading ? 0 : 1,
+            transition: 'opacity .5s ease',
+          }}
           aria-live="polite"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', height: '100%' }}>
             {/* Image */}
-            <div className="relative h-[320px] md:h-auto min-h-[280px]">
+            <div className="relative overflow-hidden">
               <Image
                 src={treatment.image}
                 alt={treatment.name}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 1280px) 50vw, 600px"
               />
             </div>
 
             {/* Description */}
-            <div className="p-8 flex flex-col justify-center bg-white">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-green-600 mb-2">
-                {treatment.tagline}
+            <div
+              className="bg-white flex flex-col justify-center"
+              style={{ padding: '44px 40px' }}
+            >
+              <h3
+                className="font-display"
+                style={{
+                  fontWeight: 800,
+                  fontSize: 30,
+                  letterSpacing: '-0.02em',
+                  color: 'var(--teal-900)',
+                  margin: '0 0 14px',
+                }}
+              >
+                {treatment.name}
+              </h3>
+              <p
+                style={{
+                  fontSize: 16.5,
+                  lineHeight: 1.62,
+                  color: 'var(--text-body)',
+                  margin: '0 0 22px',
+                }}
+              >
+                {treatment.description}
               </p>
-              <h3 className="text-[22px] font-bold text-gray-900 mb-4">{treatment.name}</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">{treatment.description}</p>
 
-              <div className="space-y-3">
-                <div className="flex items-start gap-2.5">
-                  <span className="w-4 h-4 rounded-full bg-green-100 flex-shrink-0 flex items-center justify-center mt-0.5">
-                    <svg width="8" height="6" viewBox="0 0 8 6" fill="none">
-                      <path d="M1 3L3 5L7 1" stroke="#1C7A39" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                <div style={{ display: 'flex', gap: 11, alignItems: 'flex-start' }}>
+                  <span style={{ flexShrink: 0, color: 'var(--color-primary)', fontWeight: 700 }}>✓</span>
+                  <span style={{ fontSize: 15, color: 'var(--text-muted)' }}>
+                    <strong style={{ color: 'var(--teal-900)' }}>Best for:</strong> {treatment.bestFor.join(', ')}.
                   </span>
-                  <div>
-                    <p className="text-xs font-semibold text-gray-700 uppercase tracking-wide mb-0.5">Best for</p>
-                    <p className="text-sm text-gray-600">{treatment.bestFor.join(', ')}</p>
-                  </div>
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <span className="w-4 h-4 rounded-full bg-green-100 flex-shrink-0 flex items-center justify-center mt-0.5">
-                    <svg width="8" height="6" viewBox="0 0 8 6" fill="none">
-                      <path d="M1 3L3 5L7 1" stroke="#1C7A39" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                <div style={{ display: 'flex', gap: 11, alignItems: 'flex-start' }}>
+                  <span style={{ flexShrink: 0, color: 'var(--color-primary)', fontWeight: 700 }}>✓</span>
+                  <span style={{ fontSize: 15, color: 'var(--text-muted)' }}>
+                    <strong style={{ color: 'var(--teal-900)' }}>Visit:</strong> {treatment.visitNote}
                   </span>
-                  <div>
-                    <p className="text-xs font-semibold text-gray-700 uppercase tracking-wide mb-0.5">Visit</p>
-                    <p className="text-sm text-gray-600">{treatment.visitNote}</p>
-                  </div>
                 </div>
               </div>
             </div>

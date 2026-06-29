@@ -17,7 +17,7 @@ const values: ValueStop[] = [
   {
     eyebrow: 'Our first principle',
     title: 'Conservative care, first',
-    body: 'We start with the least invasive, most evidence-based option. If physical therapy, prolotherapy, or shockwave will get you there, we won\'t lead with something more expensive or invasive. Your recovery matters more than our procedure volume.',
+    body: 'We start with the least invasive, least expensive option that can realistically help, and we\'ll tell you honestly when surgery is the better path.',
     images: [
       { src: '/images/stock/photo-1573497019940-1c28c88b4f3e.jpg', depth: 80, side: 'left' },
       { src: '/images/stock/photo-1486218119243-13883505764c.jpg', depth: 210, side: 'right' },
@@ -26,7 +26,7 @@ const values: ValueStop[] = [
   {
     eyebrow: 'One physician, start to finish',
     title: 'Physician-performed treatments',
-    body: 'Every regenerative treatment is performed by Dr. Hric himself. No techs. No physician assistants. When you schedule with us, you get Dr. Hric — every time, start to finish.',
+    body: 'Every regenerative treatment is performed by Dr. Hric himself, the same hands that diagnosed you, guiding the care that follows.',
     images: [
       { src: '/images/stock/photo-1576765608866-5b51046452be.jpg', depth: 210, side: 'left' },
       { src: '/images/stock/photo-1476480862126-209bfaa8edc8.jpg', depth: 80, side: 'right' },
@@ -35,7 +35,7 @@ const values: ValueStop[] = [
   {
     eyebrow: 'No hype, no overselling',
     title: 'Evidence-based, honestly explained',
-    body: 'We use treatments with real evidence behind them — and we explain the evidence honestly, including its limits. You\'ll know what to realistically expect before you spend a dollar.',
+    body: 'We use treatments with real evidence behind them, and we\'ll always tell you plainly what we do and don\'t yet know about your options.',
     images: [
       { src: '/images/stock/photo-1521119989659-a83eee488004.jpg', depth: 80, side: 'left' },
       { src: '/images/stock/photo-1530549387789-4c1017266635.jpg', depth: 210, side: 'right' },
@@ -44,7 +44,7 @@ const values: ValueStop[] = [
   {
     eyebrow: 'Why "Great Physician"',
     title: 'Whole-person stewardship',
-    body: 'Our name points to Jesus Christ — the Great Physician. We believe health is a gift to steward, and pain is rarely just physical. We look at the whole picture: movement, lifestyle, and the belief that you were made to flourish.',
+    body: 'Our name points to Jesus Christ, the Great Physician. We care for the whole person, body and spirit, as faithful stewards of the health you\'ve been given.',
     images: [
       { src: '/images/stock/photo-1551836022-d5d88e9218df.jpg', depth: 210, side: 'left' },
       { src: '/images/stock/photo-1452626038306-9aae5e071dd3.jpg', depth: 80, side: 'right' },
@@ -119,17 +119,18 @@ export function PinnedValuesScroll() {
 
           const textEl = textRefs.current[i];
           if (textEl) {
+            // Text: fade only, no movement — matches design JS (text position locked)
             textEl.style.opacity = String(opacity);
-            textEl.style.transform = `translateY(${(1 - opacity) * 24}px)`;
           }
 
-          // Images parallax
+          // Images: parallax using translate3d per design
           values[i].images.forEach((img, j) => {
             const imgEl = imageRefs.current[i * 2 + j];
             if (!imgEl) return;
-            imgEl.style.opacity = String(opacity * 0.9);
-            const parallax = (p - segCenter) * img.depth;
-            imgEl.style.transform = `translateY(${parallax}px)`;
+            const seg = p * (values.length - 1);
+            const d = seg - i;
+            imgEl.style.opacity = String(opacity);
+            imgEl.style.transform = `translate3d(0,${(d * -img.depth).toFixed(1)}px,0)`;
           });
         });
       });
@@ -151,18 +152,18 @@ export function PinnedValuesScroll() {
           {values.map((v) => (
             <div key={v.title} className="text-center text-white max-w-[500px] mx-auto">
               <p
-                className="uppercase font-semibold mb-4"
-                style={{ fontSize: 15, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.60)' }}
+                className="font-semibold mb-[22px]"
+                style={{ fontSize: 15, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.8)' }}
               >
                 {v.eyebrow}
               </p>
               <h2
-                className="font-display font-black mb-5 text-[30px] md:text-[52px]"
+                className="font-display font-extrabold mb-[22px] text-[30px] md:text-[52px]"
                 style={{ lineHeight: 1.05, letterSpacing: '-0.03em' }}
               >
                 {v.title}
               </h2>
-              <p style={{ fontSize: 20, lineHeight: 1.65, color: 'rgba(255,255,255,0.80)' }}>
+              <p style={{ fontSize: 20, lineHeight: 1.55, color: 'rgba(255,255,255,0.9)', margin: 0 }}>
                 {v.body}
               </p>
             </div>
@@ -191,42 +192,86 @@ export function PinnedValuesScroll() {
           aria-hidden="true"
         />
 
-        {/* Image groups */}
-        {values.map((v, i) =>
-          v.images.map((img, j) => {
-            const isLeft = img.side === 'left';
-            return (
-              <div
-                key={`${i}-${j}`}
-                ref={(el) => { imageRefs.current[i * 2 + j] = el; }}
-                className="absolute"
-                style={{
-                  [isLeft ? 'left' : 'right']: '5%',
-                  top: '50%',
-                  width: 260,
-                  height: 340,
-                  marginTop: -170,
-                  opacity: 0,
-                  willChange: 'transform, opacity',
-                  transition: 'opacity 0.3s ease',
-                }}
-                aria-hidden="true"
-              >
-                <Image
-                  src={img.src}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="260px"
-                  style={{
-                    borderRadius: 22,
-                    boxShadow: '0 30px 70px rgba(0,0,0,0.34)',
-                  }}
-                />
-              </div>
-            );
-          })
-        )}
+        {/* Image groups — per-value pair, matching design dimensions/positions exactly */}
+        {/* Group 0 */}
+        <div
+          ref={(el) => { imageRefs.current[0] = el; }}
+          className="absolute"
+          style={{ left: '4%', top: '10%', width: 420, height: 320, opacity: 1, willChange: 'transform, opacity' }}
+          aria-hidden="true"
+        >
+          <Image src={values[0].images[0].src} alt="" fill className="object-cover" sizes="420px"
+            style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.34)' }} />
+        </div>
+        <div
+          ref={(el) => { imageRefs.current[1] = el; }}
+          className="absolute"
+          style={{ right: '4.5%', bottom: '8%', width: 360, height: 450, opacity: 1, willChange: 'transform, opacity' }}
+          aria-hidden="true"
+        >
+          <Image src={values[0].images[1].src} alt="" fill className="object-cover" sizes="360px"
+            style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.36)' }} />
+        </div>
+
+        {/* Group 1 */}
+        <div
+          ref={(el) => { imageRefs.current[2] = el; }}
+          className="absolute"
+          style={{ left: '4%', top: '8%', width: 370, height: 460, opacity: 0, willChange: 'transform, opacity' }}
+          aria-hidden="true"
+        >
+          <Image src={values[1].images[0].src} alt="" fill className="object-cover" sizes="370px"
+            style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.36)' }} />
+        </div>
+        <div
+          ref={(el) => { imageRefs.current[3] = el; }}
+          className="absolute"
+          style={{ right: '4.5%', bottom: '11%', width: 410, height: 320, opacity: 0, willChange: 'transform, opacity' }}
+          aria-hidden="true"
+        >
+          <Image src={values[1].images[1].src} alt="" fill className="object-cover" sizes="410px"
+            style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.34)' }} />
+        </div>
+
+        {/* Group 2 */}
+        <div
+          ref={(el) => { imageRefs.current[4] = el; }}
+          className="absolute"
+          style={{ left: '4%', top: '10%', width: 420, height: 320, opacity: 0, willChange: 'transform, opacity' }}
+          aria-hidden="true"
+        >
+          <Image src={values[2].images[0].src} alt="" fill className="object-cover" sizes="420px"
+            style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.34)' }} />
+        </div>
+        <div
+          ref={(el) => { imageRefs.current[5] = el; }}
+          className="absolute"
+          style={{ right: '4.5%', bottom: '8%', width: 360, height: 450, opacity: 0, willChange: 'transform, opacity' }}
+          aria-hidden="true"
+        >
+          <Image src={values[2].images[1].src} alt="" fill className="object-cover" sizes="360px"
+            style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.36)' }} />
+        </div>
+
+        {/* Group 3 */}
+        <div
+          ref={(el) => { imageRefs.current[6] = el; }}
+          className="absolute"
+          style={{ left: '4%', top: '8%', width: 370, height: 450, opacity: 0, willChange: 'transform, opacity' }}
+          aria-hidden="true"
+        >
+          <Image src={values[3].images[0].src} alt="" fill className="object-cover" sizes="370px"
+            style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.36)' }} />
+        </div>
+        <div
+          ref={(el) => { imageRefs.current[7] = el; }}
+          className="absolute"
+          style={{ right: '4.5%', bottom: '10%', width: 380, height: 420, opacity: 0, willChange: 'transform, opacity' }}
+          aria-hidden="true"
+        >
+          <Image src={values[3].images[1].src} alt="" fill className="object-cover" sizes="380px"
+            style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.34)' }} />
+        </div>
 
         {/* Text groups */}
         {values.map((v, i) => (
@@ -242,18 +287,18 @@ export function PinnedValuesScroll() {
           >
             <div style={{ maxWidth: 500 }}>
               <p
-                className="uppercase font-semibold mb-5"
-                style={{ fontSize: 15, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.60)' }}
+                className="font-semibold mb-[22px]"
+                style={{ fontSize: 15, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.8)' }}
               >
                 {v.eyebrow}
               </p>
               <h2
-                className="font-display font-black mb-6 text-[28px] md:text-[52px]"
+                className="font-display font-extrabold mb-[22px] text-[28px] md:text-[52px]"
                 style={{ lineHeight: 1.05, letterSpacing: '-0.03em' }}
               >
                 {v.title}
               </h2>
-              <p style={{ fontSize: 20, lineHeight: 1.65, color: 'rgba(255,255,255,0.80)', margin: 0 }}>
+              <p style={{ fontSize: 20, lineHeight: 1.55, color: 'rgba(255,255,255,0.9)', margin: 0 }}>
                 {v.body}
               </p>
             </div>

@@ -141,70 +141,80 @@ export function BecomingChristian() {
   const current = STEPS[step];
 
   return (
-    <section className="bg-white py-24 border-t border-gray-100">
-      <div className="max-w-[1080px] mx-auto px-10">
+    <section className="bg-white">
+      <div className="max-w-[1100px] mx-auto" style={{ padding: '96px 40px 40px' }}>
         {/* Heading */}
-        <div className="text-center mb-14" data-reveal>
+        <div className="text-center mx-auto mb-[52px] max-w-[720px]" data-reveal>
+          <p
+            className="font-semibold uppercase text-teal-600 mb-[14px]"
+            style={{ fontSize: 13, letterSpacing: '0.16em' }}
+          >
+            Your first steps
+          </p>
           <h2
-            className="font-display font-black text-gray-900 tracking-tight leading-tight"
-            style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)' }}
+            className="font-display font-black text-teal-900 leading-tight"
+            style={{ fontSize: 44, lineHeight: 1.06, letterSpacing: '-0.03em', margin: '0 0 16px' }}
           >
             Would you like to become a Christian?
           </h2>
-          <p className="mt-4 text-gray-500 text-lg max-w-lg mx-auto leading-relaxed">
-            Here are three simple steps to get started.
+          <p className="text-gray-700 mx-auto" style={{ fontSize: 18, lineHeight: 1.62, margin: 0 }}>
+            If your heart is stirring, you can respond today. Here are three simple steps to begin a life with Jesus.
           </p>
         </div>
 
         {/* Card */}
-        <div className="border border-gray-200 rounded-[24px] overflow-hidden shadow-md" data-reveal>
+        <div
+          className="border border-gray-200 overflow-hidden"
+          style={{ borderRadius: 26, boxShadow: '0 2px 4px rgba(22,56,76,0.04), 0 18px 50px rgba(22,56,76,0.07)' }}
+          data-reveal
+        >
           {/* Stepper rail */}
-          <div className="bg-gray-50 border-b border-gray-200 px-8 py-5">
-            <div className="flex items-center justify-center gap-0 max-w-sm mx-auto">
+          <div className="border-b border-gray-200" style={{ padding: '32px 40px 28px' }}>
+            <div className="relative grid max-w-[600px] mx-auto" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
               {STEPS.map((s, i) => (
-                <div key={s.id} className="flex items-center flex-1 last:flex-none">
-                  {/* Node */}
-                  <button
-                    type="button"
-                    onClick={() => { setStep(i); setShowDecision(false); }}
-                    className={[
-                      'w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm shrink-0 transition-all duration-300 border-2',
-                      i === step
-                        ? 'bg-teal-600 text-white border-teal-600'
-                        : i < step
-                        ? 'bg-green-500 text-white border-green-500'
-                        : 'bg-white text-gray-400 border-gray-200',
-                    ].join(' ')}
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={() => { setStep(i); setShowDecision(false); }}
+                  className="relative z-[2] flex flex-col items-center gap-[10px] bg-transparent border-none cursor-pointer"
+                  style={{ fontFamily: 'inherit', padding: 0 }}
+                >
+                  <span
+                    className="flex items-center justify-center font-display font-black transition-all duration-300"
+                    style={{
+                      width: 46,
+                      height: 46,
+                      borderRadius: '50%',
+                      fontSize: 18,
+                      background: i <= step ? 'var(--green-600, #2c825d)' : 'var(--white, #fff)',
+                      color: i <= step ? '#fff' : '#9ca3af',
+                      border: `2px solid ${i <= step ? 'var(--green-600, #2c825d)' : '#d1d5db'}`,
+                      boxShadow: i === step ? '0 0 0 6px var(--green-100, #d1fae5)' : 'none',
+                      transform: i === step ? 'scale(1.08)' : 'scale(1)',
+                    }}
                   >
                     {i < step ? '✓' : i + 1}
-                  </button>
+                  </span>
                   <span
-                    className={[
-                      'text-xs font-semibold ml-2 mr-4',
-                      i === step ? 'text-teal-700' : i < step ? 'text-green-700' : 'text-gray-400',
-                    ].join(' ')}
+                    className="font-semibold"
+                    style={{
+                      fontSize: 13.5,
+                      color: i <= step ? '#0f2d3c' : '#9ca3af',
+                    }}
                   >
                     {s.label}
                   </span>
-                  {/* Line between nodes */}
-                  {i < STEPS.length - 1 && (
-                    <div
-                      className="flex-1 h-0.5 mr-4 rounded-full transition-all duration-500"
-                      style={{ background: i < step ? '#2EA84E' : '#E5E7EB' }}
-                    />
-                  )}
-                </div>
+                </button>
               ))}
             </div>
           </div>
 
           {/* Content */}
           <div
-            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}
-            className="min-h-[380px]"
+            style={{ display: 'grid', gridTemplateColumns: '0.82fr 1fr', minHeight: 460 }}
           >
             {/* Left: image */}
-            <div className="relative border-r border-gray-100">
+            <div className="relative overflow-hidden bg-teal-900">
               <Image
                 src={current.image}
                 alt={current.label}
@@ -212,43 +222,73 @@ export function BecomingChristian() {
                 className="object-cover transition-all duration-500"
                 sizes="(max-width: 768px) 100vw, 540px"
               />
-              <div className="absolute inset-0 bg-teal-900/20" />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: 'linear-gradient(165deg, rgba(18,46,66,0.32) 0%, rgba(18,46,66,0.05) 45%, rgba(18,46,66,0.42) 100%)' }}
+              />
+              <span
+                className="absolute font-display font-black text-white/92"
+                style={{ left: 30, bottom: 22, fontSize: 84, lineHeight: 1, textShadow: '0 6px 24px rgba(0,0,0,0.3)' }}
+              >
+                0{step + 1}
+              </span>
             </div>
 
             {/* Right: content */}
-            <div className="p-8 md:p-10 flex flex-col justify-center">
-              <p className="gp-eyebrow text-green-700 mb-3">Step {step + 1} of 3</p>
-              <h3 className="font-display font-bold text-gray-900 text-2xl tracking-tight mb-5">
-                {current.title}
-              </h3>
-              <div>{current.content}</div>
+            <div className="flex flex-col" style={{ padding: '44px 46px' }}>
+              <div className="relative flex-1" style={{ minHeight: 320 }}>
+                <div className="flex flex-col gap-[14px]">
+                  <span
+                    className="font-bold uppercase text-teal-600"
+                    style={{ fontSize: 12.5, letterSpacing: '0.16em' }}
+                  >
+                    Step {step + 1} of 3
+                  </span>
+                  <h3
+                    className="font-display font-black text-teal-900 leading-tight"
+                    style={{ fontSize: 30, lineHeight: 1.1, letterSpacing: '-0.02em', margin: 0 }}
+                  >
+                    {current.title}
+                  </h3>
+                  <div>{current.content}</div>
+                </div>
+              </div>
 
               {/* Nav */}
-              <div className="flex items-center gap-3 mt-8">
-                {step > 0 && (
-                  <button
-                    type="button"
-                    onClick={() => { setStep((s) => s - 1); setShowDecision(false); }}
-                    className="px-5 h-[34px] rounded-[8px] text-sm font-semibold tracking-[0.01em] text-gray-600 border-[1.5px] border-gray-300 hover:bg-teal-50 transition-all duration-200"
-                  >
-                    Back
-                  </button>
-                )}
+              <div
+                className="flex items-center justify-between gap-4 mt-6 pt-6"
+                style={{ borderTop: '1px solid var(--border-subtle, #f3f4f6)' }}
+              >
+                <button
+                  type="button"
+                  onClick={() => { setStep((s) => s - 1); setShowDecision(false); }}
+                  className="font-semibold text-gray-500 bg-transparent border-none cursor-pointer transition-colors duration-200 hover:text-teal-900"
+                  style={{
+                    visibility: step === 0 ? 'hidden' : 'visible',
+                    fontFamily: 'inherit',
+                    fontSize: 15,
+                    padding: '10px 4px',
+                  }}
+                >
+                  ← Back
+                </button>
                 {step < STEPS.length - 1 ? (
                   <button
                     type="button"
                     onClick={() => setStep((s) => s + 1)}
-                    className="px-6 h-[34px] rounded-[8px] text-sm font-semibold tracking-[0.01em] text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 transition-colors duration-200 shadow-sm"
+                    className="text-white bg-teal-600 border-none cursor-pointer font-bold rounded-[12px] transition-all duration-200 hover:bg-teal-700"
+                    style={{ fontFamily: 'inherit', fontSize: 15.5, padding: '14px 30px' }}
                   >
-                    Next
+                    Next step →
                   </button>
                 ) : (
                   <button
                     type="button"
                     onClick={() => setShowDecision(true)}
-                    className="px-6 h-[34px] rounded-[8px] text-sm font-semibold tracking-[0.01em] text-teal-900 bg-green-500 border-[1.5px] border-transparent hover:bg-green-600 transition-colors duration-200 shadow-sm"
+                    className="text-white bg-teal-600 border-none cursor-pointer font-bold rounded-[12px] transition-all duration-200 hover:bg-teal-700"
+                    style={{ fontFamily: 'inherit', fontSize: 15.5, padding: '14px 30px' }}
                   >
-                    I&apos;m ready
+                    Respond below ↓
                   </button>
                 )}
               </div>
@@ -257,11 +297,23 @@ export function BecomingChristian() {
         </div>
 
         {/* Decision form */}
-        {showDecision && (
-          <div className="mt-10" data-reveal>
-            <DecisionForm onBack={() => setShowDecision(false)} />
-          </div>
-        )}
+        <div
+          id="gp-decision-card"
+          className="mx-auto mt-10 bg-white border border-gray-200 rounded-[22px] shadow-md"
+          style={{ maxWidth: 720, padding: 40 }}
+          data-reveal
+        >
+          <h3
+            className="font-display font-black text-teal-900 text-center"
+            style={{ fontSize: 26, letterSpacing: '-0.02em', margin: '0 0 8px' }}
+          >
+            Did you pray that prayer today?
+          </h3>
+          <p className="text-gray-500 text-center mb-[26px]" style={{ fontSize: 16, lineHeight: 1.55, margin: '0 0 26px' }}>
+            Let us know so we can celebrate with you, pray for you, and help you take your next step.
+          </p>
+          <DecisionForm onBack={() => setShowDecision(false)} />
+        </div>
       </div>
     </section>
   );

@@ -15,9 +15,7 @@ export default function ServicesPage() {
   return (
     <>
       <ServicesHero />
-      <div id="treatments">
-        <TreatmentExplorer />
-      </div>
+      <TreatmentExplorer />
       <ConditionMatcher />
       <ProcessStrip />
       <ImmersiveCTA />
