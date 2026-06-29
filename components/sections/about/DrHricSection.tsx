@@ -46,18 +46,16 @@ export function DrHricSection() {
   return (
     <section className="bg-white w-full">
       <div
-        className="max-w-[1240px] mx-auto"
-        style={{ padding: '104px 40px' }}
+        className="max-w-[1240px] mx-auto px-5 md:px-10 py-16 md:py-[104px]"
       >
         <div
-          className="grid items-center"
-          style={{ gridTemplateColumns: '1fr 1.05fr', gap: 56 }}
+          className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-14"
         >
           {/* Left column */}
           <div>
             <h2
-              className="font-display font-black text-gray-900 mb-6"
-              style={{ fontSize: 50, letterSpacing: '-0.025em', lineHeight: 1.08 }}
+              className="font-display font-black text-gray-900 mb-6 text-[32px] md:text-[50px]"
+              style={{ letterSpacing: '-0.025em', lineHeight: 1.08 }}
             >
               Led by Dr. Hric &amp; a team who listens
             </h2>
@@ -88,10 +86,10 @@ export function DrHricSection() {
             </Link>
           </div>
 
-          {/* Right column — mosaic grid */}
+          {/* Right column — mosaic grid (hidden on mobile, shown md+) */}
           <div
+            className="hidden md:grid"
             style={{
-              display: 'grid',
               gridTemplateColumns: '1fr 1fr',
               gridAutoRows: '168px',
               gap: 14,

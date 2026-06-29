@@ -101,7 +101,7 @@ export function StepJourney() {
         aria-hidden="true"
       />
 
-      <div className="max-w-[1240px] mx-auto px-10 relative z-10">
+      <div className="max-w-[1240px] mx-auto px-5 md:px-10 relative z-10">
 
         {/* ── STEP 1 ── */}
         <div
@@ -112,8 +112,8 @@ export function StepJourney() {
           <StepBadge n={1} />
           <div className="mt-8 mb-10">
             <h2
-              className="font-display font-black text-gray-900"
-              style={{ fontSize: 48, letterSpacing: '-0.03em', lineHeight: 1.1 }}
+              className="font-display font-black text-gray-900 text-[28px] md:text-[48px]"
+              style={{ letterSpacing: '-0.03em', lineHeight: 1.1 }}
             >
               It starts with a simple{' '}
               <span className="text-green-700">conversation</span>
@@ -145,8 +145,8 @@ export function StepJourney() {
           <StepBadge n={2} />
           <div className="mt-8 mb-10">
             <h2
-              className="font-display font-black text-gray-900"
-              style={{ fontSize: 48, letterSpacing: '-0.03em', lineHeight: 1.1 }}
+              className="font-display font-black text-gray-900 text-[28px] md:text-[48px]"
+              style={{ letterSpacing: '-0.03em', lineHeight: 1.1 }}
             >
               Tell us what&apos;s going on,{' '}
               <span className="text-teal-600">body and lifestyle</span>
@@ -204,8 +204,8 @@ export function StepJourney() {
           <StepBadge n={3} />
           <div className="mt-8 mb-10">
             <h2
-              className="font-display font-black text-gray-900"
-              style={{ fontSize: 48, letterSpacing: '-0.03em', lineHeight: 1.1 }}
+              className="font-display font-black text-gray-900 text-[28px] md:text-[48px]"
+              style={{ letterSpacing: '-0.03em', lineHeight: 1.1 }}
             >
               Get a clear picture of{' '}
               <span className="text-green-700">what&apos;s going on</span>
@@ -363,8 +363,8 @@ export function StepJourney() {
           <StepBadge n={4} />
           <div className="mt-8 mb-10">
             <h2
-              className="font-display font-black text-gray-900"
-              style={{ fontSize: 48, letterSpacing: '-0.03em', lineHeight: 1.1 }}
+              className="font-display font-black text-gray-900 text-[28px] md:text-[48px]"
+              style={{ letterSpacing: '-0.03em', lineHeight: 1.1 }}
             >
               Physician-performed treatment,{' '}
               <span className="text-teal-600">done in person</span>
@@ -419,8 +419,8 @@ export function StepJourney() {
           <StepBadge n={5} />
           <div className="mt-8 mb-10">
             <h2
-              className="font-display font-black text-gray-900"
-              style={{ fontSize: 48, letterSpacing: '-0.03em', lineHeight: 1.1 }}
+              className="font-display font-black text-gray-900 text-[28px] md:text-[48px]"
+              style={{ letterSpacing: '-0.03em', lineHeight: 1.1 }}
             >
               Ongoing guidance,{' '}
               <span className="text-green-700">whenever you need it</span>

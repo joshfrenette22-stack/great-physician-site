@@ -35,11 +35,10 @@ export default function TermsPage() {
       {/* Body */}
       <section className="bg-white py-20">
         <div
-          className="max-w-[1120px] mx-auto px-10"
-          style={{ display: 'grid', gridTemplateColumns: '240px 1fr', gap: '64px', alignItems: 'start' }}
+          className="max-w-[1120px] mx-auto px-5 md:px-10 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-10 md:gap-16 items-start"
         >
-          {/* Sticky TOC */}
-          <aside className="sticky" style={{ top: 104 }}>
+          {/* Sticky TOC — sticky only on md+ */}
+          <aside className="md:sticky" style={{ top: 104 }}>
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
               Contents
             </p>

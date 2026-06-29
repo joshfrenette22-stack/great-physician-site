@@ -17,7 +17,7 @@ const cards = [
 
 export function WhyUsGrid() {
   return (
-    <section className="w-full max-w-[1240px] mx-auto px-10 py-16">
+    <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 py-16">
       {/* Doctor avatar chip */}
       <div className="flex items-center gap-3 mb-10">
         <div className="relative w-14 h-14 rounded-full overflow-hidden flex-shrink-0">

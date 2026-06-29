@@ -37,7 +37,7 @@ export function ContactForm() {
     'w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder:text-gray-400 text-base focus:outline-none focus:ring-[3px] focus:ring-green-100 focus:border-teal-600 transition-all duration-200 bg-white';
 
   return (
-    <div className="bg-white border border-gray-200 rounded-[22px] shadow-md p-10">
+    <div className="bg-white border border-gray-200 rounded-[22px] shadow-md p-6 md:p-10">
       <h2 className="font-display font-bold text-gray-900 text-[28px] tracking-tight mb-2">
         Schedule a visit
       </h2>
@@ -57,33 +57,39 @@ export function ContactForm() {
           {/* Row 1: First / Last */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1.5">
-                First name <span className="text-red-500">*</span>
+              <label htmlFor="firstName" className="block text-sm font-medium text-gray-900 mb-1.5">
+                First name <span className="text-red-500" aria-hidden="true">*</span>
               </label>
               <input
+                id="firstName"
                 type="text"
                 name="firstName"
                 autoComplete="given-name"
                 placeholder="Jane"
+                aria-required="true"
+                aria-describedby={errors.firstName ? 'firstName-error' : undefined}
                 className={fieldClass}
               />
               {errors.firstName && (
-                <p className="mt-1 text-sm text-red-600">{errors.firstName}</p>
+                <p id="firstName-error" className="mt-1 text-sm text-red-600" role="alert">{errors.firstName}</p>
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1.5">
-                Last name <span className="text-red-500">*</span>
+              <label htmlFor="lastName" className="block text-sm font-medium text-gray-900 mb-1.5">
+                Last name <span className="text-red-500" aria-hidden="true">*</span>
               </label>
               <input
+                id="lastName"
                 type="text"
                 name="lastName"
                 autoComplete="family-name"
                 placeholder="Smith"
+                aria-required="true"
+                aria-describedby={errors.lastName ? 'lastName-error' : undefined}
                 className={fieldClass}
               />
               {errors.lastName && (
-                <p className="mt-1 text-sm text-red-600">{errors.lastName}</p>
+                <p id="lastName-error" className="mt-1 text-sm text-red-600" role="alert">{errors.lastName}</p>
               )}
             </div>
           </div>
@@ -91,23 +97,27 @@ export function ContactForm() {
           {/* Row 2: Email / Phone */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1.5">
-                Email <span className="text-red-500">*</span>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-1.5">
+                Email <span className="text-red-500" aria-hidden="true">*</span>
               </label>
               <input
+                id="email"
                 type="email"
                 name="email"
                 autoComplete="email"
                 placeholder="jane@example.com"
+                aria-required="true"
+                aria-describedby={errors.email ? 'email-error' : undefined}
                 className={fieldClass}
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">{errors.email}</p>
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1.5">Phone</label>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-900 mb-1.5">Phone</label>
               <input
+                id="phone"
                 type="tel"
                 name="phone"
                 autoComplete="tel"
@@ -119,10 +129,11 @@ export function ContactForm() {
 
           {/* Area */}
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-900 mb-1.5">
+            <label htmlFor="area" className="block text-sm font-medium text-gray-900 mb-1.5">
               What area is bothering you?
             </label>
             <select
+              id="area"
               name="area"
               defaultValue=""
               className={fieldClass + ' appearance-none'}
@@ -138,10 +149,11 @@ export function ContactForm() {
 
           {/* Message */}
           <div className="mb-5">
-            <label className="block text-sm font-medium text-gray-900 mb-1.5">
+            <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-1.5">
               How can we help?
             </label>
             <textarea
+              id="message"
               name="message"
               rows={4}
               placeholder="Tell us a little about what's going on…"

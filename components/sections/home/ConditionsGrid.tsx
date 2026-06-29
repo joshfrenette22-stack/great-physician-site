@@ -11,11 +11,11 @@ export function ConditionsGrid() {
       style={{ background: '#F6F8FA' }}
       id="treat"
     >
-      <div className="max-w-[1240px] mx-auto px-10">
+      <div className="max-w-[1240px] mx-auto px-5 md:px-10">
         {/* Heading */}
         <div className="mb-4">
           <p className="gp-eyebrow mb-3">What we help with</p>
-          <h2 className="text-[40px] font-black tracking-tight text-gray-900 max-w-[600px] mb-4">
+          <h2 className="text-[28px] md:text-[40px] font-black tracking-tight text-gray-900 max-w-[600px] mb-4">
             Most patients come to us with pain that limits the life they want to live.
           </h2>
           <p className="text-gray-500 max-w-[560px] leading-relaxed">

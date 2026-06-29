@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export function DoctorBand() {
   return (
-    <section className="w-full max-w-[1240px] mx-auto px-10 py-16">
+    <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 py-16">
       <div className="relative rounded-[28px] overflow-hidden min-h-[460px] flex flex-col justify-between">
         {/* Background image */}
         <Image
@@ -20,8 +20,8 @@ export function DoctorBand() {
         />
 
         {/* Top-left headline */}
-        <div className="relative z-10 p-10 max-w-[560px]">
-          <h2 className="text-[36px] font-bold leading-snug text-white tracking-tight">
+        <div className="relative z-10 p-6 md:p-10 max-w-[560px]">
+          <h2 className="text-[24px] md:text-[36px] font-bold leading-snug text-white tracking-tight">
             Great Physician is led by a physician who tells you the truth,{' '}
             <mark
               className="rounded-sm px-1 not-italic"
@@ -33,7 +33,7 @@ export function DoctorBand() {
         </div>
 
         {/* Bottom row */}
-        <div className="relative z-10 p-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        <div className="relative z-10 p-6 md:p-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           {/* Doctor info */}
           <div>
             <p className="text-[34px] font-black text-white tracking-tight leading-tight">Dr. Jerry Hric</p>

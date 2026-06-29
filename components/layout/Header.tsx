@@ -25,7 +25,7 @@ export function Header() {
           <Logo height={36} />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-[26px] ml-[18px]">
+        <nav role="navigation" aria-label="Main navigation" className="hidden lg:flex items-center gap-[26px] ml-[18px]">
           {navLinks.map((link) => (
             <Link
               key={link.href}

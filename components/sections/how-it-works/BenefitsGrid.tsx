@@ -49,7 +49,7 @@ const benefits = [
 export function BenefitsGrid() {
   return (
     <section className="w-full bg-gray-50 border-t border-gray-100 py-24" data-reveal>
-      <div className="max-w-[1240px] mx-auto px-10">
+      <div className="max-w-[1240px] mx-auto px-5 md:px-10">
         {/* Heading */}
         <div className="text-center mb-14">
           <p className="gp-eyebrow mb-3">Why it works</p>

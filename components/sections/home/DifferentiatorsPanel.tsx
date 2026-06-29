@@ -87,11 +87,11 @@ export function DifferentiatorsPanel() {
   const Icon = principle.icon;
 
   return (
-    <section className="w-full max-w-[1240px] mx-auto px-10 py-16">
+    <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 py-16">
       {/* Section heading */}
       <div className="text-center mb-10">
         <p className="gp-eyebrow mb-3">Our approach</p>
-        <h2 className="text-[40px] font-black tracking-tight text-gray-900">
+        <h2 className="text-[28px] md:text-[40px] font-black tracking-tight text-gray-900">
           A different kind of regenerative medicine
         </h2>
       </div>
@@ -114,9 +114,9 @@ export function DifferentiatorsPanel() {
           style={{ background: 'radial-gradient(circle, rgba(53,110,145,0.15) 0%, transparent 70%)' }}
         />
 
-        <div className="relative z-10 grid grid-cols-[0.82fr_1.18fr] min-h-[480px]">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[0.82fr_1.18fr] min-h-[480px]">
           {/* Left: selector */}
-          <div className="border-r border-white/10 p-10 flex flex-col">
+          <div className="md:border-r border-b md:border-b-0 border-white/10 p-6 md:p-10 flex flex-col">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/40 mb-6">
               Three principles
             </p>
@@ -165,7 +165,7 @@ export function DifferentiatorsPanel() {
 
           {/* Right: detail panel */}
           <div
-            className="p-12 flex flex-col justify-between transition-opacity duration-250"
+            className="p-6 md:p-12 flex flex-col justify-between transition-opacity duration-250"
             style={{ opacity: fading ? 0 : 1 }}
           >
             {/* Ghost number */}

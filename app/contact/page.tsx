@@ -14,8 +14,7 @@ export default function ContactPage() {
       <ContactHero />
       <section className="bg-white py-20" data-reveal>
         <div
-          className="max-w-[1180px] mx-auto px-10"
-          style={{ display: 'grid', gridTemplateColumns: '1.35fr 1fr', gap: '32px', alignItems: 'start' }}
+          className="max-w-[1180px] mx-auto px-5 md:px-10 grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-8 items-start"
         >
           <ContactForm />
           <ContactInfo />

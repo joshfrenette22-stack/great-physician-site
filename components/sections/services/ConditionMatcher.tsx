@@ -52,13 +52,13 @@ export function ConditionMatcher() {
 
   return (
     <section className="w-full bg-gray-50 border-t border-gray-100 py-24" data-reveal>
-      <div className="max-w-[1240px] mx-auto px-10">
+      <div className="max-w-[1240px] mx-auto px-5 md:px-10">
         {/* Heading */}
         <div className="text-center mb-12">
           <p className="gp-eyebrow mb-3">Find your fit</p>
           <h2
-            className="font-display font-black text-gray-900 mb-4"
-            style={{ fontSize: 42, letterSpacing: '-0.03em', lineHeight: 1.1 }}
+            className="font-display font-black text-gray-900 mb-4 text-[28px] md:text-[42px]"
+            style={{ letterSpacing: '-0.03em', lineHeight: 1.1 }}
           >
             What&apos;s bothering you?
           </h2>
@@ -67,8 +67,8 @@ export function ConditionMatcher() {
           </p>
         </div>
 
-        {/* 2-col layout */}
-        <div className="grid gap-8 items-start" style={{ gridTemplateColumns: '1.1fr 1fr' }}>
+        {/* 2-col layout — stacks on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* Condition chips — 2×2 grid */}
           <div className="grid grid-cols-2 gap-4">
             {conditions.map((c, i) => {

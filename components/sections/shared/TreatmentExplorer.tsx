@@ -66,19 +66,19 @@ export function TreatmentExplorer() {
   const treatment = treatments[active];
 
   return (
-    <section className="w-full max-w-[1240px] mx-auto px-10 py-20">
+    <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 py-20">
       {/* Heading */}
       <div className="mb-12">
         <p className="gp-eyebrow mb-3">Treatment explorer</p>
-        <h2 className="text-[46px] font-black tracking-tight leading-[1.08] text-gray-900 max-w-[640px]">
+        <h2 className="text-[28px] md:text-[46px] font-black tracking-tight leading-[1.08] text-gray-900 max-w-[640px]">
           Three therapies, chosen for the evidence behind them.
         </h2>
       </div>
 
-      {/* 2-col layout */}
-      <div className="flex gap-8 items-start">
+      {/* 2-col layout — stacks on mobile */}
+      <div className="flex flex-col md:flex-row gap-8 items-start">
         {/* Tab rail */}
-        <div className="w-[340px] flex-shrink-0 flex flex-col gap-3">
+        <div className="w-full md:w-[340px] flex-shrink-0 flex flex-col gap-3">
           {treatments.map((t, i) => {
             const isActive = i === active;
             return (

@@ -24,7 +24,7 @@ const steps = [
 export function ProcessStrip() {
   return (
     <section className="w-full py-20 border-t border-gray-100" data-reveal>
-      <div className="max-w-[1240px] mx-auto px-10">
+      <div className="max-w-[1240px] mx-auto px-5 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
           {/* Left column: heading */}
           <div className="md:col-span-1 flex flex-col gap-4">

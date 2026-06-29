@@ -147,7 +147,7 @@ export function PinnedValuesScroll() {
   if (reducedMotion) {
     return (
       <section className="w-full py-24" style={{ background: '#1C7A39' }}>
-        <div className="max-w-[1240px] mx-auto px-10 flex flex-col gap-20">
+        <div className="max-w-[1240px] mx-auto px-5 md:px-10 flex flex-col gap-20">
           {values.map((v) => (
             <div key={v.title} className="text-center text-white max-w-[500px] mx-auto">
               <p
@@ -157,8 +157,8 @@ export function PinnedValuesScroll() {
                 {v.eyebrow}
               </p>
               <h2
-                className="font-display font-black mb-5"
-                style={{ fontSize: 52, lineHeight: 1.05, letterSpacing: '-0.03em' }}
+                className="font-display font-black mb-5 text-[30px] md:text-[52px]"
+                style={{ lineHeight: 1.05, letterSpacing: '-0.03em' }}
               >
                 {v.title}
               </h2>
@@ -248,8 +248,8 @@ export function PinnedValuesScroll() {
                 {v.eyebrow}
               </p>
               <h2
-                className="font-display font-black mb-6"
-                style={{ fontSize: 52, lineHeight: 1.05, letterSpacing: '-0.03em' }}
+                className="font-display font-black mb-6 text-[28px] md:text-[52px]"
+                style={{ lineHeight: 1.05, letterSpacing: '-0.03em' }}
               >
                 {v.title}
               </h2>

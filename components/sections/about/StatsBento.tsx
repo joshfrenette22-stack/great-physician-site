@@ -14,21 +14,19 @@ export function StatsBento() {
   return (
     <section className="bg-white w-full">
       <div
-        className="max-w-[1240px] mx-auto"
-        style={{ padding: '104px 40px 40px' }}
+        className="max-w-[1240px] mx-auto px-5 md:px-10 pt-16 md:pt-[104px] pb-10"
       >
         {/* Section heading */}
         <h2
-          className="font-display font-bold text-gray-900 text-center mx-auto mb-14"
-          style={{ fontSize: 46, letterSpacing: '-0.02em', maxWidth: 680 }}
+          className="font-display font-bold text-gray-900 text-center mx-auto mb-14 text-[28px] md:text-[46px]"
+          style={{ letterSpacing: '-0.02em', maxWidth: 680 }}
         >
           Great Physician sets the standard for conservative regenerative care
         </h2>
 
-        {/* 2x2 bento grid */}
+        {/* 2x2 bento grid — stacks on mobile */}
         <div
-          className="grid gap-[22px]"
-          style={{ gridTemplateColumns: '1fr 1fr', gridTemplateRows: 'auto auto' }}
+          className="grid gap-[22px] grid-cols-1 md:grid-cols-2"
         >
           {/* Card A — patients */}
           <div

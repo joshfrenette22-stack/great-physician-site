@@ -4,7 +4,7 @@ import { faqGroups } from '@/lib/data/faq';
 export function FaqSidebar() {
   return (
     <aside className="sticky" style={{ top: 104 }}>
-      <nav className="mb-6">
+      <nav role="navigation" aria-label="FAQ categories" className="mb-6">
         <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
           Categories
         </p>

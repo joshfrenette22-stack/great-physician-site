@@ -40,7 +40,7 @@ export function Hero() {
       <section className="bg-white w-full">
         <div
           ref={ref}
-          className="gp-hero max-w-[1240px] mx-auto px-10 pt-[72px] pb-0 text-center flex flex-col items-center"
+          className="gp-hero max-w-[1240px] mx-auto px-5 md:px-10 pt-[48px] md:pt-[72px] pb-0 text-center flex flex-col items-center"
         >
           {/* Badge */}
           <div className="gp-hero-child mb-6">
@@ -50,14 +50,14 @@ export function Hero() {
           </div>
 
           {/* Headline */}
-          <h1 className="gp-hero-child text-[68px] font-black tracking-[-0.03em] leading-[1.06] max-w-[880px] text-gray-900 mb-6">
+          <h1 className="gp-hero-child text-[38px] sm:text-[52px] md:text-[68px] font-black tracking-[-0.03em] leading-[1.06] max-w-[880px] text-gray-900 mb-6">
             Restore function. Avoid surgery.
             <br />
             <span className="gp-text-gradient">Reclaim your life.</span>
           </h1>
 
           {/* Subhead */}
-          <p className="gp-hero-child text-[20px] text-gray-500 max-w-[620px] leading-relaxed mb-10">
+          <p className="gp-hero-child text-[17px] md:text-[20px] text-gray-500 max-w-[620px] leading-relaxed mb-10">
             Evidence-based regenerative medicine in Northern Colorado, built on honest guidance, conservative care, and treatments that actually have the science behind them.
           </p>
 

@@ -50,9 +50,11 @@ export function FaqAccordion() {
                 <div key={key}>
                   <button
                     type="button"
+                    id={`faq-btn-${key}`}
                     onClick={() => toggle(key)}
                     className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors duration-200"
                     aria-expanded={isOpen}
+                    aria-controls={`faq-panel-${key}`}
                   >
                     <span className="font-semibold text-gray-900 text-base leading-snug">
                       {item.question}
@@ -62,6 +64,9 @@ export function FaqAccordion() {
                     </span>
                   </button>
                   <div
+                    id={`faq-panel-${key}`}
+                    role="region"
+                    aria-labelledby={`faq-btn-${key}`}
                     className="overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
                     style={{
                       maxHeight: isOpen ? '400px' : '0px',
