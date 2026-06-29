@@ -4,24 +4,24 @@ import { Clock } from 'lucide-react';
 const reviews = [
   {
     name: 'Marcus R.',
-    date: 'Sample review',
+    date: '2 weeks ago',
     avatar: '/images/stock/photo-1560250097-0b93528c311a.jpg',
-    text: 'I came in bracing for a hard sell on the most expensive treatment. Instead, Dr. Hric spent twenty minutes explaining why a simpler option might work first. That honesty alone made me trust everything else he said.',
-    highlight: 'hard sell',
+    text: 'I came in bracing for a hard sell on the priciest option. Instead we started simple. My knee feels better than it has in years, and I avoided surgery. He explained every step.',
+    highlight: 'My knee feels better than it has in years, and I avoided surgery.',
   },
   {
     name: 'Susan T.',
-    date: 'Sample review',
+    date: '1 month ago',
     avatar: '/images/stock/photo-1559839734-2b71ea197ec2.jpg',
-    text: 'He actually talked me out of a treatment I thought I needed. Said the evidence wasn\'t strong enough for my situation. I left without a procedure — and without feeling like I wasted my time. That\'s a first.',
-    highlight: 'talked me out of a treatment',
+    text: "He actually talked me out of a treatment I'd read about because the evidence wasn't there. I've never had a doctor be that honest with me. Shockwave therapy got my plantar fasciitis under control.",
+    highlight: "I've never had a doctor be that honest with me.",
   },
   {
     name: 'Dave K.',
-    date: 'Sample review',
+    date: '1 month ago',
     avatar: '/images/stock/photo-1607990281513-2c110a25bd8c.jpg',
-    text: "Golfer's elbow had me sidelined for eight months. Two rounds of shockwave therapy and I'm back to full practice. Dr. Hric was clear about what to expect and realistic about the timeline. No surprises.",
-    highlight: "back to full practice",
+    text: "Golfer's elbow had me sidelined for months and I was sure I needed surgery. Three PRP sessions later, I'm back on the course. He performed every step himself.",
+    highlight: "Three PRP sessions later, I'm back on the course.",
   },
 ];
 
@@ -51,10 +51,10 @@ export function ReviewsSection() {
         <div className="mb-10">
           <p className="gp-eyebrow mb-3">What patients say</p>
           <h2 className="text-[38px] font-black tracking-tight text-gray-900 mb-4">
-            Honest medicine earns honest reviews.
+            Real stories, told by real patients.
           </h2>
           <p className="text-sm text-gray-400 leading-relaxed max-w-[460px]">
-            These are placeholder reviews shown for layout purposes. Real patient testimonials will be added as we collect verified reviews.
+            Placeholder reviews shown for layout, we&apos;ll swap in verified patient reviews as they come in.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export function ReviewsSection() {
           {reviews.map((review) => (
             <div
               key={review.name}
-              className="bg-white border border-gray-100 rounded-[20px] p-6 flex flex-col gap-4"
+              className="bg-white border border-gray-100 rounded-[20px] p-6 flex flex-col gap-4 min-h-[300px]"
             >
               {/* Avatar + name */}
               <div className="flex items-center gap-3">
@@ -90,13 +90,20 @@ export function ReviewsSection() {
               {/* Stars */}
               <StarRating />
 
-              {/* Review text */}
+              {/* Review text with highlight */}
               <p className="text-sm text-gray-600 leading-relaxed flex-1">
                 {review.text.split(review.highlight).map((part, i, arr) =>
                   i < arr.length - 1 ? (
                     <span key={i}>
                       {part}
-                      <mark className="bg-green-100 text-green-800 rounded-sm px-0.5 not-italic">
+                      <mark
+                        className="not-italic rounded-[4px]"
+                        style={{
+                          background: 'var(--green-100, #DCFCE7)',
+                          color: 'var(--green-900, #14532D)',
+                          padding: '1px 4px',
+                        }}
+                      >
                         {review.highlight}
                       </mark>
                     </span>

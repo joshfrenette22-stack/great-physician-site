@@ -5,13 +5,14 @@ import { MapPin, ChevronRight } from 'lucide-react';
 export function EmotionalBand() {
   return (
     <section className="w-full max-w-[1240px] mx-auto px-10 py-8">
-      <div className="relative rounded-[28px] overflow-hidden min-h-[420px] flex items-center">
+      <div className="relative rounded-[28px] overflow-hidden min-h-[560px] flex items-center">
         {/* Background image */}
         <Image
           src="/images/stock/photo-1452626038306-9aae5e071dd3.jpg"
           alt="Active lifestyle"
           fill
           className="object-cover"
+          style={{ objectPosition: 'center 32%' }}
           sizes="1240px"
         />
 
@@ -38,7 +39,7 @@ export function EmotionalBand() {
 
             <div className="flex items-center gap-2 text-white/60 text-sm">
               <MapPin className="w-4 h-4" />
-              <span>Northern Colorado · Serving Loveland, Fort Collins & surrounding areas</span>
+              <span>Now welcoming patients across Northern Colorado</span>
             </div>
           </div>
         </div>

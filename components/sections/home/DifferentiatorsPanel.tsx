@@ -117,7 +117,10 @@ export function DifferentiatorsPanel() {
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-[0.82fr_1.18fr] min-h-[480px]">
           {/* Left: selector */}
           <div className="md:border-r border-b md:border-b-0 border-white/10 p-6 md:p-10 flex flex-col">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/40 mb-6">
+            <p
+              className="text-[11px] font-semibold uppercase tracking-[0.22em] mb-6"
+              style={{ color: 'rgba(130,209,149,0.95)' }}
+            >
               Three principles
             </p>
             <div className="flex flex-col gap-3 flex-1">
@@ -141,7 +144,7 @@ export function DifferentiatorsPanel() {
                         {p.number}
                       </span>
                       <p
-                        className="text-[14px] font-semibold leading-snug"
+                        className="text-[18px] font-bold leading-snug"
                         style={{ color: isActive ? '#fff' : 'rgba(255,255,255,0.50)' }}
                       >
                         {p.title}
@@ -152,8 +155,11 @@ export function DifferentiatorsPanel() {
                     {isActive && (
                       <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-white/10">
                         <div
-                          className="h-full bg-green-400"
-                          style={{ width: `${progress}%` }}
+                          className="h-full"
+                          style={{
+                            width: `${progress}%`,
+                            background: 'linear-gradient(90deg, #2EA84E, #82D195)',
+                          }}
                         />
                       </div>
                     )}
@@ -170,7 +176,7 @@ export function DifferentiatorsPanel() {
           >
             {/* Ghost number */}
             <div
-              className="text-[140px] font-black leading-none select-none"
+              className="text-[168px] font-black leading-none select-none"
               style={{ color: 'rgba(255,255,255,0.04)', lineHeight: 1 }}
             >
               {principle.number}
@@ -178,21 +184,30 @@ export function DifferentiatorsPanel() {
 
             <div className="-mt-16">
               {/* Icon chip */}
-              <div className="w-12 h-12 rounded-[12px] bg-green-500/20 flex items-center justify-center mb-6">
-                <Icon className="w-5 h-5 text-green-400" />
+              <div
+                className="w-14 h-14 rounded-[16px] flex items-center justify-center mb-6"
+                style={{
+                  background: 'linear-gradient(135deg, #235A7C, #2EA84E)',
+                  boxShadow: '0 14px 26px -10px rgba(46,168,78,0.6)',
+                }}
+              >
+                <Icon className="w-5 h-5 text-white" />
               </div>
 
-              <h3 className="text-[28px] font-black text-white leading-snug tracking-tight mb-4">
+              <h3 className="text-[30px] font-black text-white leading-snug tracking-tight mb-4">
                 {principle.title}
               </h3>
-              <p className="text-white/65 leading-relaxed text-[16px] mb-8">
+              <p
+                className="leading-relaxed text-[17px] mb-8"
+                style={{ color: 'rgba(220,232,239,0.86)' }}
+              >
                 {principle.body}
               </p>
 
               {/* Badge */}
               <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-white/10 border border-white/14">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                <span className="text-xs font-semibold text-white/80">{principle.badge}</span>
+                <span className="text-xs font-semibold" style={{ color: '#B4E4C0' }}>{principle.badge}</span>
               </div>
             </div>
           </div>

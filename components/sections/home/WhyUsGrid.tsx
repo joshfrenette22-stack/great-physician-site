@@ -5,21 +5,21 @@ const cards = [
     image: '/images/stock/photo-1576765608866-5b51046452be.jpg',
     titleTeal: 'Whole-person',
     titleGray: 'lasting results',
-    body: 'We pair treatment with real guidance — because getting better means understanding why you hurt and what will actually keep you moving.',
+    body: 'We pair treatment with real guidance on movement, nutrition, sleep and weight, so the results actually last.',
   },
   {
     image: '/images/stock/photo-1486218119243-13883505764c.jpg',
     titleTeal: 'Conservative care,',
     titleGray: 'first',
-    body: 'We start with the least invasive option that still has the evidence behind it. Surgery and pharmaceuticals aren\'t the first call here — they\'re the last resort.',
+    body: "We start with the least invasive, least expensive option that can realistically help, and tell you honestly when surgery is the better path.",
   },
 ];
 
 export function WhyUsGrid() {
   return (
     <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 py-16">
-      {/* Doctor avatar chip */}
-      <div className="flex items-center gap-3 mb-10">
+      {/* Doctor avatar chip — centered */}
+      <div className="flex items-center justify-center gap-[14px] mb-12">
         <div className="relative w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
           <Image
             src="/images/hric-headshot.jpg"
@@ -31,8 +31,13 @@ export function WhyUsGrid() {
           <span className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-green-500 border-2 border-white" />
         </div>
         <div>
-          <p className="text-sm font-bold text-gray-900 leading-tight">Dr. Jerry Hric</p>
-          <p className="text-xs text-gray-500">Founder & Regenerative Physician</p>
+          <p
+            className="font-bold leading-tight"
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '18px', color: '#111' }}
+          >
+            Dr. Jerry Hric
+          </p>
+          <p style={{ fontSize: '14px', color: '#6B7280' }}>Founder &amp; Regenerative Physician</p>
         </div>
       </div>
 
@@ -62,7 +67,7 @@ export function WhyUsGrid() {
 
             {/* Text */}
             <div className="px-9 pb-9 pt-0 flex-1">
-              <h3 className="text-[22px] font-bold leading-snug mb-3">
+              <h3 className="text-[28px] font-bold leading-snug mb-3">
                 <span className="text-teal-500">{card.titleTeal} </span>
                 <span className="text-gray-900">{card.titleGray}</span>
               </h3>

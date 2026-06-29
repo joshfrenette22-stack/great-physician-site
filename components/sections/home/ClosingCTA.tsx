@@ -1,27 +1,47 @@
 import Link from 'next/link';
-import { Phone, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 export function ClosingCTA() {
   return (
     <section className="w-full max-w-[1240px] mx-auto px-10 py-8 pb-20">
       <div
-        className="relative rounded-[28px] overflow-hidden text-center py-20 px-10"
-        style={{ background: 'linear-gradient(100deg, #16384C 0%, #235A7C 42%, #2EA84E 100%)' }}
+        className="relative rounded-[28px] overflow-hidden text-center"
+        style={{
+          padding: '80px 56px',
+          background: 'linear-gradient(100deg, #16384C 0%, #235A7C 42%, #2EA84E 100%)',
+        }}
       >
-        {/* Decorative rings */}
+        {/* Decorative rings — thick borders matching design */}
         <div
-          className="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full pointer-events-none"
-          style={{ border: '1px solid rgba(255,255,255,0.06)' }}
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            right: '-90px',
+            top: '-120px',
+            width: '260px',
+            height: '260px',
+            border: '32px solid rgba(255,255,255,0.07)',
+          }}
         />
         <div
-          className="absolute -bottom-20 -left-20 w-[300px] h-[300px] rounded-full pointer-events-none"
-          style={{ border: '1px solid rgba(255,255,255,0.06)' }}
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            left: '-130px',
+            bottom: '-160px',
+            width: '360px',
+            height: '360px',
+            border: '40px solid rgba(255,255,255,0.08)',
+          }}
         />
 
         {/* Location badge */}
         <div className="relative z-10 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-8">
           <MapPin className="w-3.5 h-3.5 text-green-300" />
-          <span className="text-xs font-semibold text-white/80">Northern Colorado</span>
+          <span
+            className="text-white/80"
+            style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.04em' }}
+          >
+            Northern Colorado
+          </span>
         </div>
 
         {/* Headline */}
@@ -31,10 +51,10 @@ export function ClosingCTA() {
 
         {/* Body */}
         <p className="relative z-10 text-white/70 text-[17px] leading-relaxed max-w-[560px] mx-auto mb-4">
-          Most patients spend months or years managing pain instead of addressing it. A single conversation with Dr. Hric is often enough to know whether regenerative medicine is right for you.
+          Conveniently located within Dr. Tyler Wood&apos;s office. Schedule a visit and we&apos;ll talk through what&apos;s going on and whether we can help.
         </p>
         <p className="relative z-10 text-white/55 text-sm max-w-[460px] mx-auto mb-10">
-          New patients are always welcome. We keep scheduling straightforward because getting the first appointment shouldn&apos;t be the hard part.
+          We&apos;ll start with the least invasive, least expensive option that can realistically help, and tell you honestly if surgery is the better path.
         </p>
 
         {/* CTAs */}
@@ -47,9 +67,12 @@ export function ClosingCTA() {
           </Link>
           <a
             href="tel:+19705550142"
-            className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium transition-colors"
+            className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+            style={{ fontSize: '16px', fontWeight: 600 }}
           >
-            <Phone className="w-4 h-4" />
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.5 11.5v2a1.33 1.33 0 01-1.45 1.33 13.18 13.18 0 01-5.75-2.04 13 13 0 01-4-4 13.18 13.18 0 01-2.04-5.78A1.33 1.33 0 012.58 1.5h2a1.33 1.33 0 011.33 1.15c.085.66.24 1.31.47 1.94a1.33 1.33 0 01-.3 1.41L5.09 7a10.67 10.67 0 004 4l.97-.97a1.33 1.33 0 011.41-.3c.63.23 1.28.385 1.94.47a1.33 1.33 0 011.15 1.33z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
             or call (970) 555-0142
           </a>
         </div>

@@ -66,8 +66,8 @@ export function TreatmentCardGrid() {
             <div
               className="relative mt-4 flex-1 min-h-[180px]"
               style={{
-                maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
+                maskImage: 'linear-gradient(to top, transparent 0%, black 28%)',
+                WebkitMaskImage: 'linear-gradient(to top, transparent 0%, black 28%)',
               }}
             >
               <Image

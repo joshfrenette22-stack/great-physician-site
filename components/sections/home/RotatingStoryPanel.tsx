@@ -6,18 +6,25 @@ import Link from 'next/link';
 
 const slides = [
   {
-    eyebrow: 'Active lifestyles',
-    conditionLabel: 'Sports & overuse',
-    title: "Your weekend shouldn't end with a heating pad.",
-    body: "We help active adults in Northern Colorado get back to golf, hiking, pickleball and the things that define a good weekend, without surgery and without pretending a cortisone shot is a long-term answer.",
-    bg: '/images/stock/photo-1476480862126-209bfaa8edc8.jpg',
+    eyebrow: 'Back & neck pain',
+    conditionLabel: 'Back & neck pain',
+    title: 'Calm the source, not just the symptom.',
+    body: 'When neck and back pain hasn\'t responded to rest or therapy, targeted regenerative treatment can address the irritated tissue itself, helping the area settle and heal.',
+    bg: '/images/joint-spine.png',
   },
   {
-    eyebrow: 'Chronic conditions',
-    conditionLabel: 'Ongoing & unresolved',
-    title: "Pain that won't quit deserves more than a prescription.",
-    body: "If you've been told there's nothing left to try, we'd like a second look. Regenerative medicine isn't a miracle, but for the right patient it can change the trajectory.",
-    bg: '/images/stock/photo-1504052434569-70ad5836ab65.jpg',
+    eyebrow: 'Shoulder & joint pain',
+    conditionLabel: 'Shoulder & joint pain',
+    title: 'Rebuild the joint, not replace it.',
+    body: 'Rotator cuff, tendon and ligament damage often respond to PRP, prolotherapy or focused shockwave, a conservative path worth exploring before you ever consider surgery.',
+    bg: '/images/joint-shoulder.png',
+  },
+  {
+    eyebrow: 'Knee & arthritis',
+    conditionLabel: 'Knee & arthritis',
+    title: 'Ease arthritis, keep moving.',
+    body: 'For worn, arthritic knees, regenerative options can calm inflammation and support the joint, helping you stay active without rushing toward a replacement.',
+    bg: '/images/joint-knee.png',
   },
 ];
 
@@ -59,12 +66,12 @@ export function RotatingStoryPanel() {
         onMouseEnter={() => { hoverRef.current = true; }}
         onMouseLeave={() => { hoverRef.current = false; }}
       >
-        {/* Background images — crossfade */}
+        {/* Background images — crossfade with soft-light blend */}
         {slides.map((s, i) => (
           <div
             key={i}
             className="absolute inset-0 transition-opacity duration-700"
-            style={{ opacity: i === active ? 1 : 0 }}
+            style={{ opacity: i === active ? 0.6 : 0, mixBlendMode: 'soft-light' }}
           >
             <Image
               src={s.bg}
@@ -83,10 +90,16 @@ export function RotatingStoryPanel() {
           style={{ background: 'linear-gradient(90deg, rgba(16,42,59,0.88) 0%, rgba(16,42,59,0.60) 55%, transparent 100%)' }}
         />
 
-        {/* Decorative ring */}
+        {/* Decorative ring — bottom left, thick border */}
         <div
-          className="absolute -right-24 -top-24 w-[480px] h-[480px] rounded-full pointer-events-none"
-          style={{ border: '1px solid rgba(255,255,255,0.06)' }}
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            left: '-160px',
+            bottom: '-180px',
+            width: '420px',
+            height: '420px',
+            border: '44px solid rgba(255,255,255,0.06)',
+          }}
         />
 
         {/* Content */}
@@ -118,20 +131,25 @@ export function RotatingStoryPanel() {
           {/* CTA + dots */}
           <div className="flex items-center gap-6">
             <Link
-              href="/services"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-teal-800 text-sm font-semibold hover:bg-gray-50 transition-colors"
+              href="/schedule"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold transition-colors"
+              style={{ background: '#2EA84E', color: '#fff' }}
             >
-              See all conditions
+              Schedule a Visit
             </Link>
 
-            {/* Dot pagination */}
+            {/* Dot pagination — elongated pills when active */}
             <div className="flex items-center gap-2">
               {slides.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => goTo(i)}
-                  className="w-2 h-2 rounded-full transition-all duration-300"
-                  style={{ background: i === active ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.30)' }}
+                  className="rounded-full transition-all duration-300"
+                  style={{
+                    width: i === active ? '30px' : '9px',
+                    height: '9px',
+                    background: i === active ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.30)',
+                  }}
                   aria-label={`Go to slide ${i + 1}`}
                 />
               ))}

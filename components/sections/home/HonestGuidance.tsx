@@ -1,20 +1,19 @@
 import Link from 'next/link';
-import { MinusCircle, CheckCircle } from 'lucide-react';
 
 const cautionItems = [
   {
-    label: 'Stem cell therapy',
-    note: 'Most marketed "stem cell" products do not contain living stem cells. We don\'t offer them until the evidence is clearer.',
+    label: 'Stem cell injections',
+    note: 'heavily promoted, often very expensive, evidence frequently thin for most patients.',
   },
   {
-    label: 'Exosomes',
-    note: 'Promising research, but current products are inconsistent and largely unregulated. We\'re watching this space carefully.',
+    label: 'Exosomes & fat-derived products',
+    note: 'high cost that rarely matches the documented benefit.',
   },
 ];
 
 const recommendItem = {
-  label: 'What we do offer',
-  note: 'PRP, prolotherapy, and focused shockwave therapy — three modalities with a clear, peer-reviewed evidence base for the conditions we treat.',
+  label: 'What we recommend instead',
+  note: 'Treatments with a genuine evidence base — PRP, prolotherapy and focused shockwave — chosen for your situation.',
 };
 
 export function HonestGuidance() {
@@ -25,13 +24,13 @@ export function HonestGuidance() {
         <div>
           <p className="gp-eyebrow mb-4">Education as care</p>
           <h2 className="text-[40px] font-black tracking-tight text-gray-900 leading-tight mb-6">
-            We&apos;ll tell you what we don&apos;t recommend — and why.
+            Straight answers about what works
           </h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            The regenerative medicine market moves fast, and not everything being sold has the science to back it up. Part of our job is helping you sort through the noise — even if that means telling you something isn&apos;t ready yet.
+            The regenerative medicine field is full of bold promises — stem cells, exosomes, fat-derived injections — often at steep prices and with thin evidence. We take a different approach.
           </p>
           <p className="text-gray-600 leading-relaxed mb-8">
-            Honest guidance isn&apos;t just a selling point. It&apos;s the only way to actually earn trust, and the only way to actually help people.
+            We&apos;ll tell you what the research actually supports, what we&apos;d recommend for your situation, and what we&apos;d steer you away from — even when steering you away costs us a sale. That honesty is the point.
           </p>
           <Link
             href="/blog"
@@ -53,7 +52,20 @@ export function HonestGuidance() {
           <div className="space-y-4 mb-6">
             {cautionItems.map((item) => (
               <div key={item.label} className="flex items-start gap-3">
-                <MinusCircle className="w-5 h-5 text-white/40 flex-shrink-0 mt-0.5" />
+                {/* Plain circle with minus line */}
+                <span
+                  className="flex items-center justify-center flex-shrink-0 mt-0.5"
+                  style={{
+                    width: '26px',
+                    height: '26px',
+                    borderRadius: '50%',
+                    background: 'rgba(255,255,255,0.1)',
+                  }}
+                >
+                  <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
+                    <rect x="0" y="0" width="12" height="2" rx="1" fill="white" fillOpacity="0.7"/>
+                  </svg>
+                </span>
                 <div>
                   <p className="text-sm font-semibold text-white">{item.label}</p>
                   <p className="text-sm text-white/55 leading-relaxed mt-0.5">{item.note}</p>
@@ -62,13 +74,30 @@ export function HonestGuidance() {
             ))}
           </div>
 
-          <div className="border-t border-white/10 pt-6">
-            <div className="flex items-start gap-3">
-              <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm font-semibold text-white">{recommendItem.label}</p>
-                <p className="text-sm text-white/55 leading-relaxed mt-0.5">{recommendItem.note}</p>
-              </div>
+          {/* Horizontal divider */}
+          <div className="border-t border-white/10 mb-6" />
+
+          <div className="flex items-start gap-3">
+            {/* Green circle with checkmark */}
+            <span
+              className="flex items-center justify-center flex-shrink-0 mt-0.5"
+              style={{
+                width: '26px',
+                height: '26px',
+                borderRadius: '50%',
+                background: 'var(--green-500, #2EA84E)',
+                boxShadow: '0 0 0 4px rgba(58,161,118,0.18)',
+              }}
+            >
+              <svg width="13" height="10" viewBox="0 0 13 10" fill="none">
+                <path d="M1.5 5l3.5 3.5 6.5-8" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+            <div>
+              <p className="text-sm font-semibold text-white">
+                <strong style={{ color: 'var(--green-300, #86EFAC)' }}>{recommendItem.label}</strong>
+              </p>
+              <p className="text-sm text-white/55 leading-relaxed mt-0.5">{recommendItem.note}</p>
             </div>
           </div>
         </div>
