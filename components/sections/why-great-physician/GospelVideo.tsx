@@ -29,7 +29,7 @@ export function GospelVideo() {
             The most important thing we can share
           </p>
           <h2
-            className="font-display font-black text-white leading-tight"
+            className="font-display font-extrabold text-white leading-tight"
             style={{ fontSize: 46, lineHeight: 1.08, letterSpacing: '-0.03em', margin: '0 0 18px' }}
           >
             The good news of Jesus Christ

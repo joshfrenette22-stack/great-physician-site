@@ -28,7 +28,7 @@ export function PrayerRequest() {
             How can we pray for you?
           </p>
           <h2
-            className="font-display font-black text-teal-900 leading-tight"
+            className="font-display font-extrabold text-teal-900 leading-tight"
             style={{ fontSize: 42, lineHeight: 1.07, letterSpacing: '-0.03em', margin: '0 0 16px' }}
           >
             Submit a prayer request

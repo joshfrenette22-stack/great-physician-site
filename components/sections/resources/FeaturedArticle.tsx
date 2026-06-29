@@ -42,7 +42,7 @@ export function FeaturedArticle() {
             Featured &middot; Guide
           </span>
           <h2
-            className="font-display font-black text-teal-900 leading-tight"
+            className="font-display font-extrabold text-teal-900 leading-tight"
             style={{ fontSize: 36, letterSpacing: '-0.025em', margin: '0 0 16px' }}
           >
             Is regenerative medicine right for me?

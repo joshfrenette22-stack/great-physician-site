@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 /* ── Static bar ring helper ─────────────────────────────────── */
 const BAR_COUNT = 64;
-const BAR_RADIUS = 160; // px from center to bar base
+const BAR_RADIUS = 166; // px from center to bar base
 
 function rnd(i: number): number {
   const x = Math.sin(i * 12.9898 + 7.13) * 43758.5453;
@@ -495,7 +495,7 @@ export function StepJourney() {
               <div style={{ position: 'relative', width: 210, height: 210 }}>
                 <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: '3px solid var(--green-300)' }} />
                 <Image
-                  src="/images/stock/photo-1560250097-0b93528c311a.jpg"
+                  src="/images/hric-headshot.jpg"
                   alt="Dr. Jerry Hric"
                   width={210}
                   height={210}

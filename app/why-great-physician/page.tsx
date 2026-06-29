@@ -3,7 +3,6 @@ import { ScriptureHero } from '@/components/sections/why-great-physician/Scriptu
 import { GospelVideo } from '@/components/sections/why-great-physician/GospelVideo';
 import { BecomingChristian } from '@/components/sections/why-great-physician/BecomingChristian';
 import { PrayerRequest } from '@/components/sections/why-great-physician/PrayerRequest';
-import { WhyGPCTA } from '@/components/sections/why-great-physician/WhyGPCTA';
 
 export const metadata: Metadata = {
   title: 'Why Great Physician | Great Physician Regenerative Medicine',
@@ -17,7 +16,6 @@ export default function WhyGreatPhysicianPage() {
       <GospelVideo />
       <BecomingChristian />
       <PrayerRequest />
-      <WhyGPCTA />
     </>
   );
 }

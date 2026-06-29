@@ -87,7 +87,7 @@ export function RotatingStoryPanel() {
         {/* Scrim */}
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(90deg, rgba(16,42,59,0.88) 0%, rgba(16,42,59,0.60) 55%, transparent 100%)' }}
+          style={{ background: 'linear-gradient(90deg, rgba(18,46,66,0.62) 0%, rgba(18,46,66,0.28) 38%, rgba(18,46,66,0) 62%)' }}
         />
 
         {/* Decorative ring — bottom left, thick border */}

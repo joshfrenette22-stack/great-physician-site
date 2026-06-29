@@ -40,7 +40,7 @@ export function FaqAccordion() {
           style={{ marginTop: gi === 0 ? 0 : 56, scrollMarginTop: 100 }}
         >
           <h2
-            className="font-display font-black text-teal-900 tracking-tight"
+            className="font-display font-extrabold text-teal-900 tracking-tight"
             style={{ fontSize: 30, letterSpacing: '-0.02em', margin: '0 0 6px' }}
           >
             {group.title}

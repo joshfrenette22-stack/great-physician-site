@@ -30,7 +30,7 @@ export default function ResourcesPage() {
         >
           <div>
             <h2
-              className="font-display font-black text-teal-900"
+              className="font-display font-extrabold text-teal-900"
               style={{ fontSize: 32, letterSpacing: '-0.025em', margin: '0 0 12px' }}
             >
               Have a specific question?

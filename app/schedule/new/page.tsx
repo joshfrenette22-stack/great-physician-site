@@ -101,7 +101,7 @@ export default function ScheduleNewPage() {
             New patient booking
           </p>
           <h1
-            className="font-display font-black text-white leading-tight"
+            className="font-display font-extrabold text-white leading-tight"
             style={{ fontSize: 52, lineHeight: 1.04, letterSpacing: '-0.035em', margin: 0 }}
           >
             Let&apos;s get you set up
@@ -127,7 +127,7 @@ export default function ScheduleNewPage() {
                   </svg>
                 </div>
                 <h3
-                  className="font-display font-black text-teal-900"
+                  className="font-display font-extrabold text-teal-900"
                   style={{ fontSize: 28, letterSpacing: '-0.02em', margin: '0 0 12px' }}
                 >
                   You&apos;re all set
@@ -168,7 +168,7 @@ export default function ScheduleNewPage() {
                   {step === 0 && (
                     <div>
                       <h2
-                        className="font-display font-black text-teal-900"
+                        className="font-display font-extrabold text-teal-900"
                         style={{ fontSize: 24, letterSpacing: '-0.02em', margin: '0 0 6px' }}
                       >
                         Your details
@@ -249,7 +249,7 @@ export default function ScheduleNewPage() {
                   {step >= 1 && step <= 4 && (
                     <div>
                       <h2
-                        className="font-display font-black text-teal-900"
+                        className="font-display font-extrabold text-teal-900"
                         style={{ fontSize: 22, letterSpacing: '-0.02em', margin: '0 0 4px' }}
                       >
                         {INTAKE_LABELS[step - 1]}

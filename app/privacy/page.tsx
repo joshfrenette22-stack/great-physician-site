@@ -24,7 +24,7 @@ export default function PrivacyPage() {
         <div className="max-w-[1120px] mx-auto" style={{ padding: '64px 40px 56px' }}>
           <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.04em', color: 'var(--text-subtle, #9ca3af)', textTransform: 'uppercase', marginBottom: 14 }}>Legal</p>
           <h1
-            className="font-display font-black text-teal-900"
+            className="font-display font-extrabold text-teal-900"
             style={{ fontSize: 58, lineHeight: 1.02, letterSpacing: '-0.035em', margin: 0 }}
           >
             Privacy Policy

@@ -103,7 +103,7 @@ export default function ScheduleReturningPage() {
               Welcome back
             </p>
             <h1
-              className="font-display font-black text-white"
+              className="font-display font-extrabold text-white"
               style={{ fontSize: 56, lineHeight: 1.03, letterSpacing: '-0.035em', margin: 0 }}
             >
               Book your next visit
@@ -125,7 +125,7 @@ export default function ScheduleReturningPage() {
                   </svg>
                 </div>
                 <h3
-                  className="font-display font-black text-teal-900"
+                  className="font-display font-extrabold text-teal-900"
                   style={{ fontSize: 28, letterSpacing: '-0.02em', margin: '0 0 12px' }}
                 >
                   You&apos;re booked
@@ -266,7 +266,7 @@ export default function ScheduleReturningPage() {
                   {step === 2 && (
                     <div>
                       <h2
-                        className="font-display font-black text-teal-900"
+                        className="font-display font-extrabold text-teal-900"
                         style={{ fontSize: 22, letterSpacing: '-0.02em', margin: '0 0 4px' }}
                       >
                         Pick a time

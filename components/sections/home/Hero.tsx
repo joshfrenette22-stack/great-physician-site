@@ -35,7 +35,8 @@ export function Hero() {
         .gp-hero.is-ready .gp-hero-child:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
         .gp-hero.is-ready .gp-hero-child:nth-child(2) { opacity: 1; transform: none; transition-delay: 100ms; }
         .gp-hero.is-ready .gp-hero-child:nth-child(3) { opacity: 1; transform: none; transition-delay: 200ms; }
-        .gp-hero.is-ready .gp-hero-child:nth-child(4) { opacity: 1; transform: none; transition-delay: 320ms; }
+        .gp-hero.is-ready .gp-hero-child:nth-child(4) { opacity: 1; transform: none; transition-delay: 280ms; }
+        .gp-hero.is-ready .gp-hero-child:nth-child(5) { opacity: 1; transform: none; transition-delay: 360ms; }
       `}</style>
       <section className="bg-white w-full">
         <div

@@ -9,7 +9,7 @@ export function ScriptureHero() {
           The name we carry
         </p>
         <blockquote
-          className="font-display font-black text-teal-900 leading-tight mx-auto"
+          className="font-display font-extrabold text-teal-900 leading-tight mx-auto"
           style={{ fontSize: 42, lineHeight: 1.18, letterSpacing: '-0.025em', maxWidth: 880, margin: '0 auto' }}
         >
           &ldquo;They that be whole need not a physician, but they that are sick.&rdquo;

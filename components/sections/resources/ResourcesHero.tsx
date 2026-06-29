@@ -16,7 +16,7 @@ export function ResourcesHero() {
       <div className="relative max-w-[1240px] mx-auto" style={{ padding: '92px 40px 80px' }}>
         <p className="text-sm font-semibold tracking-[0.04em] text-green-300 mb-[18px]">Patient resources</p>
         <h1
-          className="font-display font-black text-white leading-none max-w-[880px]"
+          className="font-display font-extrabold text-white leading-none max-w-[880px]"
           style={{ fontSize: 76, letterSpacing: '-0.035em', margin: 0 }}
         >
           Understand your options before you decide.

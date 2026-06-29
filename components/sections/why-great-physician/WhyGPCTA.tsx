@@ -37,7 +37,7 @@ export function WhyGPCTA() {
         {/* Content */}
         <div className="relative z-10">
           <h2
-            className="font-display font-black text-white mx-auto"
+            className="font-display font-extrabold text-white mx-auto"
             style={{ fontSize: 48, lineHeight: 1.07, letterSpacing: '-0.03em', margin: '0 auto 18px', maxWidth: 700 }}
           >
             Let&apos;s find out if we can help.

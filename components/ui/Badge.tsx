@@ -23,7 +23,7 @@ const variantStyles: Record<BadgeVariant, string> = {
 const dotColors: Record<BadgeVariant, string> = {
   neutral: 'bg-gray-400',
   teal: 'bg-teal-600',
-  green: 'bg-green-500',
+  green: 'bg-green-600',
   success: 'bg-[#1C7A39]',
   info: 'bg-[#235A7C]',
   warning: 'bg-[#C9883B]',

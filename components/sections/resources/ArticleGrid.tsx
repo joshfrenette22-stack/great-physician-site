@@ -19,7 +19,7 @@ export function ArticleGrid() {
             Articles &amp; guides
           </p>
           <h2
-            className="font-display font-black text-teal-900"
+            className="font-display font-extrabold text-teal-900"
             style={{ fontSize: 40, letterSpacing: '-0.03em', margin: 0 }}
           >
             Learn at your own pace

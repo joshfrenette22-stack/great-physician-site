@@ -101,11 +101,11 @@ function DecisionForm({ onBack }: DecisionFormProps) {
         Did you pray that prayer today?
       </h3>
       <p className="text-gray-500 text-sm mb-5 leading-relaxed">
-        We&apos;d love to celebrate with you and send you some helpful next steps. Name and email are optional.
+        Let us know so we can celebrate with you, pray for you, and help you take your next step.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div>
-          <label className="block text-sm font-medium text-gray-900 mb-1.5">Name (optional)</label>
+          <label className="block text-sm font-medium text-gray-900 mb-1.5">Name</label>
           <input
             type="text"
             value={name}
@@ -115,7 +115,7 @@ function DecisionForm({ onBack }: DecisionFormProps) {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-900 mb-1.5">Email (optional)</label>
+          <label className="block text-sm font-medium text-gray-900 mb-1.5">Email</label>
           <input
             type="email"
             value={email}
@@ -127,9 +127,10 @@ function DecisionForm({ onBack }: DecisionFormProps) {
       </div>
       <button
         type="submit"
-        className="w-full inline-flex items-center justify-center px-6 h-[42px] rounded-[12px] font-semibold tracking-[0.01em] text-base text-teal-900 bg-green-500 border-[1.5px] border-transparent hover:bg-green-600 transition-colors duration-200 shadow-sm"
+        className="w-full inline-flex items-center justify-center px-6 rounded-[12px] font-bold tracking-[0.01em] text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 transition-colors duration-200 shadow-sm"
+        style={{ fontSize: '16.5px', padding: '16px' }}
       >
-        Yes, I prayed that prayer
+        I prayed the prayer today
       </button>
     </form>
   );
@@ -152,7 +153,7 @@ export function BecomingChristian() {
             Your first steps
           </p>
           <h2
-            className="font-display font-black text-teal-900 leading-tight"
+            className="font-display font-extrabold text-teal-900 leading-tight"
             style={{ fontSize: 44, lineHeight: 1.06, letterSpacing: '-0.03em', margin: '0 0 16px' }}
           >
             Would you like to become a Christian?
@@ -180,7 +181,7 @@ export function BecomingChristian() {
                   style={{ fontFamily: 'inherit', padding: 0 }}
                 >
                   <span
-                    className="flex items-center justify-center font-display font-black transition-all duration-300"
+                    className="flex items-center justify-center font-display font-extrabold transition-all duration-300"
                     style={{
                       width: 46,
                       height: 46,
@@ -227,7 +228,7 @@ export function BecomingChristian() {
                 style={{ background: 'linear-gradient(165deg, rgba(18,46,66,0.32) 0%, rgba(18,46,66,0.05) 45%, rgba(18,46,66,0.42) 100%)' }}
               />
               <span
-                className="absolute font-display font-black text-white/92"
+                className="absolute font-display font-extrabold text-white/92"
                 style={{ left: 30, bottom: 22, fontSize: 84, lineHeight: 1, textShadow: '0 6px 24px rgba(0,0,0,0.3)' }}
               >
                 0{step + 1}
@@ -245,7 +246,7 @@ export function BecomingChristian() {
                     Step {step + 1} of 3
                   </span>
                   <h3
-                    className="font-display font-black text-teal-900 leading-tight"
+                    className="font-display font-extrabold text-teal-900 leading-tight"
                     style={{ fontSize: 30, lineHeight: 1.1, letterSpacing: '-0.02em', margin: 0 }}
                   >
                     {current.title}
@@ -304,7 +305,7 @@ export function BecomingChristian() {
           data-reveal
         >
           <h3
-            className="font-display font-black text-teal-900 text-center"
+            className="font-display font-extrabold text-teal-900 text-center"
             style={{ fontSize: 26, letterSpacing: '-0.02em', margin: '0 0 8px' }}
           >
             Did you pray that prayer today?
