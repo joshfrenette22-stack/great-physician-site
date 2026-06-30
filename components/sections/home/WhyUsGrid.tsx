@@ -20,14 +20,16 @@ export function WhyUsGrid() {
     <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 pt-24 md:pt-[96px] pb-0">
       {/* Doctor avatar chip — centered */}
       <div className="flex items-center justify-center gap-[14px] mb-12">
-        <div className="relative w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
-          <Image
-            src="/images/hric-headshot.jpg"
-            alt="Dr. Jerry Hric"
-            fill
-            className="object-cover"
-            sizes="56px"
-          />
+        <div className="relative w-14 h-14 flex-shrink-0">
+          <div className="w-full h-full rounded-full overflow-hidden">
+            <Image
+              src="/images/hric-headshot.jpg"
+              alt="Dr. Jerry Hric"
+              fill
+              className="object-cover"
+              sizes="56px"
+            />
+          </div>
           <span className="absolute right-0 w-[13px] h-[13px] rounded-full bg-green-500 border-2 border-white" style={{ bottom: 2 }} />
         </div>
         <div>
