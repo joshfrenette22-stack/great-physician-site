@@ -68,7 +68,7 @@ export function TreatmentExplorer() {
   return (
     <section
       className="w-full max-w-[1240px] mx-auto"
-      style={{ padding: '90px 40px 30px', scrollMarginTop: 90 }}
+      style={{ padding: '96px 40px 0', scrollMarginTop: 90 }}
       id="explorer"
     >
       {/* Heading */}

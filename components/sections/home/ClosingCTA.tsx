@@ -41,7 +41,7 @@ export function ClosingCTA() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-[18px] flex-wrap">
             <Link
               href="/schedule"
-              className="inline-flex items-center justify-center px-7 h-[52px] rounded-[12px] bg-green-500 text-teal-900 text-lg font-semibold tracking-[0.01em] border-[1.5px] border-transparent hover:bg-green-600 active:bg-green-700 shadow-sm transition-all duration-200"
+              className="inline-flex items-center justify-center px-7 h-[52px] rounded-[12px] bg-green-500 text-white text-lg font-semibold tracking-[0.01em] border-[1.5px] border-transparent hover:bg-green-600 active:bg-green-700 shadow-sm transition-all duration-200"
             >
               Schedule a Visit
             </Link>

@@ -71,7 +71,7 @@ export function HonestGuidance() {
           </div>
 
           {/* Horizontal divider */}
-          <div className="my-[6px]" style={{ height: '1px', background: 'rgba(255,255,255,0.12)', margin: '22px 0' }} />
+          <div style={{ height: '1px', background: 'rgba(255,255,255,0.12)', margin: '6px 0' }} />
 
           <div className="flex items-start gap-[14px]">
             <span

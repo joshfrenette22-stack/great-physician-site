@@ -59,9 +59,9 @@ export function RotatingStoryPanel() {
   const slide = slides[active];
 
   return (
-    <section className="w-full max-w-[1240px] mx-auto px-10 py-8">
+    <section className="w-full max-w-[1240px] mx-auto" style={{ padding: '28px 40px 0' }}>
       <div
-        className="relative rounded-[28px] min-h-[620px] overflow-hidden shadow-xl flex items-center"
+        className="relative rounded-[28px] min-h-[620px] overflow-hidden shadow-xl"
         style={{ background: 'linear-gradient(100deg, #16384C 0%, #235A7C 42%, #2EA84E 100%)' }}
         onMouseEnter={() => { hoverRef.current = true; }}
         onMouseLeave={() => { hoverRef.current = false; }}
@@ -104,36 +104,38 @@ export function RotatingStoryPanel() {
 
         {/* Content */}
         <div
-          className="relative z-10 max-w-[520px] px-16 py-16 transition-opacity duration-300"
-          style={{ opacity: fading ? 0 : 1 }}
+          className="relative z-10 max-w-[520px] min-h-[620px] flex flex-col justify-center transition-opacity duration-300"
+          style={{ opacity: fading ? 0 : 1, padding: 64 }}
         >
           {/* Eyebrow */}
-          <p className="text-[12px] font-semibold uppercase tracking-[0.2em] mb-4" style={{ color: 'rgba(255,255,255,0.72)' }}>
+          <p className="text-[12px] font-semibold uppercase tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.72)', marginBottom: 6 }}>
             Conditions we treat
           </p>
 
           {/* Active pill */}
-          <div className="inline-flex items-center gap-2 bg-white/16 rounded-full mb-6" style={{ padding: '7px 14px' }}>
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-            <span className="text-[13px] font-semibold text-white">{slide.conditionLabel}</span>
+          <div>
+            <span className="inline-flex items-center gap-2 bg-white/16 rounded-full" style={{ padding: '7px 14px' }}>
+              <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--green-400)' }} />
+              <span className="text-[13px] font-semibold text-white">{slide.conditionLabel}</span>
+            </span>
           </div>
 
           {/* Headline */}
-          <h2 className="text-[44px] font-extrabold leading-[1.08] tracking-tight text-white mb-5">
+          <h2 className="font-extrabold leading-[1.08] text-white" style={{ fontFamily: 'var(--font-display)', fontSize: 44, letterSpacing: '-0.025em', margin: '18px 0 16px' }}>
             {slide.title}
           </h2>
 
           {/* Body */}
-          <p className="text-white/90 leading-relaxed mb-8 text-[18px] max-w-[440px]">
+          <p style={{ fontSize: 18, lineHeight: 1.6, color: 'rgba(255,255,255,0.9)', margin: 0, maxWidth: 440 }}>
             {slide.body}
           </p>
 
           {/* CTA + dots */}
-          <div className="flex items-center" style={{ gap: '22px' }}>
+          <div className="flex items-center" style={{ gap: 22, marginTop: 32 }}>
             <Link
               href="/schedule"
               className="inline-flex items-center justify-center px-6 h-[52px] rounded-[12px] text-base font-semibold tracking-[0.01em] border-[1.5px] border-transparent transition-colors"
-              style={{ background: '#2EA84E', color: '#0F3B3B' }}
+              style={{ background: '#2EA84E', color: '#fff' }}
             >
               Schedule a Visit
             </Link>

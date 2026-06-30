@@ -28,7 +28,7 @@ export function WhyUsGrid() {
             className="object-cover"
             sizes="56px"
           />
-          <span className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-green-500 border-2 border-white" />
+          <span className="absolute right-0 w-[13px] h-[13px] rounded-full bg-green-500 border-2 border-white" style={{ bottom: 2 }} />
         </div>
         <div>
           <p

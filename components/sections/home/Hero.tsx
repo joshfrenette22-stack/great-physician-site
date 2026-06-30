@@ -63,7 +63,7 @@ export function Hero() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="gp-hero-child flex flex-col sm:flex-row items-center gap-[14px] mt-[30px]">
+          <div className="gp-hero-child flex flex-row items-center justify-center gap-[14px] mt-[30px]">
             <Link
               href="/schedule"
               className="inline-flex items-center justify-center px-7 h-[52px] text-lg font-semibold tracking-[0.01em] rounded-[12px] bg-teal-600 text-white border-[1.5px] border-transparent hover:bg-teal-700 active:bg-teal-800 shadow-sm transition-all duration-200"
@@ -79,7 +79,7 @@ export function Hero() {
           </div>
 
           {/* Social proof */}
-          <div className="gp-hero-child flex items-center gap-[14px] mt-[28px] pb-16">
+          <div className="gp-hero-child flex items-center gap-[14px] mt-[28px]">
             <div className="flex -space-x-2.5">
               {[
                 '/images/stock/photo-1599566150163-29194dcaad36.jpg',

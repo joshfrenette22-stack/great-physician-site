@@ -7,17 +7,17 @@ const icons = [Clock, Zap, Heart, Droplet, AlignJustify, HeartPulse];
 export function ConditionsGrid() {
   return (
     <section
-      className="w-full mt-16"
-      style={{ background: 'var(--surface-subtle)', borderTop: '1px solid var(--border-default)', borderBottom: '1px solid var(--border-default)' }}
+      className="w-full"
+      style={{ background: 'var(--surface-subtle)', borderTop: '1px solid var(--border-default)', borderBottom: '1px solid var(--border-default)', marginTop: 64 }}
       id="conditions"
     >
       <div className="max-w-[1240px] mx-auto px-5 md:px-10" style={{ padding: '88px 40px' }}>
         {/* Heading */}
         <div className="max-w-[760px] mb-11">
-          <span className="block text-xs font-semibold uppercase tracking-[0.2em] mb-[14px]" style={{ color: 'var(--color-accent-strong)' }}>What we help with</span>
+          <span className="block font-semibold uppercase tracking-[0.2em]" style={{ fontSize: 12, color: 'var(--color-accent-strong)' }}>What we help with</span>
           <h2
-            className="text-[32px] md:text-[42px] font-extrabold mb-[14px]"
-            style={{ fontFamily: 'var(--font-display)', lineHeight: 1.1, letterSpacing: '-0.02em', color: 'var(--text-strong)' }}
+            className="font-extrabold"
+            style={{ fontFamily: 'var(--font-display)', fontSize: 42, lineHeight: 1.1, letterSpacing: '-0.02em', color: 'var(--text-strong)', margin: '12px 0 14px' }}
           >
             Most patients come to us with pain they&apos;ve been told only surgery can fix.
           </h2>

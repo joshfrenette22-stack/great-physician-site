@@ -351,6 +351,13 @@ hr {
   color: transparent;
 }
 
+/* ── Treatment card hover effects ─────────────────────────── */
+.gp-photo { overflow: hidden; }
+.gp-photo img { transition: transform 0.5s cubic-bezier(0.2,0.7,0.2,1); }
+.gp-card:hover .gp-photo img { transform: scale(1.06); }
+.gp-figure { transition: transform 0.5s cubic-bezier(0.2,0.7,0.2,1); transform-origin: bottom center; }
+.gp-card:hover .gp-figure { transform: scale(1.05); }
+
 /* ── Switch helper ────────────────────────────────────────── */
 .peer:checked ~ [style*="--switch-translate"] {
   transform: translateX(var(--switch-translate));
