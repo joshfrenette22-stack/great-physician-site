@@ -21,7 +21,7 @@ export function WhyUsGrid() {
       {/* Doctor avatar chip — centered */}
       <div className="flex items-center justify-center gap-[14px] mb-12">
         <div className="relative w-14 h-14 flex-shrink-0">
-          <div className="w-full h-full rounded-full overflow-hidden">
+          <div className="relative w-full h-full rounded-full overflow-hidden">
             <Image
               src="/images/hric-headshot.jpg"
               alt="Dr. Jerry Hric"
