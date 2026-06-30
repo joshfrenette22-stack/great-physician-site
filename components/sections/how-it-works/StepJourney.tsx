@@ -493,16 +493,18 @@ export function StepJourney() {
               }}
             >
               <div style={{ position: 'relative', width: 210, height: 210 }}>
-                <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: '3px solid var(--green-300)' }} />
-                <Image
-                  src="/images/hric-headshot.jpg"
-                  alt="Dr. Jerry Hric"
-                  width={210}
-                  height={210}
-                  className="object-cover"
-                  style={{ borderRadius: '50%', objectPosition: 'center top', boxShadow: 'var(--shadow-lg)' }}
-                />
-                <span style={{ position: 'absolute', right: 16, bottom: 16, width: 26, height: 26, borderRadius: '50%', background: 'var(--green-500)', border: '3px solid #fff', display: 'block' }} />
+                <span style={{ position: 'absolute', inset: -6, borderRadius: '50%', border: '3px solid var(--green-300)' }} />
+                <div style={{ position: 'relative', width: 210, height: 210, borderRadius: '50%', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+                  <Image
+                    src="/images/hric-headshot.jpg"
+                    alt="Dr. Jerry Hric"
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: 'center top' }}
+                    sizes="210px"
+                  />
+                </div>
+                <span style={{ position: 'absolute', right: 10, bottom: 10, width: 26, height: 26, borderRadius: '50%', background: 'var(--green-500)', border: '3px solid #fff', display: 'block' }} />
               </div>
             </div>
           </div>

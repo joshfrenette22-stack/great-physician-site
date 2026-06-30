@@ -38,8 +38,8 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3.5 ml-auto">
-          <Link href="#" className="text-[15px] font-medium text-gray-500 hover:text-teal-600 transition-colors whitespace-nowrap">
-            Patient login
+          <Link href="/schedule/returning" className="text-[15px] font-medium text-gray-500 hover:text-teal-600 transition-colors whitespace-nowrap">
+            Returning Patient
           </Link>
           <Link href="/schedule">
             <Button size="md">Schedule a Visit</Button>
