@@ -78,7 +78,7 @@ export function MissionValues() {
             <div>
               <div
                 className="font-display font-extrabold"
-                style={{ fontSize: 32, lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: 0 }}
+                style={{ fontSize: 32, lineHeight: 1.12, letterSpacing: '-0.02em', marginBottom: 0, color: '#fff' }}
               >
                 Restore function. Renew hope. Encourage stewardship.
               </div>

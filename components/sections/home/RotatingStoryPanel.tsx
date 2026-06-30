@@ -121,7 +121,7 @@ export function RotatingStoryPanel() {
           </div>
 
           {/* Headline */}
-          <h2 className="font-extrabold leading-[1.08] text-white" style={{ fontFamily: 'var(--font-display)', fontSize: 44, letterSpacing: '-0.025em', margin: '18px 0 16px' }}>
+          <h2 className="font-extrabold leading-[1.08]" style={{ fontFamily: 'var(--font-display)', fontSize: 44, letterSpacing: '-0.025em', margin: '18px 0 16px', color: '#fff' }}>
             {slide.title}
           </h2>
 

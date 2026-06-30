@@ -159,7 +159,7 @@ export function PinnedValuesScroll() {
               </p>
               <h2
                 className="font-display font-extrabold mb-[22px] text-[30px] md:text-[52px]"
-                style={{ lineHeight: 1.05, letterSpacing: '-0.03em' }}
+                style={{ lineHeight: 1.05, letterSpacing: '-0.03em', color: '#fff' }}
               >
                 {v.title}
               </h2>
@@ -294,7 +294,7 @@ export function PinnedValuesScroll() {
               </p>
               <h2
                 className="font-display font-extrabold mb-[22px] text-[28px] md:text-[52px]"
-                style={{ lineHeight: 1.05, letterSpacing: '-0.03em' }}
+                style={{ lineHeight: 1.05, letterSpacing: '-0.03em', color: '#fff' }}
               >
                 {v.title}
               </h2>
