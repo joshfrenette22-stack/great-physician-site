@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui';
 import type { ReactNode } from 'react';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 interface SectionCTAProps {
   title: string;
@@ -30,7 +31,8 @@ export function SectionCTA({
 
   return (
     <section className={`${bg} text-white`}>
-      <div className="max-w-[1280px] mx-auto text-center px-5 py-16 md:px-10 md:py-24">
+      <ScrollReveal className="max-w-[1280px] mx-auto text-center px-5 py-16 md:px-10 md:py-24">
+      <div data-reveal>
         <span className="inline-flex items-center gap-2 rounded-full mb-6" style={{ background: 'rgba(255,255,255,0.16)', padding: '7px 16px', fontSize: 14 }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span className="font-medium text-white/90">Now seeing patients in Northern Colorado</span></span>
         <h2 className="font-display font-extrabold max-w-[720px] mx-auto" style={{ fontSize: 'clamp(28px, 5vw, 48px)', lineHeight: 1.08, letterSpacing: '-0.025em', color: '#fff' }}>
           {title}
@@ -49,6 +51,7 @@ export function SectionCTA({
         <p className="mt-5" style={{ fontSize: 15, color: 'rgba(255,255,255,0.7)' }}>or call <a href="tel:9705550142" className="font-semibold text-white hover:text-green-300 transition-colors">(970) 555-0142</a></p>
         {children}
       </div>
+      </ScrollReveal>
     </section>
   );
 }

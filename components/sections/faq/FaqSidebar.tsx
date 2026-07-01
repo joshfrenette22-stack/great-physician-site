@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { faqGroups } from '@/lib/data/faq';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 export function FaqSidebar() {
   return (
-    <aside className="md:sticky" style={{ top: 104 }}>
+    <ScrollReveal>
+    <aside data-reveal="right" className="md:sticky" style={{ top: 104 }}>
       <p
         className="font-semibold uppercase text-gray-400 mb-[18px]"
         style={{ fontSize: 12, letterSpacing: '0.16em' }}
@@ -42,5 +44,6 @@ export function FaqSidebar() {
         </Link>
       </div>
     </aside>
+    </ScrollReveal>
   );
 }

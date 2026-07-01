@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { articles } from '@/lib/data/articles';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 const FILTER_PILLS = ['All', 'Treatments', 'Conditions', 'Recovery'];
 
@@ -8,9 +9,9 @@ export function ArticleGrid() {
   const nonFeatured = articles.filter((a) => !a.featured);
 
   return (
-    <section className="bg-white px-5 md:px-10" style={{ maxWidth: 1240, margin: '0 auto', paddingTop: 48, paddingBottom: 20 }} data-reveal>
+    <ScrollReveal as="section" className="bg-white px-5 md:px-10" style={{ maxWidth: 1240, margin: '0 auto', paddingTop: 48, paddingBottom: 20 }}>
       {/* Header row */}
-      <div className="flex items-end justify-between gap-6 flex-wrap mb-9">
+      <div data-reveal className="flex items-end justify-between gap-6 flex-wrap mb-9">
         <div>
           <p
             className="font-semibold uppercase text-gray-400 mb-3"
@@ -49,9 +50,11 @@ export function ArticleGrid() {
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[22px]">
-        {nonFeatured.map((article) => (
+        {nonFeatured.map((article, idx) => (
           <Link
             key={article.slug}
+            data-reveal
+            data-reveal-delay={String(Math.min(idx + 1, 6))}
             href={`/resources/${article.slug}`}
             className="group border border-gray-200 overflow-hidden hover:shadow-lg hover:-translate-y-[3px] transition-all duration-300 flex flex-col bg-white"
             style={{ borderRadius: 20, textDecoration: 'none' }}
@@ -88,6 +91,6 @@ export function ArticleGrid() {
           </Link>
         ))}
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

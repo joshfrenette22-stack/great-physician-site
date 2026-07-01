@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 export function WhyGPCTA() {
   return (
-    <section className="px-5 md:px-10" style={{ maxWidth: 1240, margin: '0 auto', paddingTop: 56, paddingBottom: 72 }} data-reveal>
-      <div className="relative rounded-[28px] overflow-hidden text-center text-white p-10 md:p-[84px_56px]">
+    <ScrollReveal as="section" className="px-5 md:px-10" style={{ maxWidth: 1240, margin: '0 auto', paddingTop: 56, paddingBottom: 72 }}>
+      <div data-reveal="scale" className="relative rounded-[28px] overflow-hidden text-center text-white p-10 md:p-[84px_56px]">
         {/* Background image */}
         <Image
           src="/images/stock/photo-1476480862126-209bfaa8edc8.jpg"
@@ -66,6 +67,6 @@ export function WhyGPCTA() {
           </div>
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 export function HowItWorksCTA() {
   return (
-    <section className="max-w-[1240px] mx-auto px-5 py-16 md:px-10 md:py-24">
+    <ScrollReveal as="section" className="max-w-[1240px] mx-auto px-5 py-16 md:px-10 md:py-24">
       <div
-        data-reveal
+        data-reveal="scale"
         style={{
           position: 'relative',
           overflow: 'hidden',
@@ -85,6 +86,6 @@ export function HowItWorksCTA() {
           </Link>
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

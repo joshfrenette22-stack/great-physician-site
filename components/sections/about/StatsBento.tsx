@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Avatar } from '@/components/ui/Avatar';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 const teamChips = [
   { name: 'Dr. Hric', image: '/images/hric-headshot.jpg' },
@@ -18,11 +19,10 @@ const treatmentBadges = [
 export function StatsBento() {
   return (
     <section className="bg-white w-full">
-      <div
-        className="max-w-[1240px] mx-auto px-5 pt-14 pb-10 md:px-10 md:pt-[104px] md:pb-10"
-      >
+      <ScrollReveal className="max-w-[1240px] mx-auto px-5 pt-14 pb-10 md:px-10 md:pt-[104px] md:pb-10">
         {/* Section heading */}
         <h2
+          data-reveal="fade"
           className="font-display font-extrabold text-gray-900 text-center mx-auto text-[28px] md:text-[38px] lg:text-[46px]"
           style={{
             lineHeight: 1.1,
@@ -39,6 +39,8 @@ export function StatsBento() {
 
           {/* Card A — patients guided */}
           <div
+            data-reveal
+            data-reveal-delay="1"
             className="rounded-[22px] border border-gray-100 bg-gray-50 flex flex-col justify-between"
             style={{ padding: 'clamp(20px, 4vw, 36px)', minHeight: 280, position: 'relative', overflow: 'hidden' }}
           >
@@ -89,6 +91,8 @@ export function StatsBento() {
 
           {/* Card B — consultations + doctor photo */}
           <div
+            data-reveal
+            data-reveal-delay="2"
             className="rounded-[22px] relative flex flex-col justify-end overflow-hidden"
             style={{
               minHeight: 280,
@@ -140,6 +144,8 @@ export function StatsBento() {
 
           {/* Card C — physician-performed + treatment badge pills */}
           <div
+            data-reveal
+            data-reveal-delay="3"
             className="rounded-[22px] bg-gray-50 border border-gray-100 relative flex flex-col justify-end"
             style={{ padding: 'clamp(20px, 4vw, 36px)', minHeight: 280, overflow: 'hidden' }}
           >
@@ -185,6 +191,8 @@ export function StatsBento() {
 
           {/* Card D — small team + avatar chips */}
           <div
+            data-reveal
+            data-reveal-delay="4"
             className="rounded-[22px] bg-gray-50 border border-gray-100 flex flex-col justify-end relative overflow-hidden"
             style={{ padding: 'clamp(20px, 4vw, 36px)', minHeight: 280 }}
           >
@@ -241,7 +249,7 @@ export function StatsBento() {
           </div>
 
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

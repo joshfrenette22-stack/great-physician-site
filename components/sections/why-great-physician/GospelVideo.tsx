@@ -1,3 +1,5 @@
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
+
 export function GospelVideo() {
   return (
     <section
@@ -20,7 +22,7 @@ export function GospelVideo() {
         }}
       />
 
-      <div className="relative max-w-[1080px] mx-auto text-center text-white px-5 md:px-10 py-16 md:py-[92px]">
+      <ScrollReveal className="relative max-w-[1080px] mx-auto text-center text-white px-5 md:px-10 py-16 md:py-[92px]">
         <div className="max-w-[720px] mx-auto mb-9 md:mb-11" data-reveal>
           <p
             className="font-semibold uppercase text-white/72 mb-4"
@@ -48,7 +50,7 @@ export function GospelVideo() {
             paddingTop: `${(9 / 16) * 100}%`,
             boxShadow: '0 30px 70px rgba(0,0,0,0.34)',
           }}
-          data-reveal
+          data-reveal="scale"
         >
           <iframe
             className="absolute inset-0 w-full h-full"
@@ -63,7 +65,7 @@ export function GospelVideo() {
         <p className="text-white/60 mt-4" style={{ fontSize: 14 }} data-reveal>
           Placeholder video. Send us your link and we&apos;ll drop it in.
         </p>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

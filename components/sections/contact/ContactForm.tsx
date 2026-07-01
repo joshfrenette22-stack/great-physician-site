@@ -1,10 +1,12 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 export function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const ref = useScrollReveal();
 
   function validate(data: FormData) {
     const errs: Record<string, string> = {};
@@ -38,7 +40,8 @@ export function ContactForm() {
   const labelClass = 'block text-[13.5px] font-semibold text-teal-800 mb-[7px]';
 
   return (
-    <div className="bg-white border border-gray-200 rounded-[22px] shadow-md p-6 md:p-10">
+    <div ref={ref}>
+    <div data-reveal="left" className="bg-white border border-gray-200 rounded-[22px] shadow-md p-6 md:p-10">
       <h2 className="font-display font-extrabold text-teal-900" style={{ fontSize: 28, letterSpacing: '-0.02em', margin: '0 0 6px' }}>
         Schedule a visit
       </h2>
@@ -183,6 +186,7 @@ export function ContactForm() {
           </button>
         </form>
       )}
+    </div>
     </div>
   );
 }

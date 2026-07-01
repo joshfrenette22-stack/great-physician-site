@@ -1,3 +1,5 @@
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
+
 const cards = [
   {
     eyebrow: 'Knee · Hip · Shoulder',
@@ -28,13 +30,16 @@ const cards = [
 export function TreatmentCardGrid() {
   return (
     <section id="treat" className="w-full max-w-[1240px] mx-auto px-5 md:px-10 pt-[44px] pb-2">
+      <ScrollReveal>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px]">
-        {cards.map((card) => (
+        {cards.map((card, i) => (
           <a
             key={card.title}
             href="#conditions"
             className="gp-card group flex flex-col min-h-[400px] rounded-[22px] overflow-hidden cursor-pointer shadow-md hover:-translate-y-1 transition-transform duration-200"
             style={{ background: card.gradient, padding: 24, textDecoration: 'none' }}
+            data-reveal
+            data-reveal-delay={i + 1}
           >
             {/* Top row */}
             <div className="flex justify-between items-start" style={{ gap: 10 }}>
@@ -75,6 +80,7 @@ export function TreatmentCardGrid() {
           </a>
         ))}
       </div>
+      </ScrollReveal>
     </section>
   );
 }

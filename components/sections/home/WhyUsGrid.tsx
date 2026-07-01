@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 const cards = [
   {
@@ -20,8 +21,9 @@ const cards = [
 export function WhyUsGrid() {
   return (
     <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 pt-24 md:pt-[96px] pb-0">
+      <ScrollReveal>
       {/* Doctor avatar chip — centered */}
-      <div className="flex items-center justify-center gap-[14px] mb-12">
+      <div className="flex items-center justify-center gap-[14px] mb-12" data-reveal>
         <div className="relative w-14 h-14 flex-shrink-0">
           <div className="relative w-full h-full rounded-full overflow-hidden">
             <Image
@@ -47,10 +49,12 @@ export function WhyUsGrid() {
 
       {/* 2-col card grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {cards.map((card) => (
+        {cards.map((card, i) => (
           <div
             key={card.titleTeal}
             className="bg-gray-50 border border-gray-100 rounded-[24px] overflow-hidden min-h-[360px] flex flex-col"
+            data-reveal
+            data-reveal-delay={i + 1}
           >
             {/* Image with fade */}
             <div
@@ -82,6 +86,7 @@ export function WhyUsGrid() {
           </div>
         ))}
       </div>
+      </ScrollReveal>
     </section>
   );
 }

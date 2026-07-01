@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 export function FaithStrip() {
   return (
@@ -13,10 +14,10 @@ export function FaithStrip() {
         style={{ top: '-130px', left: '50%', transform: 'translateX(-50%)', width: '640px', height: '340px', background: 'radial-gradient(ellipse at center, rgba(46,168,78,0.12) 0%, rgba(46,168,78,0) 70%)' }}
       />
 
-      <div className="relative max-w-[1080px] mx-auto px-5 md:px-10 py-14 md:py-[104px]">
+      <ScrollReveal className="relative max-w-[1080px] mx-auto px-5 md:px-10 py-14 md:py-[104px]">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1px_1.05fr] gap-14 items-center">
           {/* Left text */}
-          <div>
+          <div data-reveal="left">
             <span className="block text-xs font-semibold uppercase tracking-[0.2em] mb-4" style={{ color: 'var(--color-primary)' }}>
               Why &ldquo;Great Physician&rdquo;?
             </span>
@@ -46,7 +47,7 @@ export function FaithStrip() {
           />
 
           {/* Right blockquote */}
-          <figure className="relative m-0 pl-0 lg:pl-10">
+          <figure className="relative m-0 pl-0 lg:pl-10" data-reveal="right">
             <span
               className="absolute leading-none select-none"
               style={{ top: '-52px', left: '-8px', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '150px', color: 'var(--green-100)' }}
@@ -68,7 +69,7 @@ export function FaithStrip() {
             </figcaption>
           </figure>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

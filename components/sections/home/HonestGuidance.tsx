@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 const cautionItems = [
   {
@@ -14,9 +15,10 @@ const cautionItems = [
 export function HonestGuidance() {
   return (
     <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 py-24">
+      <ScrollReveal>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left */}
-        <div>
+        <div data-reveal="left">
           <span className="block text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: 'var(--color-accent-strong)' }}>Education as care</span>
           <h2
             className="text-[32px] md:text-[40px] font-extrabold leading-[1.12] tracking-tight mb-4"
@@ -42,6 +44,7 @@ export function HonestGuidance() {
         <div
           className="rounded-[24px] shadow-lg"
           style={{ background: 'linear-gradient(165deg, var(--teal-900), var(--teal-800))', border: '1px solid rgba(255,255,255,0.08)', padding: '36px' }}
+          data-reveal="right"
         >
           <div className="text-xs font-semibold uppercase tracking-[0.2em] text-green-300 mb-[18px]">
             What we&apos;re cautious about
@@ -95,6 +98,7 @@ export function HonestGuidance() {
           </div>
         </div>
       </div>
+      </ScrollReveal>
     </section>
   );
 }

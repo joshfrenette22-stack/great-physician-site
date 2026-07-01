@@ -46,6 +46,8 @@ const benefits = [
   },
 ];
 
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
+
 export function BenefitsGrid() {
   return (
     <section
@@ -54,7 +56,7 @@ export function BenefitsGrid() {
         borderTop: '1px solid var(--border-default)',
       }}
     >
-      <div className="max-w-[1240px] mx-auto px-5 py-16 md:px-10 md:py-24">
+      <ScrollReveal className="max-w-[1240px] mx-auto px-5 py-16 md:px-10 md:py-24">
         {/* Heading */}
         <div data-reveal style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto 56px' }}>
           <span
@@ -85,12 +87,13 @@ export function BenefitsGrid() {
 
         {/* 4-column grid */}
         <div
-          data-reveal
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px]"
         >
-          {benefits.map((b) => (
+          {benefits.map((b, idx) => (
             <div
               key={b.title}
+              data-reveal
+              data-reveal-delay={String(idx + 1)}
               style={{
                 background: 'var(--white)',
                 border: '1px solid var(--border-subtle)',
@@ -132,7 +135,7 @@ export function BenefitsGrid() {
             </div>
           ))}
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

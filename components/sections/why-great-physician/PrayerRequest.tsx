@@ -1,9 +1,11 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 export function PrayerRequest() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const ref = useScrollReveal();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -18,7 +20,7 @@ export function PrayerRequest() {
   const labelClass = 'block text-[13.5px] font-semibold text-teal-800 mb-[7px]';
 
   return (
-    <section className="bg-gray-50 border-t border-gray-200" data-reveal>
+    <section ref={ref} className="bg-gray-50 border-t border-gray-200">
       <div className="max-w-[980px] mx-auto px-5 md:px-10 py-16 md:py-[92px]">
         <div className="text-center max-w-[680px] mx-auto mb-8 md:mb-10" data-reveal>
           <p

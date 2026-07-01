@@ -1,5 +1,6 @@
 import { Shield, MessageSquare, User, Heart } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 interface ValueCard {
   icon: LucideIcon;
@@ -43,9 +44,10 @@ const valueCards: ValueCard[] = [
 export function MissionValues() {
   return (
     <section className="bg-gray-50 w-full px-5 py-16 md:px-10 md:py-[104px]">
-      <div className="max-w-[1240px] mx-auto">
+      <ScrollReveal className="max-w-[1240px] mx-auto">
         {/* Heading */}
         <h2
+          data-reveal
           className="font-display font-extrabold text-gray-900 text-center mx-auto text-[32px] md:text-[40px] lg:text-[46px]"
           style={{ letterSpacing: '-0.025em', marginBottom: 40 }}
         >
@@ -61,6 +63,8 @@ export function MissionValues() {
         >
           {/* Mission card — spans 2 rows only in the 3-col desktop layout */}
           <div
+            data-reveal
+            data-reveal-delay="1"
             className="rounded-[24px] text-white flex flex-col justify-between lg:[grid-row:span_2]"
             style={{
               background: 'var(--gradient-brand, linear-gradient(135deg, #1C7A39 0%, #235A7C 100%))',
@@ -86,11 +90,13 @@ export function MissionValues() {
           </div>
 
           {/* Value cards — 2 per column */}
-          {valueCards.map((card) => {
+          {valueCards.map((card, idx) => {
             const Icon = card.icon;
             return (
               <div
                 key={card.title}
+                data-reveal
+                data-reveal-delay={String(idx + 2)}
                 className="bg-white rounded-[24px] border border-gray-100 flex flex-col"
                 style={{ padding: 28 }}
               >
@@ -122,7 +128,7 @@ export function MissionValues() {
             );
           })}
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

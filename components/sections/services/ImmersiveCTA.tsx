@@ -1,13 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 export function ImmersiveCTA() {
   return (
-    <section
+    <ScrollReveal
+      as="section"
       className="w-full max-w-[1240px] mx-auto px-5 py-12 md:px-10 md:py-20"
-      data-reveal
     >
       <div
+        data-reveal="scale"
         className="relative rounded-[28px] overflow-hidden text-center px-6 py-14 md:px-14 md:py-[84px]"
         style={{ color: '#fff' }}
       >
@@ -103,6 +105,6 @@ export function ImmersiveCTA() {
           </div>
         </div>
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

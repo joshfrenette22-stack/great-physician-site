@@ -24,11 +24,13 @@ function ClockIcon() {
   );
 }
 
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
+
 export function ContactInfo() {
   return (
-    <div className="flex flex-col gap-[18px]">
+    <ScrollReveal className="flex flex-col gap-[18px]">
       {/* Phone */}
-      <div className="border border-gray-200 rounded-[18px] p-[26px]">
+      <div data-reveal="right" data-reveal-delay="1" className="border border-gray-200 rounded-[18px] p-[26px]">
         <div
           className="inline-flex items-center justify-center bg-green-50 text-green-600 mb-4"
           style={{ width: 44, height: 44, borderRadius: 12 }}
@@ -51,7 +53,7 @@ export function ContactInfo() {
       </div>
 
       {/* Visit */}
-      <div className="border border-gray-200 rounded-[18px] p-[26px]">
+      <div data-reveal="right" data-reveal-delay="2" className="border border-gray-200 rounded-[18px] p-[26px]">
         <div
           className="inline-flex items-center justify-center bg-green-50 text-green-600 mb-4"
           style={{ width: 44, height: 44, borderRadius: 12 }}
@@ -70,7 +72,7 @@ export function ContactInfo() {
       </div>
 
       {/* Hours */}
-      <div className="border border-gray-200 rounded-[18px] p-[26px]">
+      <div data-reveal="right" data-reveal-delay="3" className="border border-gray-200 rounded-[18px] p-[26px]">
         <div
           className="inline-flex items-center justify-center bg-green-50 text-green-600 mb-4"
           style={{ width: 44, height: 44, borderRadius: 12 }}
@@ -98,6 +100,6 @@ export function ContactInfo() {
           </div>
         </div>
       </div>
-    </div>
+    </ScrollReveal>
   );
 }

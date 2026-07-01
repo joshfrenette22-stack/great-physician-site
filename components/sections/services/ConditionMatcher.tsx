@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const conditions = [
   {
@@ -47,14 +48,15 @@ const results = [
 
 export function ConditionMatcher() {
   const [active, setActive] = useState(0);
+  const ref = useScrollReveal();
 
   const result = results[active];
 
   return (
     <section
+      ref={ref}
       className="w-full bg-gray-50"
       style={{ marginTop: 80, borderTop: '1px solid var(--border-default)' }}
-      data-reveal
     >
       <div className="max-w-[1240px] mx-auto px-5 py-12 md:px-10 md:py-[84px]">
         {/* Heading */}
@@ -74,7 +76,7 @@ export function ConditionMatcher() {
         {/* 2-col layout — stacks on mobile */}
         <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-8 md:gap-10 items-start">
           {/* Condition chips — 2×2 grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+          <div data-reveal="left" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
             {conditions.map((c, i) => {
               const isActive = i === active;
               return (
@@ -128,6 +130,7 @@ export function ConditionMatcher() {
 
           {/* Result card */}
           <div
+            data-reveal="right"
             className="relative overflow-hidden"
             style={{ borderRadius: 22, minHeight: 320, boxShadow: 'var(--shadow-md)' }}
           >

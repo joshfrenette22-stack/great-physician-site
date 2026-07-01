@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Clock, Zap, Heart, Droplet, AlignJustify, HeartPulse } from 'lucide-react';
 import { conditions } from '@/lib/data/conditions';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 const icons = [Clock, Zap, Heart, Droplet, AlignJustify, HeartPulse];
 
@@ -11,9 +12,9 @@ export function ConditionsGrid() {
       style={{ background: 'var(--surface-subtle)', borderTop: '1px solid var(--border-default)', borderBottom: '1px solid var(--border-default)', marginTop: 64 }}
       id="conditions"
     >
-      <div className="max-w-[1240px] mx-auto px-5 md:px-10 py-14 md:py-[88px]">
+      <ScrollReveal className="max-w-[1240px] mx-auto px-5 md:px-10 py-14 md:py-[88px]">
         {/* Heading */}
-        <div className="max-w-[760px] mb-11">
+        <div className="max-w-[760px] mb-11" data-reveal>
           <span className="block font-semibold uppercase tracking-[0.2em]" style={{ fontSize: 12, color: 'var(--color-accent-strong)' }}>What we help with</span>
           <h2
             className="font-extrabold text-[28px] md:text-[42px]"
@@ -35,6 +36,8 @@ export function ConditionsGrid() {
                 key={condition.id}
                 className="flex flex-col gap-3 transition-all duration-200 hover:-translate-y-[3px] hover:shadow-md cursor-default shadow-xs"
                 style={{ background: 'var(--white)', border: '1px solid var(--border-default)', borderRadius: '16px', padding: '24px' }}
+                data-reveal
+                data-reveal-delay={i + 1}
               >
                 {/* Icon chip */}
                 <span className="inline-flex items-center justify-center" style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'var(--teal-50)' }}>
@@ -48,7 +51,7 @@ export function ConditionsGrid() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-10" data-reveal>
           <Link
             href="/services"
             className="inline-flex items-center justify-center px-7 h-[52px] text-lg font-semibold tracking-[0.01em] rounded-[12px] bg-teal-600 text-white border-[1.5px] border-transparent hover:bg-teal-700 active:bg-teal-800 shadow-sm transition-all duration-200"
@@ -56,7 +59,7 @@ export function ConditionsGrid() {
             Explore conditions we treat
           </Link>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

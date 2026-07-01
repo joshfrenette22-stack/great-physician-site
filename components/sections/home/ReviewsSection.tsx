@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 const reviews = [
   {
@@ -42,11 +43,13 @@ function Stars() {
 export function ReviewsSection() {
   return (
     <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 pt-24 md:pt-[96px] pb-0">
+      <ScrollReveal>
       <div
         className="rounded-[28px] border p-6 md:p-14"
         style={{ background: 'var(--gray-50)', borderColor: 'var(--border-subtle)' }}
       >
         {/* Heading */}
+        <div data-reveal>
         <span className="block text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: 'var(--color-accent-strong)' }}>What patients say</span>
         <h2
           className="text-[32px] md:text-[38px] font-extrabold tracking-tight mb-[14px] max-w-[720px]"
@@ -57,14 +60,17 @@ export function ReviewsSection() {
         <p className="text-[17px] leading-[1.6] max-w-[640px] m-0" style={{ color: 'var(--text-muted)' }}>
           We&apos;re a brand-new practice — the cards below are <strong style={{ color: 'var(--text-body)' }}>placeholders</strong> showing how patient stories will appear. We&apos;ll replace them with verified reviews as they come in.
         </p>
+        </div>
 
         {/* 3-col grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[18px] mt-9">
-          {reviews.map((review) => (
+          {reviews.map((review, i) => (
             <div
               key={review.name}
               className="flex flex-col min-h-[300px] shadow-sm"
               style={{ background: 'var(--white)', border: '1px solid var(--border-default)', borderRadius: '20px', padding: '26px' }}
+              data-reveal
+              data-reveal-delay={i + 1}
             >
               {/* Avatar + name */}
               <div className="flex items-center gap-3">
@@ -109,6 +115,7 @@ export function ReviewsSection() {
           Placeholder reviews shown for layout, we&apos;ll swap in verified patient reviews as they come in.
         </div>
       </div>
+      </ScrollReveal>
     </section>
   );
 }

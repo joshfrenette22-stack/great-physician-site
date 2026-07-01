@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 export function EmotionalBand() {
   return (
     <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 pt-24 md:pt-[96px] pb-0">
-      <div className="relative rounded-[28px] overflow-hidden min-h-[560px] shadow-xl">
+      <ScrollReveal>
+      <div className="relative rounded-[28px] overflow-hidden min-h-[560px] shadow-xl" data-reveal="scale">
         {/* Background image */}
         <Image
           src="/images/stock/photo-1452626038306-9aae5e071dd3.jpg"
@@ -47,6 +49,7 @@ export function EmotionalBand() {
           </div>
         </div>
       </div>
+      </ScrollReveal>
     </section>
   );
 }

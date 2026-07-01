@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import { treatments } from '@/lib/data/treatments';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const INTERVAL = 5200;
 
@@ -64,15 +65,17 @@ export function TreatmentExplorer() {
   };
 
   const treatment = treatments[active];
+  const ref = useScrollReveal();
 
   return (
     <section
+      ref={ref}
       className="w-full max-w-[1240px] mx-auto px-5 pt-16 pb-0 md:px-10 md:pt-24"
       style={{ scrollMarginTop: 90 }}
       id="explorer"
     >
       {/* Heading */}
-      <div style={{ maxWidth: 760, marginBottom: 44 }}>
+      <div data-reveal style={{ maxWidth: 760, marginBottom: 44 }}>
         <p
           className="gp-eyebrow"
           style={{ marginBottom: 14 }}
@@ -88,7 +91,7 @@ export function TreatmentExplorer() {
       </div>
 
       {/* 2-col layout — stacks on mobile */}
-      <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 lg:gap-[30px] items-stretch">
+      <div data-reveal className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 lg:gap-[30px] items-stretch">
         {/* Tab rail */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {treatments.map((t, i) => {

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 const steps = [
   {
@@ -20,13 +21,13 @@ const steps = [
 
 export function ProcessStrip() {
   return (
-    <section
+    <ScrollReveal
+      as="section"
       className="w-full max-w-[1240px] mx-auto px-5 pt-12 pb-5 md:px-10 md:pt-[88px] md:pb-5"
-      data-reveal
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 md:gap-[22px]">
         {/* Left column: heading */}
-        <div>
+        <div data-reveal>
           <div
             style={{
               fontSize: 13,
@@ -70,9 +71,11 @@ export function ProcessStrip() {
         </div>
 
         {/* Step cards */}
-        {steps.map((step) => (
+        {steps.map((step, idx) => (
           <div
             key={step.number}
+            data-reveal
+            data-reveal-delay={String(idx + 1)}
             style={{ background: 'var(--gray-50)', borderRadius: 18, padding: 26 }}
           >
             <div
@@ -93,6 +96,6 @@ export function ProcessStrip() {
           </div>
         ))}
       </div>
-    </section>
+    </ScrollReveal>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const STEPS = [
   {
@@ -140,10 +141,11 @@ export function BecomingChristian() {
   const [step, setStep] = useState(0);
   const [showDecision, setShowDecision] = useState(false);
   const current = STEPS[step];
+  const ref = useScrollReveal();
 
   return (
     <section className="bg-white">
-      <div className="max-w-[1100px] mx-auto px-5 md:px-10" style={{ paddingTop: 72, paddingBottom: 40 }}>
+      <div ref={ref} className="max-w-[1100px] mx-auto px-5 md:px-10" style={{ paddingTop: 72, paddingBottom: 40 }}>
         {/* Heading */}
         <div className="text-center mx-auto mb-10 md:mb-[52px] max-w-[720px]" data-reveal>
           <p

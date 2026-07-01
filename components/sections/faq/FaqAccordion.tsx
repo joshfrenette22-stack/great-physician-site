@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { faqGroups } from '@/lib/data/faq';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 function PlusIcon({ open }: { open: boolean }) {
   return (
@@ -26,13 +27,15 @@ function PlusIcon({ open }: { open: boolean }) {
 export function FaqAccordion() {
   // Track open item by "groupId:index"
   const [openKey, setOpenKey] = useState<string | null>('getting-started:0');
+  const ref = useScrollReveal();
 
   function toggle(key: string) {
     setOpenKey((k) => (k === key ? null : key));
   }
 
   return (
-    <div>
+    <div ref={ref}>
+    <div data-reveal>
       {faqGroups.map((group, gi) => (
         <div
           key={group.id}
@@ -103,6 +106,7 @@ export function FaqAccordion() {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 }

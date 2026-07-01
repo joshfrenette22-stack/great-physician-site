@@ -1,13 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { articles } from '@/lib/data/articles';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 export function FeaturedArticle() {
   const featured = articles.find((a) => a.featured) ?? articles[0];
 
   return (
-    <section className="bg-white px-5 md:px-10" style={{ maxWidth: 1240, margin: '0 auto', paddingTop: 56, paddingBottom: 8 }} data-reveal>
+    <ScrollReveal as="section" className="bg-white px-5 md:px-10" style={{ maxWidth: 1240, margin: '0 auto', paddingTop: 56, paddingBottom: 8 }}>
       <Link
+        data-reveal="scale"
         href={`/resources/${featured.slug}`}
         className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] rounded-[26px] overflow-hidden border border-gray-200 no-underline"
         style={{ textDecoration: 'none', boxShadow: '0 4px 16px rgba(0,0,0,0.08)' }}
@@ -50,6 +52,6 @@ export function FeaturedArticle() {
           </span>
         </div>
       </Link>
-    </section>
+    </ScrollReveal>
   );
 }

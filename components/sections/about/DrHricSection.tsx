@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { ScrollReveal } from '@/components/sections/shared/ScrollReveal';
 
 const checkItems = [
   'Experienced in PRP, prolotherapy & focused shockwave',
@@ -45,14 +46,12 @@ const mosaicImages = [
 export function DrHricSection() {
   return (
     <section className="bg-white w-full">
-      <div
-        className="max-w-[1240px] mx-auto px-5 py-16 md:px-10 md:py-[110px]"
-      >
+      <ScrollReveal className="max-w-[1240px] mx-auto px-5 py-16 md:px-10 md:py-[110px]">
         <div
           className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-14"
         >
           {/* Left column */}
-          <div>
+          <div data-reveal="left">
             <h2
               className="font-display font-extrabold text-gray-900 text-[32px] md:text-[50px]"
               style={{ letterSpacing: '-0.03em', lineHeight: 1.06, margin: '0 0 24px' }}
@@ -88,6 +87,7 @@ export function DrHricSection() {
 
           {/* Right column — mosaic grid (hidden on mobile, shown md+) */}
           <div
+            data-reveal="right"
             className="hidden md:grid"
             style={{
               gridTemplateColumns: '1fr 1fr',
@@ -113,7 +113,7 @@ export function DrHricSection() {
             ))}
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }
