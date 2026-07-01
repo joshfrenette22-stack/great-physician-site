@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function HowItWorksCTA() {
   return (
-    <section style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 40px' }}>
+    <section className="max-w-[1240px] mx-auto px-5 py-16 md:px-10 md:py-24">
       <div
         data-reveal
         style={{
@@ -10,7 +10,7 @@ export function HowItWorksCTA() {
           overflow: 'hidden',
           borderRadius: 28,
           background: 'var(--gradient-brand)',
-          padding: '80px 56px',
+          padding: 'clamp(40px, 6vw, 80px) clamp(24px, 5vw, 56px)',
           textAlign: 'center',
           color: '#fff',
           boxShadow: 'var(--shadow-xl)',
@@ -48,7 +48,7 @@ export function HowItWorksCTA() {
             className="font-display"
             style={{
               fontWeight: 800,
-              fontSize: 44,
+              fontSize: 'clamp(28px, 5vw, 44px)',
               lineHeight: 1.1,
               letterSpacing: '-0.025em',
               color: '#fff',

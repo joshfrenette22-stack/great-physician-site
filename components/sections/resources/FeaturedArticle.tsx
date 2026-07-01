@@ -6,23 +6,14 @@ export function FeaturedArticle() {
   const featured = articles.find((a) => a.featured) ?? articles[0];
 
   return (
-    <section className="bg-white" style={{ maxWidth: 1240, margin: '0 auto', padding: '80px 40px 8px' }} data-reveal>
+    <section className="bg-white px-5 md:px-10" style={{ maxWidth: 1240, margin: '0 auto', paddingTop: 56, paddingBottom: 8 }} data-reveal>
       <Link
         href={`/resources/${featured.slug}`}
-        className="block"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1.1fr 1fr',
-          gap: 0,
-          borderRadius: 26,
-          overflow: 'hidden',
-          border: '1px solid #e5e7eb',
-          textDecoration: 'none',
-          boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
-        }}
+        className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] rounded-[26px] overflow-hidden border border-gray-200 no-underline"
+        style={{ textDecoration: 'none', boxShadow: '0 4px 16px rgba(0,0,0,0.08)' }}
       >
         {/* Image */}
-        <div className="relative" style={{ minHeight: 400 }}>
+        <div className="relative" style={{ minHeight: 260 }}>
           <Image
             src={featured.image}
             alt={featured.title}
@@ -34,7 +25,7 @@ export function FeaturedArticle() {
         </div>
 
         {/* Content */}
-        <div className="bg-white flex flex-col justify-center" style={{ padding: '52px 48px' }}>
+        <div className="bg-white flex flex-col justify-center p-8 md:p-[52px_48px]">
           <span
             className="inline-flex self-start items-center gap-2 rounded-full bg-green-50 text-teal-800 font-semibold mb-[22px]"
             style={{ padding: '6px 13px', fontSize: 12.5 }}

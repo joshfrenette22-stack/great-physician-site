@@ -42,33 +42,30 @@ const valueCards: ValueCard[] = [
 
 export function MissionValues() {
   return (
-    <section className="bg-gray-50 w-full" style={{ padding: '104px 40px' }}>
+    <section className="bg-gray-50 w-full px-5 py-16 md:px-10 md:py-[104px]">
       <div className="max-w-[1240px] mx-auto">
         {/* Heading */}
         <h2
-          className="font-display font-extrabold text-gray-900 text-center mx-auto"
-          style={{ fontSize: 46, letterSpacing: '-0.025em', marginBottom: 56 }}
+          className="font-display font-extrabold text-gray-900 text-center mx-auto text-[32px] md:text-[40px] lg:text-[46px]"
+          style={{ letterSpacing: '-0.025em', marginBottom: 40 }}
         >
           A different approach to care
         </h2>
 
-        {/* 3-col bento */}
+        {/* Bento: single col mobile → 2 col md → 3 col lg */}
         <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[18px] md:gap-[22px]"
           style={{
-            display: 'grid',
-            gridTemplateColumns: '1.05fr 1fr 1fr',
-            gridTemplateRows: 'auto auto',
-            gap: 22,
+            gridTemplateRows: 'auto',
           }}
         >
-          {/* Mission card — spans 2 rows in col 1 */}
+          {/* Mission card — spans 2 rows only in the 3-col desktop layout */}
           <div
-            className="rounded-[24px] text-white flex flex-col justify-between"
+            className="rounded-[24px] text-white flex flex-col justify-between lg:[grid-row:span_2]"
             style={{
               background: 'var(--gradient-brand, linear-gradient(135deg, #1C7A39 0%, #235A7C 100%))',
-              padding: 40,
-              minHeight: 520,
-              gridRow: 'span 2',
+              padding: 36,
+              minHeight: 360,
             }}
           >
             <div style={{ fontSize: 15, fontWeight: 600, color: 'rgba(255,255,255,0.82)' }}>
@@ -95,7 +92,7 @@ export function MissionValues() {
               <div
                 key={card.title}
                 className="bg-white rounded-[24px] border border-gray-100 flex flex-col"
-                style={{ padding: 34, minHeight: 250 }}
+                style={{ padding: 28 }}
               >
                 {/* Icon chip */}
                 <span
@@ -104,7 +101,7 @@ export function MissionValues() {
                     width: 46,
                     height: 46,
                     background: card.iconBg,
-                    marginBottom: 70,
+                    marginBottom: 32,
                   }}
                 >
                   <Icon size={22} color={card.iconColor} />
@@ -113,8 +110,7 @@ export function MissionValues() {
                 {/* Text pushed to bottom */}
                 <div style={{ marginTop: 'auto' }}>
                   <div
-                    className="font-display font-bold text-gray-900"
-                    style={{ fontSize: 24 }}
+                    className="font-display font-bold text-gray-900 text-[20px] md:text-[22px] lg:text-[24px]"
                   >
                     {card.title}
                   </div>

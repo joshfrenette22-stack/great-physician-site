@@ -30,9 +30,9 @@ export function SectionCTA({
 
   return (
     <section className={`${bg} text-white`}>
-      <div className="max-w-[1280px] mx-auto text-center" style={{ padding: '96px 40px' }}>
+      <div className="max-w-[1280px] mx-auto text-center px-5 py-16 md:px-10 md:py-24">
         <span className="inline-flex items-center gap-2 rounded-full mb-6" style={{ background: 'rgba(255,255,255,0.16)', padding: '7px 16px', fontSize: 14 }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span className="font-medium text-white/90">Now seeing patients in Northern Colorado</span></span>
-        <h2 className="font-display font-extrabold max-w-[720px] mx-auto" style={{ fontSize: 48, lineHeight: 1.08, letterSpacing: '-0.025em', color: '#fff' }}>
+        <h2 className="font-display font-extrabold max-w-[720px] mx-auto" style={{ fontSize: 'clamp(28px, 5vw, 48px)', lineHeight: 1.08, letterSpacing: '-0.025em', color: '#fff' }}>
           {title}
         </h2>
         {subtitle && <p className="mt-4 max-w-xl mx-auto" style={{ fontSize: 19, color: 'rgba(255,255,255,0.9)' }}>{subtitle}</p>}

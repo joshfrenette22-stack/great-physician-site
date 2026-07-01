@@ -19,8 +19,8 @@ export function PrayerRequest() {
 
   return (
     <section className="bg-gray-50 border-t border-gray-200" data-reveal>
-      <div className="max-w-[980px] mx-auto" style={{ padding: '92px 40px' }}>
-        <div className="text-center max-w-[680px] mx-auto mb-10" data-reveal>
+      <div className="max-w-[980px] mx-auto px-5 md:px-10 py-16 md:py-[92px]">
+        <div className="text-center max-w-[680px] mx-auto mb-8 md:mb-10" data-reveal>
           <p
             className="font-semibold uppercase text-teal-600 mb-[14px]"
             style={{ fontSize: 13, letterSpacing: '0.16em' }}
@@ -28,17 +28,17 @@ export function PrayerRequest() {
             How can we pray for you?
           </p>
           <h2
-            className="font-display font-extrabold text-teal-900 leading-tight"
-            style={{ fontSize: 42, lineHeight: 1.07, letterSpacing: '-0.03em', margin: '0 0 16px' }}
+            className="font-display font-extrabold text-teal-900 leading-tight text-[1.875rem] md:text-[2.5rem] lg:text-[2.625rem]"
+            style={{ lineHeight: 1.07, letterSpacing: '-0.03em', margin: '0 0 16px' }}
           >
             Submit a prayer request
           </h2>
-          <p className="text-gray-700" style={{ fontSize: 18, lineHeight: 1.6, margin: 0 }}>
+          <p className="text-gray-700 text-base md:text-lg" style={{ lineHeight: 1.6, margin: 0 }}>
             Whatever you are facing, our team would be honored to pray for you. Share as much or as little as you&apos;d like.
           </p>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-[22px] shadow-md mx-auto text-left" style={{ maxWidth: 720, padding: 40 }} data-reveal>
+        <div className="bg-white border border-gray-200 rounded-[22px] shadow-md mx-auto text-left p-6 md:p-10" style={{ maxWidth: 720 }} data-reveal>
           {status === 'success' ? (
             <div className="text-center py-8">
               <div className="text-green-600 text-4xl mb-4">&#10003;</div>

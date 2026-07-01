@@ -27,7 +27,7 @@ const cards = [
 
 export function TreatmentCardGrid() {
   return (
-    <section id="treat" className="w-full max-w-[1240px] mx-auto" style={{ padding: '44px 40px 8px' }}>
+    <section id="treat" className="w-full max-w-[1240px] mx-auto px-5 md:px-10 pt-[44px] pb-2">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px]">
         {cards.map((card) => (
           <a

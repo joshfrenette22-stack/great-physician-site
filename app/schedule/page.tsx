@@ -62,26 +62,24 @@ export default function SchedulePage() {
           />
         </div>
 
-        <div className="relative max-w-[1240px] mx-auto px-10 py-24 md:py-32 text-center">
+        <div className="relative max-w-[1240px] mx-auto px-5 md:px-10 py-16 md:py-24 lg:py-32 text-center">
           <p className="gp-eyebrow text-green-300 mb-5">Schedule a visit</p>
           <h1
-            className="font-display font-extrabold text-white tracking-tight leading-tight"
-            style={{ fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}
+            className="font-display font-extrabold text-white tracking-tight leading-tight text-[2rem] md:text-[2.75rem] lg:text-[3.5rem]"
           >
             Let&apos;s get you scheduled
           </h1>
-          <p className="mt-5 text-lg text-teal-200 max-w-lg mx-auto leading-relaxed">
+          <p className="mt-5 text-base md:text-lg text-teal-200 max-w-lg mx-auto leading-relaxed">
             First, tell us a little about you so we can take you to the right place.
           </p>
 
           {/* Card selection */}
-          <div className="max-w-[1080px] mx-auto px-0 mt-14">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="max-w-[1080px] mx-auto px-0 mt-10 md:mt-14">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
               {/* New Patient */}
               <Link
                 href="/schedule/new"
-                className="group bg-white border border-gray-200 rounded-[24px] shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-[5px] block"
-                style={{ padding: '44px 40px' }}
+                className="group bg-white border border-gray-200 rounded-[24px] shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-[5px] block p-7 md:p-[44px_40px]"
               >
                 <div className="w-14 h-14 rounded-[16px] bg-teal-50 flex items-center justify-center text-teal-600 mb-6">
                   <UserPlusIcon />
@@ -100,8 +98,7 @@ export default function SchedulePage() {
               {/* Returning Patient */}
               <Link
                 href="/schedule/returning"
-                className="group bg-white border border-gray-200 rounded-[24px] shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-[5px] block"
-                style={{ padding: '44px 40px' }}
+                className="group bg-white border border-gray-200 rounded-[24px] shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-[5px] block p-7 md:p-[44px_40px]"
               >
                 <div className="w-14 h-14 rounded-[16px] bg-green-50 flex items-center justify-center text-green-600 mb-6">
                   <RefreshIcon />

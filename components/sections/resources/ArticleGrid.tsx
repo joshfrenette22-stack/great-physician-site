@@ -8,7 +8,7 @@ export function ArticleGrid() {
   const nonFeatured = articles.filter((a) => !a.featured);
 
   return (
-    <section className="bg-white" style={{ maxWidth: 1240, margin: '0 auto', padding: '64px 40px 20px' }} data-reveal>
+    <section className="bg-white px-5 md:px-10" style={{ maxWidth: 1240, margin: '0 auto', paddingTop: 48, paddingBottom: 20 }} data-reveal>
       {/* Header row */}
       <div className="flex items-end justify-between gap-6 flex-wrap mb-9">
         <div>
@@ -19,8 +19,8 @@ export function ArticleGrid() {
             Articles &amp; guides
           </p>
           <h2
-            className="font-display font-extrabold text-teal-900"
-            style={{ fontSize: 40, letterSpacing: '-0.03em', margin: 0 }}
+            className="font-display font-extrabold text-teal-900 text-[1.875rem] md:text-[2.5rem]"
+            style={{ letterSpacing: '-0.03em', margin: 0 }}
           >
             Learn at your own pace
           </h2>

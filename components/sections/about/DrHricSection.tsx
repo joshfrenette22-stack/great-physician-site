@@ -46,12 +46,10 @@ export function DrHricSection() {
   return (
     <section className="bg-white w-full">
       <div
-        className="max-w-[1240px] mx-auto"
-        style={{ padding: '110px 40px' }}
+        className="max-w-[1240px] mx-auto px-5 py-16 md:px-10 md:py-[110px]"
       >
         <div
-          className="grid grid-cols-1 items-center"
-          style={{ gridTemplateColumns: '1fr 1.05fr', gap: 56 }}
+          className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-14"
         >
           {/* Left column */}
           <div>

@@ -17,21 +17,12 @@ export default function ResourcesPage() {
       <ArticleGrid />
 
       {/* FAQ CTA strip */}
-      <section style={{ maxWidth: 1240, margin: '0 auto', padding: '72px 40px 84px' }} data-reveal>
-        <div
-          className="bg-gray-50 border border-gray-200 rounded-[24px]"
-          style={{
-            padding: '48px 52px',
-            display: 'grid',
-            gridTemplateColumns: '1.4fr 1fr',
-            gap: 40,
-            alignItems: 'center',
-          }}
-        >
+      <section className="px-5 md:px-10" style={{ maxWidth: 1240, margin: '0 auto', paddingTop: 56, paddingBottom: 72 }} data-reveal>
+        <div className="bg-gray-50 border border-gray-200 rounded-[24px] p-8 md:p-[48px_52px] grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-8 md:gap-10 items-center">
           <div>
             <h2
-              className="font-display font-extrabold text-teal-900"
-              style={{ fontSize: 32, letterSpacing: '-0.025em', margin: '0 0 12px' }}
+              className="font-display font-extrabold text-teal-900 text-[1.625rem] md:text-[2rem]"
+              style={{ letterSpacing: '-0.025em', margin: '0 0 12px' }}
             >
               Have a specific question?
             </h2>
@@ -39,7 +30,7 @@ export default function ResourcesPage() {
               Our FAQ covers candidacy, safety, cost, and our approach — the questions patients ask most.
             </p>
           </div>
-          <div className="flex gap-[14px] justify-end flex-wrap items-center">
+          <div className="flex gap-[14px] flex-wrap items-center md:justify-end">
             <Link
               href="/faq"
               className="inline-flex items-center justify-center px-6 h-[52px] rounded-[12px] font-semibold tracking-[0.01em] text-base text-white bg-teal-600 border-[1.5px] border-transparent hover:bg-teal-700 transition-colors duration-200"

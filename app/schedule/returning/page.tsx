@@ -96,19 +96,19 @@ export default function ScheduleReturningPage() {
           style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 340, background: 'linear-gradient(180deg, rgba(18,46,66,0.4), var(--teal-900, #0f2d3c))' }}
         />
 
-        <div className="relative max-w-[880px] mx-auto" style={{ padding: '70px 40px 90px' }}>
+        <div className="relative max-w-[880px] mx-auto px-5 md:px-10" style={{ paddingTop: 52, paddingBottom: 72 }}>
           {/* Hero text */}
-          <div className="text-center text-white max-w-[720px] mx-auto" style={{ marginBottom: 44 }}>
+          <div className="text-center text-white max-w-[720px] mx-auto" style={{ marginBottom: 36 }}>
             <p style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.04em', color: 'var(--green-300, #86efac)', marginBottom: 16 }}>
               Welcome back
             </p>
             <h1
-              className="font-display font-extrabold text-white"
-              style={{ fontSize: 56, lineHeight: 1.03, letterSpacing: '-0.035em', margin: 0 }}
+              className="font-display font-extrabold text-white text-[2rem] md:text-[2.75rem] lg:text-[3.5rem]"
+              style={{ lineHeight: 1.05, letterSpacing: '-0.035em', margin: 0 }}
             >
               Book your next visit
             </h1>
-            <p style={{ margin: '18px 0 0', fontSize: 19, lineHeight: 1.55, color: 'rgba(255,255,255,0.85)' }}>
+            <p className="text-base md:text-lg" style={{ margin: '18px 0 0', lineHeight: 1.55, color: 'rgba(255,255,255,0.85)' }}>
               Confirm your details, tell us what&apos;s bringing you in, then pick a time that works for you.
             </p>
           </div>
@@ -144,7 +144,7 @@ export default function ScheduleReturningPage() {
             ) : (
               <>
                 {/* Progress bar */}
-                <div style={{ padding: '28px 40px 0' }}>
+                <div className="px-5 md:px-10" style={{ paddingTop: 28 }}>
                   <div className="flex items-center justify-between" style={{ marginBottom: 8 }}>
                     <span className="font-display font-bold text-teal-900" style={{ fontSize: 18 }}>
                       {STEP_LABELS[step]}
@@ -159,7 +159,7 @@ export default function ScheduleReturningPage() {
                 </div>
 
                 {/* Step content */}
-                <div style={{ padding: '30px 40px 38px' }}>
+                <div className="px-5 md:px-10" style={{ paddingTop: 30, paddingBottom: 38 }}>
                   {/* Step 0: Details — no heading per design */}
                   {step === 0 && (
                     <div>
@@ -168,7 +168,7 @@ export default function ScheduleReturningPage() {
                           {detailsError}
                         </div>
                       )}
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                         <div>
                           <label className={labelClass}>First name</label>
                           <input
@@ -190,7 +190,7 @@ export default function ScheduleReturningPage() {
                           />
                         </div>
                       </div>
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label className={labelClass}>Email</label>
                           <input
@@ -224,9 +224,7 @@ export default function ScheduleReturningPage() {
                         </div>
                       )}
                       <label className={labelClass}>What&apos;s bringing you in this time?</label>
-                      <div
-                        style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10, marginBottom: 24 }}
-                      >
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[10px] mb-6">
                         {CONCERN_OPTIONS.map((opt) => (
                           <button
                             key={opt}

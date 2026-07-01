@@ -38,10 +38,7 @@ export function ServicesHero() {
       </div>
 
       {/* Content */}
-      <div
-        className="relative max-w-[1240px] mx-auto"
-        style={{ padding: '96px 40px 86px' }}
-      >
+      <div className="relative max-w-[1240px] mx-auto px-5 py-16 md:px-10 md:pt-24 md:pb-20 lg:pt-[96px] lg:pb-[86px]">
         {/* Eyebrow */}
         <p
           className="font-semibold text-green-300"
@@ -54,7 +51,7 @@ export function ServicesHero() {
         <h1
           className="font-display font-extrabold text-white"
           style={{
-            fontSize: 80,
+            fontSize: 'clamp(40px, 8vw, 80px)',
             lineHeight: 0.99,
             letterSpacing: '-0.04em',
             maxWidth: 900,
@@ -68,7 +65,7 @@ export function ServicesHero() {
         <p
           className="text-white/85"
           style={{
-            fontSize: 21,
+            fontSize: 'clamp(17px, 2.5vw, 21px)',
             maxWidth: 660,
             lineHeight: 1.55,
             margin: '28px 0 0',
@@ -82,7 +79,7 @@ export function ServicesHero() {
           <Link
             href="#explorer"
             className="inline-flex items-center rounded-full bg-white text-teal-900 hover:bg-gray-100 transition-colors duration-200"
-            style={{ gap: 10, padding: '14px 24px', fontWeight: 700, fontSize: 16 }}
+            style={{ gap: 10, padding: '14px 24px', fontWeight: 700, fontSize: 16, minHeight: 44 }}
           >
             Explore treatments
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -92,7 +89,7 @@ export function ServicesHero() {
           <Link
             href="/schedule"
             className="inline-flex items-center rounded-full text-white hover:bg-white/10 transition-all duration-200"
-            style={{ gap: 10, padding: '14px 24px', fontWeight: 600, fontSize: 16, border: '1px solid rgba(255,255,255,0.4)' }}
+            style={{ gap: 10, padding: '14px 24px', fontWeight: 600, fontSize: 16, border: '1px solid rgba(255,255,255,0.4)', minHeight: 44 }}
           >
             Schedule a visit
           </Link>

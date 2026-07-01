@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 export function WhyGPCTA() {
   return (
-    <section style={{ maxWidth: 1240, margin: '0 auto', padding: '80px 40px' }} data-reveal>
-      <div className="relative rounded-[28px] overflow-hidden text-center text-white" style={{ padding: '84px 56px' }}>
+    <section className="px-5 md:px-10" style={{ maxWidth: 1240, margin: '0 auto', paddingTop: 56, paddingBottom: 72 }} data-reveal>
+      <div className="relative rounded-[28px] overflow-hidden text-center text-white p-10 md:p-[84px_56px]">
         {/* Background image */}
         <Image
           src="/images/stock/photo-1476480862126-209bfaa8edc8.jpg"
@@ -37,14 +37,14 @@ export function WhyGPCTA() {
         {/* Content */}
         <div className="relative z-10">
           <h2
-            className="font-display font-extrabold text-white mx-auto"
-            style={{ fontSize: 48, lineHeight: 1.07, letterSpacing: '-0.03em', margin: '0 auto 18px', maxWidth: 700 }}
+            className="font-display font-extrabold text-white mx-auto text-[1.875rem] md:text-[2.5rem] lg:text-[3rem]"
+            style={{ lineHeight: 1.07, letterSpacing: '-0.03em', margin: '0 auto 18px', maxWidth: 700 }}
           >
             Let&apos;s find out if we can help.
           </h2>
           <p
-            className="text-white/90 mx-auto"
-            style={{ fontSize: 19, lineHeight: 1.55, margin: '0 auto 34px', maxWidth: 560 }}
+            className="text-white/90 mx-auto text-base md:text-lg"
+            style={{ lineHeight: 1.55, margin: '0 auto 34px', maxWidth: 560 }}
           >
             A consultation is the honest first step, with no pressure and no obligation.
           </p>

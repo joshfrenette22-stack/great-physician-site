@@ -5,7 +5,7 @@ import { Logo } from '@/components/ui';
 export function Footer() {
   return (
     <footer className="mt-10" style={{ borderTop: '1px solid var(--border-default)', background: 'var(--gray-50)' }}>
-      <div className="max-w-[1240px] mx-auto px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10" style={{ padding: '56px 40px 40px' }}>
+      <div className="max-w-[1240px] mx-auto px-5 md:px-10 pt-12 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10">
         {/* Brand */}
         <div>
           <Logo height={34} />
@@ -65,11 +65,11 @@ export function Footer() {
 
       {/* Bottom strip */}
       <div style={{ borderTop: '1px solid var(--border-default)' }}>
-        <div className="max-w-[1240px] mx-auto flex flex-wrap items-center text-[13px]" style={{ padding: '18px 40px', gap: 12, color: 'var(--text-subtle)' }}>
+        <div className="max-w-[1240px] mx-auto px-5 md:px-10 py-[18px] flex flex-wrap items-center gap-3 text-[13px]" style={{ color: 'var(--text-subtle)' }}>
           <span>&copy; 2026 Great Physician Regenerative Medicine</span>
           <Link href="/privacy" style={{ color: 'var(--text-subtle)' }} className="hover:text-teal-600 transition-colors">Privacy</Link>
           <Link href="/terms" style={{ color: 'var(--text-subtle)' }} className="hover:text-teal-600 transition-colors">Terms</Link>
-          <span className="ml-auto max-w-[640px] text-right leading-[1.5]">
+          <span className="w-full md:w-auto md:ml-auto md:max-w-[640px] md:text-right leading-[1.5]">
             Results vary by individual. This information is educational and not a substitute for professional medical advice or emergency care.
           </span>
         </div>

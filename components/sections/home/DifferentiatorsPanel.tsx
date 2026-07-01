@@ -87,11 +87,11 @@ export function DifferentiatorsPanel() {
   const Icon = principle.icon;
 
   return (
-    <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10" style={{ padding: '96px 40px 16px' }}>
+    <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 pt-14 md:pt-24 pb-4">
       {/* Section heading */}
       <div className="text-center mx-auto mb-12" style={{ maxWidth: 760 }}>
         <span className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: 'var(--color-accent-strong)' }}>Our approach</span>
-        <h2 className="font-extrabold" style={{ fontFamily: 'var(--font-display)', fontSize: 42, lineHeight: 1.1, letterSpacing: '-0.02em', color: 'var(--text-strong)', margin: '12px 0 0' }}>A different kind of regenerative medicine</h2>
+        <h2 className="font-extrabold text-[28px] md:text-[42px]" style={{ fontFamily: 'var(--font-display)', lineHeight: 1.1, letterSpacing: '-0.02em', color: 'var(--text-strong)', margin: '12px 0 0' }}>A different kind of regenerative medicine</h2>
       </div>
 
       {/* Dark card */}
@@ -114,7 +114,7 @@ export function DifferentiatorsPanel() {
 
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-[0.82fr_1.18fr] min-h-[480px]">
           {/* Left: selector */}
-          <div className="md:border-r border-b md:border-b-0 border-white/10 flex flex-col" style={{ padding: '44px 30px 44px 44px' }}>
+          <div className="md:border-r border-b md:border-b-0 border-white/10 flex flex-col px-5 py-8 md:pl-11 md:pr-8 md:py-11">
             <p
               className="text-[11px] font-bold uppercase tracking-[0.22em]"
               style={{ color: 'rgba(130,209,149,0.95)', marginBottom: 12 }}
@@ -171,8 +171,8 @@ export function DifferentiatorsPanel() {
 
           {/* Right: detail panel */}
           <div
-            className="relative flex flex-col transition-opacity"
-            style={{ opacity: fading ? 0 : 1, padding: '52px 52px 48px', minHeight: 372, transition: 'opacity 620ms cubic-bezier(0.4,0,0.2,1)' }}
+            className="relative flex flex-col transition-opacity px-5 py-8 md:px-[52px] md:py-[52px] md:pb-12"
+            style={{ opacity: fading ? 0 : 1, minHeight: 372, transition: 'opacity 620ms cubic-bezier(0.4,0,0.2,1)' }}
           >
             {/* Ghost number */}
             <span

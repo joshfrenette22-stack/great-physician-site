@@ -10,14 +10,12 @@ export function AboutHero() {
   return (
     <section className="bg-teal-900 text-white w-full">
       <div
-        className="relative max-w-[1240px] mx-auto"
-        style={{ padding: '96px 40px 0' }}
+        className="relative max-w-[1240px] mx-auto px-5 pt-14 md:px-10 md:pt-20 lg:pt-24"
       >
         {/* Headline */}
         <h1
-          className="font-display font-extrabold text-white"
+          className="font-display font-extrabold text-white text-[52px] sm:text-[72px] md:text-[88px] lg:text-[104px]"
           style={{
-            fontSize: 104,
             letterSpacing: '-0.04em',
             lineHeight: 0.98,
             maxWidth: 920,
@@ -30,19 +28,19 @@ export function AboutHero() {
             className="inline-flex items-center"
             style={{
               verticalAlign: 'middle',
-              margin: '0 18px',
-              transform: 'translateY(-6px)',
+              margin: '0 10px',
+              transform: 'translateY(-4px)',
             }}
             aria-hidden="true"
           >
             {facePhotos.map((photo, i) => (
               <span
                 key={i}
-                className="inline-block rounded-full overflow-hidden border-[4px] border-teal-900 relative flex-shrink-0"
+                className="inline-block rounded-full overflow-hidden border-[3px] sm:border-[4px] border-teal-900 relative flex-shrink-0"
                 style={{
-                  width: 82,
-                  height: 82,
-                  marginRight: i < facePhotos.length - 1 ? -22 : 0,
+                  width: 'clamp(44px, 6vw, 82px)',
+                  height: 'clamp(44px, 6vw, 82px)',
+                  marginRight: i < facePhotos.length - 1 ? 'clamp(-12px, -1.6vw, -22px)' : 0,
                 }}
               >
                 <Image
@@ -79,9 +77,9 @@ export function AboutHero() {
         <div
           className="relative overflow-hidden"
           style={{
-            marginTop: 64,
+            marginTop: 40,
             borderRadius: '28px 28px 0 0',
-            height: 540,
+            height: 'clamp(240px, 45vw, 540px)',
             boxShadow: '0 -30px 80px rgba(0,0,0,0.25)',
           }}
         >
@@ -97,15 +95,15 @@ export function AboutHero() {
 
           {/* Floating caption card */}
           <div
-            className="absolute rounded-[16px]"
+            className="absolute rounded-[12px] md:rounded-[16px]"
             style={{
-              left: 36,
-              bottom: 32,
+              left: 16,
+              bottom: 16,
               background: 'rgba(255,255,255,0.92)',
               backdropFilter: 'blur(6px)',
               WebkitBackdropFilter: 'blur(6px)',
-              padding: '16px 22px',
-              maxWidth: 300,
+              padding: '12px 16px',
+              maxWidth: 'min(300px, calc(100% - 32px))',
             }}
           >
             <p

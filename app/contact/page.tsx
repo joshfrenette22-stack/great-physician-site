@@ -12,9 +12,9 @@ export default function ContactPage() {
   return (
     <>
       <ContactHero />
-      <section id="form" className="bg-white py-20">
+      <section id="form" className="bg-white py-12 md:py-20">
         <div
-          className="max-w-[1180px] mx-auto px-5 md:px-10 grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-16 items-start"
+          className="max-w-[1180px] mx-auto px-5 md:px-10 grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-10 md:gap-16 items-start"
         >
           <ContactForm />
           <ContactInfo />

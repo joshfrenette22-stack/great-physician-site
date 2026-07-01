@@ -3,7 +3,7 @@ import { faqGroups } from '@/lib/data/faq';
 
 export function FaqSidebar() {
   return (
-    <aside className="sticky" style={{ top: 104 }}>
+    <aside className="md:sticky" style={{ top: 104 }}>
       <p
         className="font-semibold uppercase text-gray-400 mb-[18px]"
         style={{ fontSize: 12, letterSpacing: '0.16em' }}

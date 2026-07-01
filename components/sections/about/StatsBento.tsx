@@ -19,18 +19,16 @@ export function StatsBento() {
   return (
     <section className="bg-white w-full">
       <div
-        className="max-w-[1240px] mx-auto"
-        style={{ padding: '104px 40px 40px' }}
+        className="max-w-[1240px] mx-auto px-5 pt-14 pb-10 md:px-10 md:pt-[104px] md:pb-10"
       >
         {/* Section heading */}
         <h2
-          className="font-display font-extrabold text-gray-900 text-center mx-auto"
+          className="font-display font-extrabold text-gray-900 text-center mx-auto text-[28px] md:text-[38px] lg:text-[46px]"
           style={{
-            fontSize: 46,
             lineHeight: 1.1,
             letterSpacing: '-0.025em',
             maxWidth: 760,
-            marginBottom: 56,
+            marginBottom: 40,
           }}
         >
           Great Physician sets the standard for conservative regenerative care
@@ -42,7 +40,7 @@ export function StatsBento() {
           {/* Card A — patients guided */}
           <div
             className="rounded-[22px] border border-gray-100 bg-gray-50 flex flex-col justify-between"
-            style={{ padding: 36, minHeight: 320, position: 'relative', overflow: 'hidden' }}
+            style={{ padding: 'clamp(20px, 4vw, 36px)', minHeight: 280, position: 'relative', overflow: 'hidden' }}
           >
             {/* SVG dot arc + smiley — matches design exactly */}
             <div className="flex justify-center" style={{ padding: '12px 0 24px' }} aria-hidden="true">
@@ -72,14 +70,14 @@ export function StatsBento() {
 
             <div>
               <div
-                className="font-display font-extrabold text-green-700"
-                style={{ fontSize: 38, lineHeight: 1 }}
+                className="font-display font-extrabold text-green-700 text-[28px] md:text-[38px]"
+                style={{ lineHeight: 1 }}
               >
                 1,000+
               </div>
               <div
-                className="font-display font-bold text-gray-900"
-                style={{ fontSize: 24, marginTop: 4 }}
+                className="font-display font-bold text-gray-900 text-[18px] md:text-[22px] lg:text-[24px]"
+                style={{ marginTop: 4 }}
               >
                 patients guided
               </div>
@@ -93,8 +91,8 @@ export function StatsBento() {
           <div
             className="rounded-[22px] relative flex flex-col justify-end overflow-hidden"
             style={{
-              minHeight: 320,
-              padding: 36,
+              minHeight: 280,
+              padding: 'clamp(20px, 4vw, 36px)',
               background: 'linear-gradient(135deg, var(--gray-50, #F9FAFB) 38%, #e7f4ea 100%)',
               border: '1px solid var(--border-subtle, #E5E7EB)',
             }}
@@ -123,14 +121,14 @@ export function StatsBento() {
 
             <div style={{ position: 'relative', zIndex: 1 }}>
               <div
-                className="font-display font-extrabold"
-                style={{ fontSize: 38, lineHeight: 1, color: 'var(--color-primary, #235A7C)' }}
+                className="font-display font-extrabold text-[28px] md:text-[38px]"
+                style={{ lineHeight: 1, color: 'var(--color-primary, #235A7C)' }}
               >
                 3,500+
               </div>
               <div
-                className="font-display font-bold text-gray-900"
-                style={{ fontSize: 24, marginTop: 4 }}
+                className="font-display font-bold text-gray-900 text-[18px] md:text-[22px] lg:text-[24px]"
+                style={{ marginTop: 4 }}
               >
                 consultations
               </div>
@@ -143,7 +141,7 @@ export function StatsBento() {
           {/* Card C — physician-performed + treatment badge pills */}
           <div
             className="rounded-[22px] bg-gray-50 border border-gray-100 relative flex flex-col justify-end"
-            style={{ padding: 36, minHeight: 320, overflow: 'hidden' }}
+            style={{ padding: 'clamp(20px, 4vw, 36px)', minHeight: 280, overflow: 'hidden' }}
           >
             {/* Treatment badge pills — staggered per design */}
             <div
@@ -168,14 +166,14 @@ export function StatsBento() {
 
             <div>
               <div
-                className="font-display font-extrabold text-green-700"
-                style={{ fontSize: 38, lineHeight: 1 }}
+                className="font-display font-extrabold text-green-700 text-[28px] md:text-[38px]"
+                style={{ lineHeight: 1 }}
               >
                 100%
               </div>
               <div
-                className="font-display font-bold text-gray-900"
-                style={{ fontSize: 24, marginTop: 4 }}
+                className="font-display font-bold text-gray-900 text-[18px] md:text-[22px] lg:text-[24px]"
+                style={{ marginTop: 4 }}
               >
                 physician-performed
               </div>
@@ -188,7 +186,7 @@ export function StatsBento() {
           {/* Card D — small team + avatar chips */}
           <div
             className="rounded-[22px] bg-gray-50 border border-gray-100 flex flex-col justify-end relative overflow-hidden"
-            style={{ padding: 36, minHeight: 320 }}
+            style={{ padding: 'clamp(20px, 4vw, 36px)', minHeight: 280 }}
           >
             {/* Avatar chips — absolute top area */}
             <div
@@ -225,14 +223,14 @@ export function StatsBento() {
 
             <div>
               <div
-                className="font-display font-extrabold"
-                style={{ fontSize: 38, lineHeight: 1, color: 'var(--color-primary, #235A7C)' }}
+                className="font-display font-extrabold text-[28px] md:text-[38px]"
+                style={{ lineHeight: 1, color: 'var(--color-primary, #235A7C)' }}
               >
                 A small team
               </div>
               <div
-                className="font-display font-bold text-gray-900"
-                style={{ fontSize: 24, marginTop: 4 }}
+                className="font-display font-bold text-gray-900 text-[18px] md:text-[22px] lg:text-[24px]"
+                style={{ marginTop: 4 }}
               >
                 who actually listens
               </div>

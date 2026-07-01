@@ -143,9 +143,9 @@ export function BecomingChristian() {
 
   return (
     <section className="bg-white">
-      <div className="max-w-[1100px] mx-auto" style={{ padding: '96px 40px 40px' }}>
+      <div className="max-w-[1100px] mx-auto px-5 md:px-10" style={{ paddingTop: 72, paddingBottom: 40 }}>
         {/* Heading */}
-        <div className="text-center mx-auto mb-[52px] max-w-[720px]" data-reveal>
+        <div className="text-center mx-auto mb-10 md:mb-[52px] max-w-[720px]" data-reveal>
           <p
             className="font-semibold uppercase text-teal-600 mb-[14px]"
             style={{ fontSize: 13, letterSpacing: '0.16em' }}
@@ -153,12 +153,12 @@ export function BecomingChristian() {
             Your first steps
           </p>
           <h2
-            className="font-display font-extrabold text-teal-900 leading-tight"
-            style={{ fontSize: 44, lineHeight: 1.06, letterSpacing: '-0.03em', margin: '0 0 16px' }}
+            className="font-display font-extrabold text-teal-900 leading-tight text-[1.875rem] md:text-[2.5rem] lg:text-[2.75rem]"
+            style={{ lineHeight: 1.06, letterSpacing: '-0.03em', margin: '0 0 16px' }}
           >
             Would you like to become a Christian?
           </h2>
-          <p className="text-gray-700 mx-auto" style={{ fontSize: 18, lineHeight: 1.62, margin: 0 }}>
+          <p className="text-gray-700 mx-auto text-base md:text-lg" style={{ lineHeight: 1.62, margin: 0 }}>
             If your heart is stirring, you can respond today. Here are three simple steps to begin a life with Jesus.
           </p>
         </div>
@@ -170,7 +170,7 @@ export function BecomingChristian() {
           data-reveal
         >
           {/* Stepper rail */}
-          <div className="border-b border-gray-200" style={{ padding: '32px 40px 28px' }}>
+          <div className="border-b border-gray-200 px-5 md:px-10 py-7 md:py-8">
             <div className="relative grid max-w-[600px] mx-auto" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
               {STEPS.map((s, i) => (
                 <button
@@ -211,11 +211,9 @@ export function BecomingChristian() {
           </div>
 
           {/* Content */}
-          <div
-            style={{ display: 'grid', gridTemplateColumns: '0.82fr 1fr', minHeight: 460 }}
-          >
-            {/* Left: image */}
-            <div className="relative overflow-hidden bg-teal-900">
+          <div className="grid grid-cols-1 md:grid-cols-[0.82fr_1fr]" style={{ minHeight: 0 }}>
+            {/* Left: image — hidden on mobile to keep card compact */}
+            <div className="relative overflow-hidden bg-teal-900 hidden md:block" style={{ minHeight: 380 }}>
               <Image
                 src={current.image}
                 alt={current.label}
@@ -236,7 +234,7 @@ export function BecomingChristian() {
             </div>
 
             {/* Right: content */}
-            <div className="flex flex-col" style={{ padding: '44px 46px' }}>
+            <div className="flex flex-col p-7 md:p-[44px_46px]">
               <div className="relative flex-1" style={{ minHeight: 320 }}>
                 <div className="flex flex-col gap-[14px]">
                   <span
@@ -300,8 +298,8 @@ export function BecomingChristian() {
         {/* Decision form */}
         <div
           id="gp-decision-card"
-          className="mx-auto mt-10 bg-white border border-gray-200 rounded-[22px] shadow-md"
-          style={{ maxWidth: 720, padding: 40 }}
+          className="mx-auto mt-10 bg-white border border-gray-200 rounded-[22px] shadow-md p-6 md:p-10"
+          style={{ maxWidth: 720 }}
           data-reveal
         >
           <h3

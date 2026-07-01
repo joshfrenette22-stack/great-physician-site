@@ -27,7 +27,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           </Link>
         ))}
         <hr className="my-3 border-gray-100" />
-        <Link href="/schedule/returning" className="px-4 py-2 text-sm text-gray-500 hover:text-teal-600">
+        <Link href="/schedule/returning" onClick={onClose} className="px-4 py-3 text-sm font-medium text-gray-500 hover:text-teal-600 hover:bg-gray-50 rounded-lg transition-colors">
           Returning Patient
         </Link>
         <Link href="/schedule" onClick={onClose} className="mt-2">

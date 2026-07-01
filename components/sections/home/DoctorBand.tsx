@@ -21,11 +21,10 @@ export function DoctorBand() {
 
         {/* Top-left headline */}
         <div
-          className="absolute z-10"
-          style={{ top: '56px', left: '56px', width: '46%' }}
+          className="absolute z-10 top-7 left-5 right-5 md:top-14 md:left-14 md:right-auto md:max-w-[46%]"
         >
           <h2
-            className="text-[24px] md:text-[36px] font-extrabold text-white tracking-tight"
+            className="text-[20px] md:text-[36px] font-extrabold text-white tracking-tight"
             style={{ fontFamily: 'var(--font-display)', lineHeight: 1.18, letterSpacing: '-0.02em' }}
           >
             Great Physician is led by a physician who{' '}
@@ -40,12 +39,11 @@ export function DoctorBand() {
 
         {/* Doctor info — bottom left */}
         <div
-          className="absolute z-10"
-          style={{ left: '56px', bottom: '52px' }}
+          className="absolute z-10 left-5 bottom-5 md:left-14 md:bottom-[52px]"
         >
-          <div className="text-[34px] font-extrabold text-white leading-[1.08]" style={{ fontFamily: 'var(--font-display)' }}>Dr. Jerry Hric</div>
-          <div className="text-base mt-1" style={{ color: 'rgba(255,255,255,0.82)' }}>Founder &amp; Regenerative Physician</div>
-          <div className="flex gap-2 mt-4 flex-wrap">
+          <div className="text-[24px] md:text-[34px] font-extrabold text-white leading-[1.08]" style={{ fontFamily: 'var(--font-display)' }}>Dr. Jerry Hric</div>
+          <div className="text-sm md:text-base mt-1" style={{ color: 'rgba(255,255,255,0.82)' }}>Founder &amp; Regenerative Physician</div>
+          <div className="flex gap-2 mt-3 flex-wrap">
             <span className="text-[13px] font-semibold text-white rounded-full" style={{ background: 'rgba(255,255,255,0.18)', padding: '6px 13px' }}>
               MD
             </span>
@@ -55,9 +53,9 @@ export function DoctorBand() {
           </div>
         </div>
 
-        {/* White card — bottom right */}
+        {/* White card — bottom right, hidden on mobile to prevent overflow */}
         <div
-          className="absolute z-10 bg-white rounded-[18px] shadow-lg"
+          className="hidden md:block absolute z-10 bg-white rounded-[18px] shadow-lg"
           style={{ right: '40px', bottom: '40px', width: '320px', padding: '22px' }}
         >
           <div className="flex items-center gap-[11px] mb-3">

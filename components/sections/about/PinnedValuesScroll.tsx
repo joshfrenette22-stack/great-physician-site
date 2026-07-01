@@ -192,84 +192,84 @@ export function PinnedValuesScroll() {
           aria-hidden="true"
         />
 
-        {/* Image groups — per-value pair, matching design dimensions/positions exactly */}
+        {/* Image groups — hidden on mobile/tablet, shown lg+ where there's room beside the text */}
         {/* Group 0 */}
         <div
           ref={(el) => { imageRefs.current[0] = el; }}
-          className="absolute"
-          style={{ left: '4%', top: '10%', width: 420, height: 320, opacity: 1, willChange: 'transform, opacity' }}
+          className="absolute hidden lg:block"
+          style={{ left: '4%', top: '10%', width: 'min(420px, 28vw)', height: 'min(320px, 22vw)', opacity: 1, willChange: 'transform, opacity' }}
           aria-hidden="true"
         >
-          <Image src={values[0].images[0].src} alt="" fill className="object-cover" sizes="420px"
+          <Image src={values[0].images[0].src} alt="" fill className="object-cover" sizes="(max-width: 1023px) 0px, 420px"
             style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.34)' }} />
         </div>
         <div
           ref={(el) => { imageRefs.current[1] = el; }}
-          className="absolute"
-          style={{ right: '4.5%', bottom: '8%', width: 360, height: 450, opacity: 1, willChange: 'transform, opacity' }}
+          className="absolute hidden lg:block"
+          style={{ right: '4.5%', bottom: '8%', width: 'min(360px, 24vw)', height: 'min(450px, 30vw)', opacity: 1, willChange: 'transform, opacity' }}
           aria-hidden="true"
         >
-          <Image src={values[0].images[1].src} alt="" fill className="object-cover" sizes="360px"
+          <Image src={values[0].images[1].src} alt="" fill className="object-cover" sizes="(max-width: 1023px) 0px, 360px"
             style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.36)' }} />
         </div>
 
         {/* Group 1 */}
         <div
           ref={(el) => { imageRefs.current[2] = el; }}
-          className="absolute"
-          style={{ left: '4%', top: '8%', width: 370, height: 460, opacity: 0, willChange: 'transform, opacity' }}
+          className="absolute hidden lg:block"
+          style={{ left: '4%', top: '8%', width: 'min(370px, 25vw)', height: 'min(460px, 31vw)', opacity: 0, willChange: 'transform, opacity' }}
           aria-hidden="true"
         >
-          <Image src={values[1].images[0].src} alt="" fill className="object-cover" sizes="370px"
+          <Image src={values[1].images[0].src} alt="" fill className="object-cover" sizes="(max-width: 1023px) 0px, 370px"
             style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.36)' }} />
         </div>
         <div
           ref={(el) => { imageRefs.current[3] = el; }}
-          className="absolute"
-          style={{ right: '4.5%', bottom: '11%', width: 410, height: 320, opacity: 0, willChange: 'transform, opacity' }}
+          className="absolute hidden lg:block"
+          style={{ right: '4.5%', bottom: '11%', width: 'min(410px, 27vw)', height: 'min(320px, 22vw)', opacity: 0, willChange: 'transform, opacity' }}
           aria-hidden="true"
         >
-          <Image src={values[1].images[1].src} alt="" fill className="object-cover" sizes="410px"
+          <Image src={values[1].images[1].src} alt="" fill className="object-cover" sizes="(max-width: 1023px) 0px, 410px"
             style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.34)' }} />
         </div>
 
         {/* Group 2 */}
         <div
           ref={(el) => { imageRefs.current[4] = el; }}
-          className="absolute"
-          style={{ left: '4%', top: '10%', width: 420, height: 320, opacity: 0, willChange: 'transform, opacity' }}
+          className="absolute hidden lg:block"
+          style={{ left: '4%', top: '10%', width: 'min(420px, 28vw)', height: 'min(320px, 22vw)', opacity: 0, willChange: 'transform, opacity' }}
           aria-hidden="true"
         >
-          <Image src={values[2].images[0].src} alt="" fill className="object-cover" sizes="420px"
+          <Image src={values[2].images[0].src} alt="" fill className="object-cover" sizes="(max-width: 1023px) 0px, 420px"
             style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.34)' }} />
         </div>
         <div
           ref={(el) => { imageRefs.current[5] = el; }}
-          className="absolute"
-          style={{ right: '4.5%', bottom: '8%', width: 360, height: 450, opacity: 0, willChange: 'transform, opacity' }}
+          className="absolute hidden lg:block"
+          style={{ right: '4.5%', bottom: '8%', width: 'min(360px, 24vw)', height: 'min(450px, 30vw)', opacity: 0, willChange: 'transform, opacity' }}
           aria-hidden="true"
         >
-          <Image src={values[2].images[1].src} alt="" fill className="object-cover" sizes="360px"
+          <Image src={values[2].images[1].src} alt="" fill className="object-cover" sizes="(max-width: 1023px) 0px, 360px"
             style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.36)' }} />
         </div>
 
         {/* Group 3 */}
         <div
           ref={(el) => { imageRefs.current[6] = el; }}
-          className="absolute"
-          style={{ left: '4%', top: '8%', width: 370, height: 450, opacity: 0, willChange: 'transform, opacity' }}
+          className="absolute hidden lg:block"
+          style={{ left: '4%', top: '8%', width: 'min(370px, 25vw)', height: 'min(450px, 30vw)', opacity: 0, willChange: 'transform, opacity' }}
           aria-hidden="true"
         >
-          <Image src={values[3].images[0].src} alt="" fill className="object-cover" sizes="370px"
+          <Image src={values[3].images[0].src} alt="" fill className="object-cover" sizes="(max-width: 1023px) 0px, 370px"
             style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.36)' }} />
         </div>
         <div
           ref={(el) => { imageRefs.current[7] = el; }}
-          className="absolute"
-          style={{ right: '4.5%', bottom: '10%', width: 380, height: 420, opacity: 0, willChange: 'transform, opacity' }}
+          className="absolute hidden lg:block"
+          style={{ right: '4.5%', bottom: '10%', width: 'min(380px, 26vw)', height: 'min(420px, 28vw)', opacity: 0, willChange: 'transform, opacity' }}
           aria-hidden="true"
         >
-          <Image src={values[3].images[1].src} alt="" fill className="object-cover" sizes="380px"
+          <Image src={values[3].images[1].src} alt="" fill className="object-cover" sizes="(max-width: 1023px) 0px, 380px"
             style={{ borderRadius: 22, boxShadow: '0 30px 70px rgba(0,0,0,0.34)' }} />
         </div>
 
@@ -287,18 +287,18 @@ export function PinnedValuesScroll() {
           >
             <div style={{ maxWidth: 500 }}>
               <p
-                className="font-semibold mb-[22px]"
-                style={{ fontSize: 15, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.8)' }}
+                className="font-semibold mb-[14px] md:mb-[22px]"
+                style={{ fontSize: 13, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.8)' }}
               >
                 {v.eyebrow}
               </p>
               <h2
-                className="font-display font-extrabold mb-[22px] text-[28px] md:text-[52px]"
+                className="font-display font-extrabold mb-[14px] md:mb-[22px] text-[26px] sm:text-[34px] md:text-[44px] lg:text-[52px]"
                 style={{ lineHeight: 1.05, letterSpacing: '-0.03em', color: '#fff' }}
               >
                 {v.title}
               </h2>
-              <p style={{ fontSize: 20, lineHeight: 1.55, color: 'rgba(255,255,255,0.9)', margin: 0 }}>
+              <p className="text-[15px] md:text-[18px] lg:text-[20px]" style={{ lineHeight: 1.55, color: 'rgba(255,255,255,0.9)', margin: 0 }}>
                 {v.body}
               </p>
             </div>

@@ -63,8 +63,8 @@ function BarRing({ src, alt }: { src: string; alt: string }) {
       data-reveal
       style={{
         position: 'relative',
-        width: 320,
-        height: 320,
+        width: 'min(320px, 80vw)',
+        height: 'min(320px, 80vw)',
         margin: '48px auto 0',
         zIndex: 3,
       }}
@@ -171,7 +171,7 @@ const stepH2Style: React.CSSProperties = {
   padding: '18px 0',
   fontFamily: 'var(--font-display)',
   fontWeight: 800,
-  fontSize: 36,
+  fontSize: 'clamp(24px, 4vw, 36px)' as unknown as number,
   lineHeight: 1.14,
   letterSpacing: '-0.02em',
   color: 'var(--text-strong)',
@@ -184,11 +184,12 @@ export function StepJourney() {
   return (
     <section style={{ background: 'var(--white)' }}>
       <div
+        className="px-5 md:px-10"
         style={{
           position: 'relative',
           maxWidth: 1100,
           margin: '0 auto',
-          padding: '40px 40px 0',
+          paddingTop: 40,
         }}
       >
 
@@ -301,11 +302,10 @@ export function StepJourney() {
           {/* 3-col feature cards */}
           <div
             data-reveal
+            className="grid grid-cols-1 md:grid-cols-3"
             style={{
               position: 'relative',
               zIndex: 3,
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
               gap: 32,
               margin: '48px 0 0',
               textAlign: 'left',
@@ -337,11 +337,10 @@ export function StepJourney() {
           {/* Bento grid */}
           <div
             data-reveal
+            className="grid grid-cols-1 md:grid-cols-3"
             style={{
               position: 'relative',
               zIndex: 2,
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr 1fr',
               gap: 18,
               margin: '36px 0 0',
             }}
@@ -450,11 +449,10 @@ export function StepJourney() {
             {/* Treatment photo cards */}
             <div
               data-reveal
+              className="grid grid-cols-1 md:grid-cols-3"
               style={{
                 position: 'relative',
                 zIndex: 2,
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
                 gap: 18,
                 margin: '48px 0 0',
               }}

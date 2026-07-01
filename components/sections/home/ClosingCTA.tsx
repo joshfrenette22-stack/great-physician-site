@@ -4,9 +4,8 @@ export function ClosingCTA() {
   return (
     <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 py-24">
       <div
-        className="relative rounded-[28px] overflow-hidden text-center text-white shadow-xl"
+        className="relative rounded-[28px] overflow-hidden text-center text-white shadow-xl px-5 py-14 md:px-14 md:py-20"
         style={{
-          padding: '80px 56px',
           background: 'var(--gradient-brand)',
         }}
       >

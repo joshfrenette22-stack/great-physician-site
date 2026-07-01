@@ -22,7 +22,7 @@ export function EmotionalBand() {
         />
 
         {/* Content */}
-        <div className="relative z-10 min-h-[560px] flex flex-col justify-center max-w-[620px]" style={{ padding: '64px' }}>
+        <div className="relative z-10 min-h-[560px] flex flex-col justify-center max-w-[620px] px-7 py-12 md:px-16 md:py-16">
           <h2
             className="text-[36px] md:text-[46px] font-extrabold text-white mb-8"
             style={{ fontFamily: 'var(--font-display)', lineHeight: 1.1, letterSpacing: '-0.025em' }}

@@ -54,7 +54,7 @@ export function BenefitsGrid() {
         borderTop: '1px solid var(--border-default)',
       }}
     >
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 40px' }}>
+      <div className="max-w-[1240px] mx-auto px-5 py-16 md:px-10 md:py-24">
         {/* Heading */}
         <div data-reveal style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto 56px' }}>
           <span
@@ -72,7 +72,7 @@ export function BenefitsGrid() {
             className="font-display"
             style={{
               fontWeight: 800,
-              fontSize: 42,
+              fontSize: 'clamp(28px, 5vw, 42px)',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
               color: 'var(--text-strong)',
@@ -86,11 +86,7 @@ export function BenefitsGrid() {
         {/* 4-column grid */}
         <div
           data-reveal
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: 18,
-          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px]"
         >
           {benefits.map((b) => (
             <div

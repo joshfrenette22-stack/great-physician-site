@@ -20,8 +20,8 @@ export function GospelVideo() {
         }}
       />
 
-      <div className="relative max-w-[1080px] mx-auto text-center text-white" style={{ padding: '92px 40px' }}>
-        <div className="max-w-[720px] mx-auto mb-11" data-reveal>
+      <div className="relative max-w-[1080px] mx-auto text-center text-white px-5 md:px-10 py-16 md:py-[92px]">
+        <div className="max-w-[720px] mx-auto mb-9 md:mb-11" data-reveal>
           <p
             className="font-semibold uppercase text-white/72 mb-4"
             style={{ fontSize: 13, letterSpacing: '0.16em' }}
@@ -29,12 +29,12 @@ export function GospelVideo() {
             The most important thing we can share
           </p>
           <h2
-            className="font-display font-extrabold text-white leading-tight"
-            style={{ fontSize: 46, lineHeight: 1.08, letterSpacing: '-0.03em', margin: '0 0 18px' }}
+            className="font-display font-extrabold text-white leading-tight text-[1.875rem] md:text-[2.5rem] lg:text-[2.875rem]"
+            style={{ lineHeight: 1.08, letterSpacing: '-0.03em', margin: '0 0 18px' }}
           >
             The good news of Jesus Christ
           </h2>
-          <p className="text-white/90 mx-auto" style={{ fontSize: 19, lineHeight: 1.6, margin: 0 }}>
+          <p className="text-white/90 mx-auto text-base md:text-lg" style={{ lineHeight: 1.6, margin: 0 }}>
             We care about your body, but even more about your soul. Take a few minutes to hear the message that changes everything.
           </p>
         </div>

@@ -4,13 +4,12 @@ import Link from 'next/link';
 export function ImmersiveCTA() {
   return (
     <section
-      className="w-full max-w-[1240px] mx-auto"
-      style={{ padding: '80px 40px' }}
+      className="w-full max-w-[1240px] mx-auto px-5 py-12 md:px-10 md:py-20"
       data-reveal
     >
       <div
-        className="relative rounded-[28px] overflow-hidden text-center"
-        style={{ padding: '84px 56px', color: '#fff' }}
+        className="relative rounded-[28px] overflow-hidden text-center px-6 py-14 md:px-14 md:py-[84px]"
+        style={{ color: '#fff' }}
       >
         {/* Background image */}
         <Image
@@ -46,7 +45,7 @@ export function ImmersiveCTA() {
           <h2
             className="font-display font-extrabold text-white"
             style={{
-              fontSize: 50,
+              fontSize: 'clamp(30px, 5vw, 50px)',
               lineHeight: 1.06,
               letterSpacing: '-0.03em',
               margin: '0 auto 18px',

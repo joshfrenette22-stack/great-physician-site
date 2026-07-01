@@ -55,15 +55,13 @@ export function FaqAccordion() {
                     type="button"
                     id={`faq-btn-${key}`}
                     onClick={() => toggle(key)}
-                    className="w-full text-left bg-none border-none cursor-pointer relative block"
-                    style={{ padding: '24px 48px 24px 0' }}
+                    className="w-full text-left bg-none border-none cursor-pointer relative block py-5 pr-10 md:py-6 md:pr-12"
                     aria-expanded={isOpen}
                     aria-controls={`faq-panel-${key}`}
                   >
                     <span
-                      className="block font-display font-bold leading-snug transition-colors duration-200"
+                      className="block font-display font-bold leading-snug transition-colors duration-200 text-[1rem] md:text-[1.1875rem]"
                       style={{
-                        fontSize: 19,
                         lineHeight: 1.35,
                         color: isOpen ? 'var(--color-primary, #2c825d)' : 'var(--teal-900, #0f2d3c)',
                       }}
@@ -71,10 +69,8 @@ export function FaqAccordion() {
                       {item.question}
                     </span>
                     <span
+                      className="absolute right-1 top-5 md:top-6"
                       style={{
-                        position: 'absolute',
-                        right: 6,
-                        top: 26,
                         width: 24,
                         height: 24,
                         color: isOpen ? 'var(--color-primary, #2c825d)' : '#9ca3af',
@@ -95,8 +91,8 @@ export function FaqAccordion() {
                     }}
                   >
                     <p
-                      className="text-gray-500"
-                      style={{ margin: 0, padding: '0 60px 26px 0', fontSize: 16.5, lineHeight: 1.62 }}
+                      className="text-gray-500 pr-6 md:pr-[60px]"
+                      style={{ margin: 0, paddingBottom: 26, fontSize: 16.5, lineHeight: 1.62 }}
                     >
                       {item.answer}
                     </p>

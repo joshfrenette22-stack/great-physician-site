@@ -67,8 +67,8 @@ export function TreatmentExplorer() {
 
   return (
     <section
-      className="w-full max-w-[1240px] mx-auto"
-      style={{ padding: '96px 40px 0', scrollMarginTop: 90 }}
+      className="w-full max-w-[1240px] mx-auto px-5 pt-16 pb-0 md:px-10 md:pt-24"
+      style={{ scrollMarginTop: 90 }}
       id="explorer"
     >
       {/* Heading */}
@@ -81,14 +81,14 @@ export function TreatmentExplorer() {
         </p>
         <h2
           className="font-display font-extrabold text-teal-900"
-          style={{ fontSize: 46, lineHeight: 1.04, letterSpacing: '-0.03em', margin: 0 }}
+          style={{ fontSize: 'clamp(28px, 5vw, 46px)', lineHeight: 1.04, letterSpacing: '-0.03em', margin: 0 }}
         >
           Three therapies, chosen for the evidence behind them.
         </h2>
       </div>
 
-      {/* 2-col layout */}
-      <div style={{ display: 'grid', gridTemplateColumns: '340px 1fr', gap: 30, alignItems: 'stretch' }}>
+      {/* 2-col layout — stacks on mobile */}
+      <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 lg:gap-[30px] items-stretch">
         {/* Tab rail */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {treatments.map((t, i) => {
@@ -163,22 +163,21 @@ export function TreatmentExplorer() {
           }}
           aria-live="polite"
         >
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', height: '100%' }}>
-            {/* Image */}
-            <div className="relative overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ height: '100%' }}>
+            {/* Image — fixed height on mobile so it's visible */}
+            <div className="relative overflow-hidden" style={{ minHeight: 240 }}>
               <Image
                 src={treatment.image}
                 alt={treatment.name}
                 fill
                 className="object-cover"
-                sizes="(max-width: 1280px) 50vw, 600px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
               />
             </div>
 
             {/* Description */}
             <div
-              className="bg-white flex flex-col justify-center"
-              style={{ padding: '44px 40px' }}
+              className="bg-white flex flex-col justify-center px-6 py-8 md:px-10 md:py-11"
             >
               <h3
                 className="font-display"

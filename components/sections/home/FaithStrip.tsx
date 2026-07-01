@@ -13,7 +13,7 @@ export function FaithStrip() {
         style={{ top: '-130px', left: '50%', transform: 'translateX(-50%)', width: '640px', height: '340px', background: 'radial-gradient(ellipse at center, rgba(46,168,78,0.12) 0%, rgba(46,168,78,0) 70%)' }}
       />
 
-      <div className="relative max-w-[1080px] mx-auto px-5 md:px-10 py-[104px]">
+      <div className="relative max-w-[1080px] mx-auto px-5 md:px-10 py-14 md:py-[104px]">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1px_1.05fr] gap-14 items-center">
           {/* Left text */}
           <div>
@@ -55,8 +55,8 @@ export function FaithStrip() {
               &ldquo;
             </span>
             <blockquote
-              className="relative italic m-0"
-              style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '30px', lineHeight: 1.42, color: 'var(--teal-700)' }}
+              className="relative italic m-0 text-[22px] md:text-[30px]"
+              style={{ fontFamily: 'var(--font-display)', fontWeight: 600, lineHeight: 1.42, color: 'var(--teal-700)' }}
             >
               They that be whole need not a physician, but they that are sick.
             </blockquote>

@@ -94,19 +94,19 @@ export default function ScheduleNewPage() {
           style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(18,46,66,0.5), var(--teal-900, #0f2d3c))' }}
         />
         <div
-          className="relative max-w-[900px] mx-auto text-center text-white"
-          style={{ padding: '64px 40px 40px' }}
+          className="relative max-w-[900px] mx-auto text-center text-white px-5 md:px-10"
+          style={{ paddingTop: 48, paddingBottom: 32 }}
         >
           <p style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.04em', color: 'var(--green-300, #86efac)', marginBottom: 16 }}>
             New patient booking
           </p>
           <h1
-            className="font-display font-extrabold text-white leading-tight"
-            style={{ fontSize: 52, lineHeight: 1.04, letterSpacing: '-0.035em', margin: 0 }}
+            className="font-display font-extrabold text-white leading-tight text-[2rem] md:text-[2.75rem] lg:text-[3.25rem]"
+            style={{ lineHeight: 1.06, letterSpacing: '-0.035em', margin: 0 }}
           >
             Let&apos;s get you set up
           </h1>
-          <p style={{ margin: '18px 0 0', fontSize: 18, lineHeight: 1.55, color: 'rgba(255,255,255,0.85)' }}>
+          <p className="text-base md:text-lg" style={{ margin: '18px 0 0', lineHeight: 1.55, color: 'rgba(255,255,255,0.85)' }}>
             A few quick details, then four short intake forms. It takes about 10 minutes, and you can do it at your own pace.
           </p>
         </div>
@@ -114,7 +114,7 @@ export default function ScheduleNewPage() {
 
       {/* Flow card — same teal-900 section continues */}
       <section style={{ background: 'var(--teal-900, #0f2d3c)' }}>
-        <div className="max-w-[900px] mx-auto" style={{ padding: '0 40px 80px' }}>
+        <div className="max-w-[900px] mx-auto px-5 md:px-10" style={{ paddingBottom: 64 }}>
           <div className="bg-white rounded-[24px] overflow-hidden" style={{ boxShadow: '0 25px 60px rgba(0,0,0,0.3)' }}>
             {done ? (
               /* Success */
@@ -146,7 +146,7 @@ export default function ScheduleNewPage() {
             ) : (
               <>
                 {/* Progress bar */}
-                <div style={{ padding: '28px 36px 0' }}>
+                <div className="px-5 md:px-9" style={{ paddingTop: 28 }}>
                   <div className="flex items-center justify-between" style={{ marginBottom: 8 }}>
                     <span
                       className="font-display font-bold text-teal-900"
@@ -164,7 +164,7 @@ export default function ScheduleNewPage() {
                 </div>
 
                 {/* Step content */}
-                <div style={{ padding: '28px 36px 34px' }}>
+                <div className="px-5 md:px-9" style={{ paddingTop: 28, paddingBottom: 34 }}>
                   {step === 0 && (
                     <div>
                       <h2
@@ -181,7 +181,7 @@ export default function ScheduleNewPage() {
                           {detailsError}
                         </div>
                       )}
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                         <div>
                           <label className={labelClass}>First name</label>
                           <input
@@ -203,7 +203,7 @@ export default function ScheduleNewPage() {
                           />
                         </div>
                       </div>
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                         <div>
                           <label className={labelClass}>Email</label>
                           <input

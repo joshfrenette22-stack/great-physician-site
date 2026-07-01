@@ -11,13 +11,13 @@ export function ConditionsGrid() {
       style={{ background: 'var(--surface-subtle)', borderTop: '1px solid var(--border-default)', borderBottom: '1px solid var(--border-default)', marginTop: 64 }}
       id="conditions"
     >
-      <div className="max-w-[1240px] mx-auto px-5 md:px-10" style={{ padding: '88px 40px' }}>
+      <div className="max-w-[1240px] mx-auto px-5 md:px-10 py-14 md:py-[88px]">
         {/* Heading */}
         <div className="max-w-[760px] mb-11">
           <span className="block font-semibold uppercase tracking-[0.2em]" style={{ fontSize: 12, color: 'var(--color-accent-strong)' }}>What we help with</span>
           <h2
-            className="font-extrabold"
-            style={{ fontFamily: 'var(--font-display)', fontSize: 42, lineHeight: 1.1, letterSpacing: '-0.02em', color: 'var(--text-strong)', margin: '12px 0 14px' }}
+            className="font-extrabold text-[28px] md:text-[42px]"
+            style={{ fontFamily: 'var(--font-display)', lineHeight: 1.1, letterSpacing: '-0.02em', color: 'var(--text-strong)', margin: '12px 0 14px' }}
           >
             Most patients come to us with pain they&apos;ve been told only surgery can fix.
           </h2>

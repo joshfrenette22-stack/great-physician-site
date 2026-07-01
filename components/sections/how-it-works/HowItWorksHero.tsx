@@ -1,21 +1,19 @@
 export function HowItWorksHero() {
   return (
     <section
-      className="w-full text-center relative overflow-hidden"
+      className="w-full text-center relative overflow-hidden pt-20 pb-16 md:pt-[160px] md:pb-[150px]"
       style={{
         background:
           'radial-gradient(circle at 18% 62%, rgba(88,205,153,0.22), transparent 46%), radial-gradient(circle at 78% 38%, rgba(35,87,122,0.18), transparent 52%), radial-gradient(circle at 52% 92%, rgba(156,124,102,0.13), transparent 46%), var(--white)',
-        paddingTop: 160,
-        paddingBottom: 150,
       }}
     >
-      <div className="max-w-[1240px] mx-auto px-10 flex flex-col items-center">
+      <div className="max-w-[1240px] mx-auto px-5 md:px-10 flex flex-col items-center">
         {/* Headline */}
         <h1
           data-reveal
           className="font-display font-extrabold"
           style={{
-            fontSize: 56,
+            fontSize: 'clamp(34px, 6vw, 56px)',
             letterSpacing: '-0.03em',
             lineHeight: 1.08,
             color: 'var(--text-strong)',

@@ -56,13 +56,13 @@ export function ConditionMatcher() {
       style={{ marginTop: 80, borderTop: '1px solid var(--border-default)' }}
       data-reveal
     >
-      <div className="max-w-[1240px] mx-auto" style={{ padding: '84px 40px' }}>
+      <div className="max-w-[1240px] mx-auto px-5 py-12 md:px-10 md:py-[84px]">
         {/* Heading */}
         <div style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto 44px' }}>
           <p className="gp-eyebrow" style={{ marginBottom: 14 }}>Find your fit</p>
           <h2
             className="font-display font-extrabold text-teal-900"
-            style={{ fontSize: 42, letterSpacing: '-0.03em', margin: '0 0 14px' }}
+            style={{ fontSize: 'clamp(28px, 5vw, 42px)', letterSpacing: '-0.03em', margin: '0 0 14px' }}
           >
             What&apos;s bothering you?
           </h2>
@@ -71,8 +71,8 @@ export function ConditionMatcher() {
           </p>
         </div>
 
-        {/* 2-col layout */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 40, alignItems: 'start' }}>
+        {/* 2-col layout — stacks on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-8 md:gap-10 items-start">
           {/* Condition chips — 2×2 grid */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
             {conditions.map((c, i) => {

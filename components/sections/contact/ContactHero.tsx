@@ -14,17 +14,17 @@ export function ContactHero() {
         }}
       />
 
-      <div className="relative max-w-[1240px] mx-auto px-10" style={{ padding: '88px 40px 74px' }}>
+      <div className="relative max-w-[1240px] mx-auto px-5 md:px-10 py-14 md:py-20 lg:py-[88px]">
         <p className="text-sm font-semibold tracking-[0.04em] text-green-300 mb-[18px]">Get in touch</p>
         <h1
-          className="font-display font-extrabold text-white leading-none max-w-[880px]"
-          style={{ fontSize: 76, letterSpacing: '-0.035em', margin: 0 }}
+          className="font-display font-extrabold text-white leading-none max-w-[880px] text-[2.25rem] md:text-[3.25rem] lg:text-[4.75rem]"
+          style={{ letterSpacing: '-0.035em', margin: 0 }}
         >
           Let&apos;s start with a conversation.
         </h1>
         <p
-          className="text-white/82 max-w-[640px]"
-          style={{ margin: '26px 0 0', fontSize: 21, lineHeight: 1.55 }}
+          className="text-white/82 max-w-[640px] text-base md:text-lg lg:text-xl"
+          style={{ margin: '22px 0 0', lineHeight: 1.55 }}
         >
           Tell us what&apos;s going on. We&apos;ll listen, review your situation honestly, and help you understand whether regenerative care is a fit.
         </p>

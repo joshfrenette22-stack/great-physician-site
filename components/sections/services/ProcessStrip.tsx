@@ -21,11 +21,10 @@ const steps = [
 export function ProcessStrip() {
   return (
     <section
-      className="w-full max-w-[1240px] mx-auto"
-      style={{ padding: '88px 40px 20px' }}
+      className="w-full max-w-[1240px] mx-auto px-5 pt-12 pb-5 md:px-10 md:pt-[88px] md:pb-5"
       data-reveal
     >
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 22 }}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 md:gap-[22px]">
         {/* Left column: heading */}
         <div>
           <div

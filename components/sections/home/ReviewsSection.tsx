@@ -43,7 +43,7 @@ export function ReviewsSection() {
   return (
     <section className="w-full max-w-[1240px] mx-auto px-5 md:px-10 pt-24 md:pt-[96px] pb-0">
       <div
-        className="rounded-[28px] border p-14"
+        className="rounded-[28px] border p-6 md:p-14"
         style={{ background: 'var(--gray-50)', borderColor: 'var(--border-subtle)' }}
       >
         {/* Heading */}
