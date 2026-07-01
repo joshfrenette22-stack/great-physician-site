@@ -419,18 +419,18 @@ export function StepJourney() {
               {[
                 {
                   label: 'PRP therapy',
-                  src: '/images/stock/photo-1606206591513-adbfbdd7a177.jpg',
-                  alt: 'Blood collection tubes prepared for PRP',
+                  src: '/images/services/prp-therapy.jpg',
+                  alt: 'PRP therapy vials and preparation',
                 },
                 {
                   label: 'Prolotherapy',
-                  src: '/images/stock/photo-1584515979956-d9f6e5d09982.jpg',
-                  alt: 'Physician administering a regenerative joint injection',
+                  src: '/images/services/prototherapy.jpg',
+                  alt: 'Prolotherapy injection treatment',
                 },
                 {
                   label: 'Focused shockwave',
-                  src: '/images/stock/photo-1530497610245-94d3c16cda28.jpg',
-                  alt: 'Diagnostic imaging of a joint targeted for shockwave therapy',
+                  src: '/images/services/shockwave.jpg',
+                  alt: 'Focused shockwave therapy device in use',
                 },
               ].map((card) => (
                 <div
