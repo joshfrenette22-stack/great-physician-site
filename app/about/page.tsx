@@ -5,15 +5,26 @@ import { PinnedValuesScroll } from '@/components/sections/about/PinnedValuesScro
 import { DrHricSection } from '@/components/sections/about/DrHricSection';
 import { MissionValues } from '@/components/sections/about/MissionValues';
 import { SectionCTA } from '@/components/sections/shared/SectionCTA';
+import { PhysicianJsonLd, BreadcrumbJsonLd } from '@/lib/seo/structured-data';
 
 export const metadata: Metadata = {
-  title: 'About | Great Physician Regenerative Medicine',
-  description: 'Meet Dr. Jerry Hric and the Great Physician team. Conservative-first regenerative medicine in Northern Colorado.',
+  title: 'About Dr. Jerry Hric — Regenerative Medicine Physician',
+  description: 'Meet Dr. Jerry Hric, the physician behind Great Physician Regenerative Medicine. Conservative-first care, physician-performed treatments, and honest guidance in Northern Colorado.',
+  alternates: { canonical: 'https://great-physician-site.vercel.app/about' },
+  openGraph: {
+    title: 'About Dr. Jerry Hric — Great Physician Regenerative Medicine',
+    description: 'Meet the physician who performs every treatment himself. Conservative-first regenerative medicine in Northern Colorado.',
+  },
 };
 
 export default function AboutPage() {
   return (
     <>
+      <PhysicianJsonLd />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: 'https://great-physician-site.vercel.app' },
+        { name: 'About', url: 'https://great-physician-site.vercel.app/about' },
+      ]} />
       <AboutHero />
       <StatsBento />
       <PinnedValuesScroll />

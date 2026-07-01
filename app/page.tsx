@@ -11,10 +11,13 @@ import { FaithStrip } from '@/components/sections/home/FaithStrip';
 import { ReviewsSection } from '@/components/sections/home/ReviewsSection';
 import { EmotionalBand } from '@/components/sections/home/EmotionalBand';
 import { ClosingCTA } from '@/components/sections/home/ClosingCTA';
+import { WebSiteJsonLd, PhysicianJsonLd } from '@/lib/seo/structured-data';
 
 export default function Home() {
   return (
     <>
+      <WebSiteJsonLd />
+      <PhysicianJsonLd />
       <Hero />
       <TreatmentCardGrid />
       <WhyUsGrid />

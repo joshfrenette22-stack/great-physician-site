@@ -3,15 +3,29 @@ import Link from 'next/link';
 import { FaqHero } from '@/components/sections/faq/FaqHero';
 import { FaqSidebar } from '@/components/sections/faq/FaqSidebar';
 import { FaqAccordion } from '@/components/sections/faq/FaqAccordion';
+import { FaqPageJsonLd, BreadcrumbJsonLd } from '@/lib/seo/structured-data';
+import { faqGroups } from '@/lib/data/faq';
 
 export const metadata: Metadata = {
-  title: 'FAQ | Great Physician Regenerative Medicine',
-  description: 'Honest answers to common questions about regenerative medicine, treatments, cost, and how Great Physician approaches patient care.',
+  title: 'FAQ — Regenerative Medicine Questions Answered Honestly',
+  description: 'Honest answers to common questions about regenerative medicine: candidacy, treatment safety, cost, insurance, recovery, and how Great Physician approaches patient care differently.',
+  alternates: { canonical: 'https://great-physician-site.vercel.app/faq' },
+  openGraph: {
+    title: 'Frequently Asked Questions — Great Physician Regenerative Medicine',
+    description: 'Honest answers about PRP, prolotherapy, shockwave therapy, cost, candidacy, and our conservative-first approach.',
+  },
 };
 
 export default function FaqPage() {
+  const allFaqItems = faqGroups.flatMap((g) => g.items);
+
   return (
     <>
+      <FaqPageJsonLd items={allFaqItems} />
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: 'https://great-physician-site.vercel.app' },
+        { name: 'FAQ', url: 'https://great-physician-site.vercel.app/faq' },
+      ]} />
       <FaqHero />
 
       {/* FAQ body */}

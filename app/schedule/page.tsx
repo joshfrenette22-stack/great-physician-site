@@ -3,8 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Schedule a Visit | Great Physician Regenerative Medicine',
-  description: 'Schedule a new or returning patient visit with Great Physician Regenerative Medicine in Northern Colorado.',
+  title: 'Schedule a Visit — New or Returning Patients',
+  description: 'Schedule a new or returning patient visit with Dr. Jerry Hric at Great Physician Regenerative Medicine in Northern Colorado. Call (970) 555-0142 or book online.',
+  alternates: { canonical: 'https://great-physician-site.vercel.app/schedule' },
+  openGraph: {
+    title: 'Schedule a Visit — Great Physician Regenerative Medicine',
+    description: 'Book your consultation with Dr. Hric. New and returning patients welcome.',
+  },
 };
 
 function UserPlusIcon() {

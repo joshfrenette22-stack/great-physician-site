@@ -3,15 +3,25 @@ import Link from 'next/link';
 import { ResourcesHero } from '@/components/sections/resources/ResourcesHero';
 import { FeaturedArticle } from '@/components/sections/resources/FeaturedArticle';
 import { ArticleGrid } from '@/components/sections/resources/ArticleGrid';
+import { BreadcrumbJsonLd } from '@/lib/seo/structured-data';
 
 export const metadata: Metadata = {
-  title: 'Patient Resources | Great Physician Regenerative Medicine',
-  description: 'Guides and articles to help you understand regenerative medicine, treatments, and what to expect — before you book anything.',
+  title: 'Patient Resources — Guides on PRP, Prolotherapy & Recovery',
+  description: 'Honest guides and articles about regenerative medicine: what PRP does, how prolotherapy works, shockwave therapy recovery, and how to evaluate treatments without the hype.',
+  alternates: { canonical: 'https://great-physician-site.vercel.app/resources' },
+  openGraph: {
+    title: 'Patient Resources — Great Physician Regenerative Medicine',
+    description: 'Guides and articles to help you understand regenerative medicine, treatments, and what to expect.',
+  },
 };
 
 export default function ResourcesPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: 'Home', url: 'https://great-physician-site.vercel.app' },
+        { name: 'Resources', url: 'https://great-physician-site.vercel.app/resources' },
+      ]} />
       <ResourcesHero />
       <FeaturedArticle />
       <ArticleGrid />
