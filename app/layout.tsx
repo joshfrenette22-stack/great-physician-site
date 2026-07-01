@@ -23,17 +23,27 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://great-physician-site.vercel.app'),
   title: 'Great Physician Regenerative Medicine | Northern Colorado',
   description: 'Conservative-first regenerative medicine. Physician-performed PRP, prolotherapy, and focused shockwave therapy in Northern Colorado.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: 'Great Physician Regenerative Medicine | Northern Colorado',
     description: 'Conservative-first regenerative medicine. Physician-performed PRP, prolotherapy, and focused shockwave therapy in Northern Colorado.',
     type: 'website',
     siteName: 'Great Physician Regenerative Medicine',
     locale: 'en_US',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Great Physician Regenerative Medicine' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Great Physician Regenerative Medicine | Northern Colorado',
     description: 'Conservative-first regenerative medicine. Physician-performed PRP, prolotherapy, and focused shockwave therapy in Northern Colorado.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
