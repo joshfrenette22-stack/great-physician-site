@@ -6,12 +6,14 @@ const cards = [
     titleTeal: 'Whole-person',
     titleGray: 'lasting results',
     body: 'We pair treatment with real guidance on movement, nutrition, sleep and weight, so the results actually last.',
+    objectPosition: 'center 20%',
   },
   {
     image: '/images/stock/photo-1486218119243-13883505764c.jpg',
     titleTeal: 'Conservative care,',
     titleGray: 'first',
     body: "We start with the least invasive, least expensive option that can realistically help, and tell you honestly when surgery is the better path.",
+    objectPosition: 'center 30%',
   },
 ];
 
@@ -63,6 +65,7 @@ export function WhyUsGrid() {
                 alt={card.titleTeal}
                 fill
                 className="object-cover"
+                style={{ objectPosition: card.objectPosition }}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
