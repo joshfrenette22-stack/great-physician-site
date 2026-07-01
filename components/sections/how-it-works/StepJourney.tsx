@@ -1,17 +1,65 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 
-/* ── Static bar ring helper ─────────────────────────────────── */
+/* ── Animated bar ring ──────────────────────────────────────── */
 const BAR_COUNT = 64;
-const BAR_RADIUS = 166; // px from center to bar base
+const BAR_RADIUS = 166;
 
 function rnd(i: number): number {
   const x = Math.sin(i * 12.9898 + 7.13) * 43758.5453;
   return x - Math.floor(x);
 }
 
+// Pre-compute per-bar constants
+const bars = Array.from({ length: BAR_COUNT }, (_, i) => ({
+  angle: (i / BAR_COUNT) * 360,
+  baseLen: Math.round(11 + rnd(i) * 17),
+  isGray: rnd(i + 200) > 0.84,
+  speed: 0.6 + rnd(i + 50) * 1.4,       // random oscillation speed
+  phase: rnd(i + 100) * Math.PI * 2,     // random phase offset
+  amplitude: 4 + rnd(i + 150) * 10,      // random bounce amplitude
+}));
+
 function BarRing({ src, alt }: { src: string; alt: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const barRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const animate = () => {
+      const rect = container.getBoundingClientRect();
+      const viewH = window.innerHeight;
+      // 0 when top of element hits bottom of viewport, 1 when top hits top
+      const scrollT = Math.max(0, Math.min(1, 1 - rect.top / viewH));
+      const now = performance.now() / 1000;
+
+      bars.forEach((bar, i) => {
+        const el = barRefs.current[i];
+        if (!el) return;
+        // Idle oscillation that dampens as scroll progresses
+        const idle = Math.sin(now * bar.speed + bar.phase) * bar.amplitude;
+        const dampen = 1 - scrollT * 0.85;
+        // Scroll drives bars outward (grows height)
+        const scrollGrow = scrollT * 8;
+        const h = bar.baseLen + idle * dampen + scrollGrow;
+        el.style.height = `${Math.max(4, h)}px`;
+      });
+
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    rafRef.current = requestAnimationFrame(animate);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, []);
+
   return (
     <div
+      ref={containerRef}
       data-reveal
       style={{
         position: 'relative',
@@ -21,36 +69,31 @@ function BarRing({ src, alt }: { src: string; alt: string }) {
         zIndex: 3,
       }}
     >
-      {/* Bars */}
-      {Array.from({ length: BAR_COUNT }).map((_, i) => {
-        const angle = (i / BAR_COUNT) * 360;
-        const baseLen = Math.round(11 + rnd(i) * 17); // 11–28px
-        const isGray = rnd(i + 200) > 0.84;
-        return (
+      {bars.map((bar, i) => (
+        <div
+          key={i}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            width: 4,
+            height: BAR_RADIUS + bar.baseLen,
+            transformOrigin: '50% 100%',
+            transform: `translate(-50%, -100%) rotate(${bar.angle}deg)`,
+          }}
+        >
           <div
-            key={i}
+            ref={(el) => { barRefs.current[i] = el; }}
             style={{
-              position: 'absolute',
-              left: '50%',
-              top: '50%',
               width: 4,
-              height: BAR_RADIUS + baseLen,
-              transformOrigin: '50% 100%',
-              transform: `translate(-50%, -100%) rotate(${angle}deg)`,
+              height: bar.baseLen,
+              borderRadius: 2,
+              background: bar.isGray ? '#d9ddda' : '#7cba8b',
+              transition: 'height 0.05s linear',
             }}
-          >
-            <div
-              style={{
-                width: 4,
-                height: baseLen,
-                borderRadius: 2,
-                background: isGray ? '#d9ddda' : '#7cba8b',
-                transformOrigin: '50% 100%',
-              }}
-            />
-          </div>
-        );
-      })}
+          />
+        </div>
+      ))}
       {/* Center photo */}
       <Image
         src={src}
@@ -340,7 +383,7 @@ export function StepJourney() {
             >
               <Image
                 src="/images/stock/photo-1581056771107-24ca5f033842.jpg"
-                alt="Dr. Hric examining a patient's joint"
+                alt="Doctor speaking with patient in clinic"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1280px) 33vw, 360px"
