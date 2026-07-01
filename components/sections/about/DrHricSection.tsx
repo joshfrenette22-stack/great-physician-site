@@ -18,7 +18,7 @@ const mosaicImages = [
   },
   {
     src: '/images/stock/photo-1551632811-561732d1e306.jpg',
-    alt: 'Patient in rehab session',
+    alt: 'Doctor and patient in consultation',
     gridRow: undefined,
     objectPosition: 'center center',
   },
